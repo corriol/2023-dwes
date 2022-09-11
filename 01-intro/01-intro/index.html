@@ -118,11 +118,11 @@
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-          Introducció
+          Estructura aplicacions web
           <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
-        Introducció
+        Estructura aplicacions web
       </a>
 <nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
@@ -142,13 +142,27 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#elements-basic-de-la-web-navegador-servidor-protocol-http-i-html">
-    Elements bàsic de la web: navegador, servidor, protocol HTTP i HTML
+<a class="md-nav__link" href="#el-protocol-http">
+    El protocol HTTP
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#format-de-les-url">
     Format de les URL
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#servidors-web-i-servidors-daplicacions">
+    Servidors web i servidors d'aplicacions
+  </a>
+<nav aria-label="Servidors web i servidors d'aplicacions" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#exemples">
+    Exemples
   </a>
 </li>
 </ul>
@@ -179,43 +193,19 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#tecnologies-per-a-programacio-web-del-costat-del-servidor">
-    Tecnologies per a programació web del costat del servidor
-  </a>
-<nav aria-label="Tecnologies per a programació web del costat del servidor" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
 <a class="md-nav__link" href="#model-de-desenvolupament-en-3-capes">
     Model de desenvolupament en 3 capes
   </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#front-end-back-end-full-stack">
-    Front-end, Back-end, Full stack
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#servidors-web-i-servidors-daplicacions">
-    Servidors web i servidors d'aplicacions
-  </a>
-<nav aria-label="Servidors web i servidors d'aplicacions" class="md-nav">
+<nav aria-label="Model de desenvolupament en 3 capes" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#que-es-un-servidor-web">
-    Què és un servidor web?
+<a class="md-nav__link" href="#front-end-back-end-full-stack">
+    Front-end, back-end, Full stack
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#que-es-un-servidor-daplicacions">
-    Què és un servidor d'aplicacions?
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#exemples">
-    Exemples
+<a class="md-nav__link" href="#tipogia-de-les-aplicacions-web">
+    Tipogia de les aplicacions web
   </a>
 </li>
 </ul>
@@ -251,45 +241,17 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#preparant-lentorn-de-desenvolupament">
-    Preparant l'entorn de desenvolupament
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#eines-de-desevolupament">
-    Eines de desevolupament
-  </a>
-<nav aria-label="Eines de desevolupament" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#installar-phpstorm">
-    Instal·lar PHPStorm
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#eines-per-a-la-depuracio-de-codi">
-    Eines per a la depuració de codi
-  </a>
-<nav aria-label="Eines per a la depuració de codi" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#installacio-dxdebug-30">
-    Instal·lació d'XDEBUG 3.0
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#bibliografia">
     Bibliografia
   </a>
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../99-tasks/">
+        Activitats
+      </a>
 </li>
 </ul>
 </nav>
@@ -332,6 +294,12 @@ Això fa que totes les gestions que es realitzen es concentren en el
 servidor, que disposa dels requeriments dels clients amb prioritat, els
 arxius que són d'ús públic i els restringits, els arxius de només
 lectura, els que poden ser modificats, etc.</p>
+<figure>
+<p><img alt="" src="../assets/clienteservidor.png"/></p>
+<figcaption>
+Arquitectura Client Servidor.
+</figcaption>
+</figure>
 <p>En el model client/servidor, el dispositiu que sol·licita informació es
 denomina client i el dispositiu que respon la sol·licitud es denomina
 servidor. Els processos de client i servidor es consideren una part de
@@ -340,7 +308,7 @@ dades al servidor, que respon enviant un o més blocs de dades al client.
 Els protocols de capa d'aplicació descriuen el format de les
 sol·licituds i respostes entre clients i servidor. A més de la
 transferència real de dades, aquest intercanvi pot requerir informació
-addicional, com l'autentificació de l'usuari i la identificació d'un
+addicional, com l'autentificació de l'usuari o la identificació d'un
 arxiu de dades per transferir.</p>
 <p>Encara que les dades generalment es descriuen com un flux del servidor
 al client, algunes dades sempre flueixen del client al servidor. El flux
@@ -349,10 +317,10 @@ en la direcció que va del client al servidor. Per exemple, un client pot
 transferir un arxiu al servidor amb finalitats d'emmagatzemament. La
 transferència de dades d'un client a un servidor es coneix com a pujada
 i la de les dades d'un servidor a un client, baixada.</p>
-<h3 id="elements-basic-de-la-web-navegador-servidor-protocol-http-i-html">Elements bàsic de la web: navegador, servidor, protocol HTTP i HTML</h3>
+<h3 id="el-protocol-http">El protocol HTTP</h3>
 <p>El protocol de transferència d'hipertext (HTTP) és un protocol
 client-servidor molt senzill que articula els intercanvis d'informació
-entre els clients web (navegadors) i els servidors HTTP.</p>
+entre els clients HTTP (navegadors) i els servidors HTTP.</p>
 <p><strong>HTTP es basa en operacions senzilles de sol·licitud/resposta.</strong> Quan
 un client estableix una connexió amb un servidor i envia un missatge amb
 les dades de la sol·licitud, el servidor respon amb un missatge similar
@@ -423,26 +391,56 @@ que executarà el programa i tornarà el control al servidor web.</p>
 5 components:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>URI = scheme:[//authority]path[?query][#fragment]
 </code></pre></div>
-<p>on el component authoriry es deivideix en tres subcomponents:</p>
+<p>on el component <code>authoriry</code> es deivideix en tres subcomponents:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>authority = [userinfo@]host[:port]
 </code></pre></div>
+<figure>
 <p><img alt="URL
 Syntax" src="../assets/1068px-URI_syntax_diagram.svg.png" title="Sintaxi de les URL"/></p>
+<figcaption>Sintaxi de les URL</figcaption>
+</figure>
+<h2 id="servidors-web-i-servidors-daplicacions">Servidors web i servidors d'aplicacions</h2>
+<p>Així com les aplicacions d'escriptori s'executen directament sobre el
+sistema operatiu, les aplicacions web necessiten d'una
+eina addicional que permeti desplegar-les per a la seva posada en marxa.
+Parlem de <a href="https://en.wikipedia.org/wiki/Comparison_of_web_server_software">servidors
+web</a> i
+<a href="https://en.wikipedia.org/wiki/Application_server">servidors
+d'aplicacions</a>,
+respectivament.</p>
+<p><strong>Un servidor web</strong> és una aplicació que rep una petició HTTP (normalment a
+través d'un navegador web) i retorna la pàgina web sol·licitada
+(escrita en llenguatge HTML i podent contenir codi Javascript
+encastat) perquè aquesta sigua interpretada i visualitzada pel
+navegador de qui va realitzar la sol·licitud (l'usuari).</p>
+<p><strong>Un servidor d'aplicacions</strong> és un servidor que permet l'execució d'aplicacions web.</p>
+<h3 id="exemples">Exemples</h3>
+<h4 id="apache">Apache</h4>
+<p>Apache és un dels servidors web més coneguts. És programari lliure i
+multiplataforma, encara que aproximadament el 90% dels servidors Apache
+s'executen actualment en entorns Linux ja que és el servidor preferit
+per a aquesta plataforma.</p>
+<p>És molt modular el que permet incorporar característiques un cop
+instal·lat i posat en marxa. Això li fa també molt flexible i pot donar
+servei a webs escrites en els llenguatges de programació web més estesos
+(com PHP, Python, ASP,...) A través del mòdul corresponent.</p>
+<h4 id="nginx">nginx</h4>
+<p>nginx (pronunciat en anglès "engine X") és un servidor web/proxy invers lleuger d'alt rendiment i un proxy per protocols de correu electrònic ( IMAP / POP3).</p>
+<h4 id="php-fpm">PHP-FPM</h4>
+<p><em>FastCGI Process Manager</em> és un servei que permet executar codi PHP separat del servidor HTTP de forma que millora la seua flexibilitat i el seu rendiment.</p>
 <h2 id="pagines-web-estatiques-i-dinamiques">Pàgines web estàtiques i dinàmiques</h2>
 <h3 id="pagines-web-estatiques">Pàgines web estàtiques</h3>
-<p>Les pàgines web estàtiques són aquelles en les que seu contingut no varia per
+<p>Les pàgines web estàtiques són aquelles en que el seu contingut no varia, per
 la qual cosa mostraran sempre la mateixa informació cada vegada que es
 carreguen. Són les pàgines creades en el llenguatge HTML, CSS i javascript.</p>
 <p>Les pàgines estàtiques només canvien si el programador web les modifica.</p>
 <h3 id="pagines-web-dinamiques">Pàgines web dinàmiques</h3>
 <p>Les pàgines web dinàmiques són pàgines el contingut de les quals varia a
 partir de certa informació: base de dades, identificació de l'usuari, hora del dia, etc.</p>
-<p>El contingut mostrat pot canviar segons l'usuari connectat, el
-navegador que s'utiltze o accions anteriors dels usuaris, etc.</p>
 <p>Aquest tipus de pàgines s'han de realitzar mitjançat un llenguatge de
 programació.</p>
 <h3 id="execucio-de-codi-en-el-client-i-en-el-servidor">Execució de codi en el client i en el servidor</h3>
-<p>Pel que hem pogut veure fins ara en el desenvolupament d'una aplicació web podem distingir entre una sèrie de tecnologies que s'executen en el navegador (<em>client-side o front-end programming</em>) i un sèrie de tecnologia que s'executen en el servidor (<em>server-side</em> o <em>back-end programming</em>)</p>
+<p>Pel que hem pogut veure fins ara en el desenvolupament d'una aplicació web podem distingir entre una sèrie de tecnologies que s'executen en el navegador (<em>client-side o front-end programming</em>) i un sèrie de tecnologies que s'executen en el servidor (<em>server-side</em> o <em>back-end programming</em>)</p>
 <p>En el següent gràfic es mostra un escenari on podem trobar codi que
 s'executa en el servidor (PHP) i en el client (javascript).</p>
 <figure>
@@ -451,8 +449,7 @@ s'executa en el servidor (PHP) i en el client (javascript).</p>
     Execució de codi en el client i en el servidor
 </figcaption>
 </figure>
-<h2 id="tecnologies-per-a-programacio-web-del-costat-del-servidor">Tecnologies per a programació web del costat del servidor</h2>
-<h3 id="model-de-desenvolupament-en-3-capes">Model de desenvolupament en 3 capes</h3>
+<h2 id="model-de-desenvolupament-en-3-capes">Model de desenvolupament en 3 capes</h2>
 <p>Des d'un punt de vista de desenvolupament una aproximació més detallada
 al model client-servidor és el que es coneix com a <strong>model en 3 capes</strong>.
 És un model on es mostra més en detall com es distribueix el programari
@@ -463,8 +460,11 @@ interactuen les diferents tecnologies o aplicacions.</p>
 <p>Per comprendre millor que és el model de desenvolupament de 3 capes
 podem observar el següent esquema on es mostra cadascuna d'aquestes
 capes físíques :</p>
+<figure>
 <p><img alt="**Model de desenvolupament de 3
 capes**" src="../assets/3_capas.png" title="Model de desenvolupament de 3 capes"/></p>
+<figcaption>Model de desenvolupament de 3 capes</figcaption>
+</figure>
 <p>Des d'un punt de vista lògic les capes (<em>layers</em>) es divideixen les següents funcionalitats:</p>
 <ul>
 <li><strong>Capa de presentació:</strong> És la capa on l'aplicació es mostra a
@@ -475,7 +475,7 @@ capes**" src="../assets/3_capas.png" title="Model de desenvolupament de 3 capes"
 <li>
 <p><strong>Capa d'aplicació:</strong> És la capa intermèdia on es porta a terme tota
     la lògica de l'aplicació. Sempre s'executarà en el costat
-    servidor. Aquesta capa, després de realitzar tots els càlculs i / o
+    servidor. Aquesta capa, després de realitzar tots els càlculs i/o
     operacions sobre les dades, genera el codi HTML que serà presentat a
     l'usuari en la capa següent.</p>
 <p>Sols estar desenvolupada usant PHP, Pyhton, Java, etc i es comunica amb la capa de dades mitjançant una API.</p>
@@ -521,9 +521,9 @@ dur a terme en diversos nivells i, en cas que sobrevinga algun canvi,
 només afectarà el nivell requerit sense haver de revisar entre el codi
 font d'altres mòduls, atès que s'haurà reduït el acoblament informàtic
 fins a una interfície de pas de missatges.</p>
-<h3 id="front-end-back-end-full-stack">Front-end, Back-end, Full stack</h3>
+<h3 id="front-end-back-end-full-stack">Front-end, back-end, Full stack</h3>
 <p>També tenint en compte en quin costat se situen les tecnologies i per a
-què s'utilitzen aquestes, actualment es parla molt de 3 perfils
+què s'utilitzen aquestes, actualment es parla molt de 3 perfils 
 diferenciats en l'àmbit del desenvolupament web:</p>
 <ul>
 <li><strong>Front-end:</strong> És la part del desenvolupament que s'encarrega del
@@ -546,35 +546,18 @@ diferenciats en l'àmbit del desenvolupament web:</p>
     Fullstack
 </figcaption>
 </figure>
-<h2 id="servidors-web-i-servidors-daplicacions">Servidors web i servidors d'aplicacions</h2>
-<p>Així com les aplicacions d'escriptori s'executen directament sobre el
-sistema operatiu, les aplicacions web necessiten d'una
-eina addicional que permeti desplegar-les per a la seva posada en marxa.
-Parlem de <a href="https://en.wikipedia.org/wiki/Comparison_of_web_server_software">servidors
-web</a> i
-<a href="https://en.wikipedia.org/wiki/Application_server">servidors
-d'aplicacions</a>,
-respectivament.</p>
-<h3 id="que-es-un-servidor-web">Què és un servidor web?</h3>
-<p>Un servidor web és una aplicació que rep una petició HTTP (normalment a
-través d'un navegador web) i retorna la pàgina web sol·licitada
-(escrita en llenguatge HTML i podent contenir codi Javascript
-encastat) perquè aquesta sigua interpretada i visualitzada pel
-navegador de qui va realitzar la sol·licitud (l'usuari).</p>
-<h3 id="que-es-un-servidor-daplicacions">Què és un servidor d'aplicacions?</h3>
-<p>Un servidor d'aplicacions és un servidor que permet l'execució d'aplicacions web.</p>
-<h3 id="exemples">Exemples</h3>
-<h4 id="apache">Apache</h4>
-<p>Apache és un dels servidors web més coneguts. És programari lliure i
-multiplataforma, encara que aproximadament el 90% dels servidors Apache
-s'executen actualment en entorns Linux ja que és el servidor preferit
-per a aquesta plataforma.</p>
-<p>És molt modular el que permet incorporar característiques un cop
-instal·lat i posat en marxa. Això li fa també molt flexible i pot donar
-servei a webs escrites en els llenguatges de programació web més estesos
-(com PHP, Python, ASP,...) A través del mòdul corresponent.</p>
-<h4 id="nginx">nginx</h4>
-<p>nginx (pronunciat en anglès "engine X") és un servidor web/proxy invers lleuger d'alt rendiment i un proxy per protocols de correu electrònic ( IMAP / POP3).[</p>
+<h3 id="tipogia-de-les-aplicacions-web">Tipogia de les aplicacions web</h3>
+<p>Depenent de la forma en què s'utilitzen les tecnologies podem classificar les aplicacions en:</p>
+<ul>
+<li>Tradicionals o clàssiques, on pràctimanent tota la lògica i la presentenció es genera en el costat de servidor.</li>
+<li>Híbidres on una aplicació tradicional incorpora tecnologies en el costat del client per a millorar l'experiència de l'usuari.</li>
+<li><em>Single Page Applications</em> (SPA). En el costat servidor es generen una sèrie de funcionalitats accessibles mitjançant una API i tota la càrrega de la presentació és realitza en el costat del client que s'encarrega a més realizar les sol·licitus a la API.</li>
+</ul>
+<figure>
+<p><img alt="" src="../assets/01spa.png"/></p>
+<figcaption>
+Arquitectura tradicional vs SPA</figcaption>
+</figure>
 <h2 id="llenguatges">Llenguatges</h2>
 <h3 id="php">PHP</h3>
 <p>PHP (<em>PHP Hypertext Preprocessor</em>) és un llenguatge de programació de
@@ -697,207 +680,6 @@ web):</p>
 <span class="linenos" data-linenos="30 "></span>    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="31 "></span>    <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div>
-<h2 id="preparant-lentorn-de-desenvolupament">Preparant l'entorn de desenvolupament</h2>
-<p>Per a poder provar els nostres llocs web necessitarem instal·lar una
-sèrie d'eines com són: el servidor web Apache, el mòdul PHP per a
-aquest servidor, el SGBD MySql, un front-end per al SGBD (PHPMyAdmin),
-etc.</p>
-<p>Per simplificar les coses optarem per instal·lar-ho mitjançant XAMPP, un
-paquet de programari lliure que conté el servidor HTTP Apache, la base
-de dades de MySQL i eines necessàries per utilitzar el PHP i el
-llenguatge de programació Perl.</p>
-<h2 id="eines-de-desevolupament">Eines de desevolupament</h2>
-<p>Per a programar en llenguatges encastats com PHP, ASP o Phython és
-suficient amb un editor de text pla. No obstant sempre és recomanable
-treballar en un entorn integrat de desenvolupament o IDE (acrònim en
-anglès de <em>Integrated development environment</em>). Un IDE és una eina
-informàtica per al desenvolupament de programari de manera còmoda i
-ràpida. Així doncs és un entorn de desenvolupament que agrupa diferents
-funcions en un sol programa, habitualment: editor de codi, compilador,
-depurador i un programa de disseny d'interfície gràfica.</p>
-<p>El principal avantatge és que facilita la tasca del programador mentre
-que l'inconvenient més important és que pot provocar mals hàbits a
-l'hora de programar o provocar errors que a priori començant de zero no
-es produirien.</p>
-<p>Alguns dels IDE més emprats per al desenvolupament web són:</p>
-<ul>
-<li>Eclipse</li>
-<li>Netbeans</li>
-<li>Atom</li>
-<li>Sublime</li>
-<li>PHPStorm</li>
-<li>Brackets</li>
-</ul>
-<p>Durant les activitats anteriors has preparat el teu propi entorn de
-desenvolupament sobre una màquina virtual (o una real) tal com s'ha
-explicat en les anotacions. Després, has de crear un projecte php
-utilitzant PHPStorm i visualitzar la pàgina principal a través del teu
-servidor XAMPP.</p>
-<p>Al llarg del curs, crearem els nostres projectes utilitzant l'IDE PHPStorm.</p>
-<p>Aquesta eina és de pagament, però podem utilitzar-la de forma gratuïta per a projectes OpenSource i amb finalitats educatives. En aqueixos
-casos caldrà sol·licitar la llicència corresponent al fabricant del programari. Una vegada obtinguda la llicència educativa pel professor,
-serà renovable anualment i podran utilitzar-la tots els alumnes del curs. És una eina molt completa que ens permetrà la integració amb
-moltes de les funcionalitats que emprarem.</p>
-<h3 id="installar-phpstorm">Instal·lar PHPStorm</h3>
-<p>Per a instal·lar l'IDE PHPStorm seguirem els següents passos:</p>
-<ol>
-<li>Executarem
-    sudo snap install phpstorm --classic</li>
-<li>Ens demanarà si volem importar dades d'una instal·lació anterior,
-    al que contestarem, òbviament, que no.</li>
-<li>Ens demanarà que acceptem la política de privadesa.</li>
-<li>En executar l'aplicació per primera vegada ens demanarà les dades
-    de llicència. Cada alumne s'haurà de registrar utilitzant l'enllaç
-    que us passarà el professor en classe. en prémer l'enllaç ens
-    redirigirà a la pàgina web de jetbrains perquè ens registrem. Una
-    vegada registrats, podrem accedir a l'aplicació amb el nostre
-    compte o amb el codi d'activació que ens proporcionen.</li>
-<li>Finalment, indicarem la configuració inicial.</li>
-</ol>
-<h4 id="integrant-lexecutable-de-php">Integrant l'executable de PHP</h4>
-<p>PHPStorm disposa d'ajuda intel·ligent (IntelliJ IDEA). Perquè aquesta
-ajuda es corresponga amb la versió de php que tenim en el nostre XAMPP
-haurem de registrar l'executable de PHP de XAMPP en el nostre PHPStorm.</p>
-<p>Per a açò seguirem els següents passos:</p>
-<ol>
-<li>En la pantalla d'inici anem a <code>Configure – Settings</code>.</li>
-<li>En la llista de categories de l'esquerra anem a
-    <code>Language &amp; Frameworks - PHP</code>.</li>
-<li>Necessitem indicar quin és el nostre intèrpret. ja que la llista
-    està buida anem a configurar un de la següent forma:<ol>
-<li>Fem clic en el botó ... de la llista d'intèrprets</li>
-<li>Premem el botó + de la cantonada superior esquerra per a
-    afegir-ne un.</li>
-<li>Li posem el nom PHP de XAMPP.</li>
-<li>Indiquem instal·lat on nostre està XAMPP: <code>/opt/lampp/bin/php</code></li>
-<li>Immediatament ens indicarà la versió de l'intèrpret que tenim
-    instal·lat</li>
-<li>Premem OK i seleccionem el nou interprete en la llista
-    d'intèrprets.</li>
-<li>Finalment, seleccionem en l'opció PHP <em>language level</em> aquell
-    que es corresponga amb l'intèrpret que acabem de configurar.</li>
-<li>Ara el nostre PHPStorm farà ús del PHP de XAMPP i utilitzarà la
-    versió de PHP que tenim instal·lada quan ens oferisca les
-    ajudes.</li>
-<li>Primer projecte amb PHPStorm Per a començar a treballar amb
-    PHPStorm anem a crear el nostre primer projecte PHP buit.
-    Tingueu en compte que el projecte heu de crear-ho en el
-    directori <code>/opt/lampp/htdocs</code> i que necessitem tenir permisos
-    d'escriptura en aquest directori.</li>
-</ol>
-</li>
-</ol>
-<p><strong>Compte!</strong> Pot ser que ho hàgem instal·lat com <code>root</code>, mentre que quan
-executem PHPStorm ho fem amb l'usuari <code>dwes</code>, per tant, l'usuari
-<code>dwes</code> necessita poder escriure en aquest directori.</p>
-<p>Per a assegurar-nos que tenim permisos, anirem amb una finestra de
-terminal al directori <code>/opt/lampp</code> i executarem la següent ordre:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>ls –la htdocs
-</code></pre></div>
-<p>Aquesta ordre ens dirà qui és el propietari de la carpeta i quins
-permisos té.</p>
-<p>En el cas que el propietari siga root executarem la seguent ordre:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>sudo chown -hR dwes htdocs/
-</code></pre></div>
-<p>Açò canviarà el propietari a l'usuari <code>dwes</code>, amb el que tindrem permís
-d'escriptura en aquest directori des de PHPStorm.</p>
-<p>Treballarem tenint els projectes en la mateixa carpeta.</p>
-<h2 id="eines-per-a-la-depuracio-de-codi">Eines per a la depuració de codi</h2>
-<p>En els entorns de desevolupament és necessari disposar de ferramentes que ens
-permenten depurar les nostres aplicacions. Ja siga per arreglar errors com per
-millorar l'execució del codi.</p>
-<p>Els entorns de desevolupament d'aplicacions d'escriptori solen disposar dels seus
-propis sistemes de depuració, en el cas dels llenguatges d'entorn servidor alguns ecosistemes
-  com el de .Net de Microsoft l'inclouen. Per a PHP hi ha diverses ferramentes com  XDebug o DBG.</p>
-<h3 id="installacio-dxdebug-30">Instal·lació d'XDEBUG 3.0</h3>
-<div class="admonition warning">
-<p class="admonition-title">XDebug 3.0</p>
-<p>Recentment s'ha publicat XDebug 3.0, versió que cobreix aquest document. Si busqueu informació, tingau en compte en quina versió treballeu.</p>
-</div>
-<p>A continuació, explicarem com instal·lar el mòdul XDebug 3 en un entorn basat en XAMPP. Abans de res comprovarem que no el tenim
-instal·lat, per a això seguirem els següents passos:</p>
-<ol>
-<li>
-<p>Obrim la pàgina de benvinguda de XAMPP escrivint al navegador la URL
-<a href="http://localhost">http://localhost</a>.</p>
-</li>
-<li>
-<p>A la part superior de la pàgina tenim una sèrie d'enllaços, entre
-els que es troba un que diu <code>phpinfo</code>. Feu clic en aquest enllaç.</p>
-</li>
-<li>
-<p>Se'ns mostrarà la pàgina de configuració del nostre mòdul php. Anem
-a seleccionar tots els continguts d'aquesta pàgina i els anem a copiar.</p>
-</li>
-<li>
-<p>Obrirem al navegador la següent URL: <a href="http://xdebug.org/wizard.php">http://xdebug.org/wizard.php</a>.</p>
-</li>
-<li>
-<p>En aquesta pàgina podrem comprovar quins mòduls tenim instal·lats en
-nostre mòdul PHP. Per a això, enganxarem els continguts que hem copiat
-prèviament a la caixa de text que apareix i premerem <code>Analyse
-mi phpinfo() output</code>.</p>
-</li>
-<li>
-<p>Ens apareixeran un resultats semblants a aquests:</p>
-</li>
-</ol>
-<p><img alt="XDebug" src="../assets/Screenshot_2019-09-14_Xdebug_Support__Tailored_Installation_Instructions.png"/></p>
-<p>Com es pot observar, l'extensió XDebug no està instal·lada.</p>
-<p>Una altra informació important que ens dóna és que el nostre fitxer de
-configuració del PHP el podem trobar en <code>/opt/lampp/etc/php.ini</code> i les
-extensions les tenim en
-<code>/opt/lampp/lib/php/extensions/no-debug-non-zts-20180731</code></p>
-<p><em>És important que recordem aquestes dades.</em></p>
-<p>Per instal·lar l'extensió XDebug seguirem les instruccions que ens
-indica la pàgina anterior però compte perquè cal fer algunes
-modificacions:</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Els caràcters <code>#</code> representen valors que depenen de cada instal·lació, així que cal tindre-ho en compte en executar-ho.</p>
-</div>
-<ol>
-<li>Descarregueu <a href="https://xdebug.org/download">la darrera versió d'Xdebug</a></li>
-<li>Instal·leu els requisits previs per a la compilació d'extensions
-    PHP.\
-    Instal·leu-lo amb el sistema Ubuntu amb:
-    <code>apt-get install php-dev autoconf automake</code></li>
-<li>Desempaqueteu el fitxer descarregat amb <code>tar -xvzf xdebug-#.#.#.tgz</code></li>
-<li>Executar: <code>cd xdebug-#.#.#</code></li>
-<li>
-<p>Executar: <code>/opt/lampp/bin/phpize</code> (hem canviat la ruta perquè
-    execute el phpize de XAMPP).</p>
-<p>Com a part de la seva eixida hauria de mostrar:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>Configuring for:
-<span class="linenos" data-linenos="2 "></span>...
-<span class="linenos" data-linenos="3 "></span>Zend Module Api No: ########
-<span class="linenos" data-linenos="4 "></span>Zend Extension Api No: #########
-</code></pre></div>
-<p>Si no és així, estàs utilitzant phpize incorrecta. Seguiu aquesta
-entrada de FAQ i passeu al pas següent.</p>
-</li>
-<li>
-<p>Executar: <code>./configure --with-php-config=/opt/lampp/bin/php-config</code>
-    (hem afegit la ruta del php-config de XAMPP).</p>
-</li>
-<li>Compilem les fonts: <code>make</code></li>
-<li>Executar:
-    <code>sudo cp modules/xdebug.so /opt/lampp/lib/php/extensions/no-debug-non-zts-########</code></li>
-<li>
-<p>Edita <code>/opt/lampp/etc/php.ini</code> i afegeix les següents línies al
-    final</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>[xdebug]
-<span class="linenos" data-linenos="2 "></span>zend_extension=xdebug
-</code></pre></div>
-</li>
-<li>
-<p>Reinicieu el servidor web</p>
-</li>
-</ol>
-<p>Repeteix els passos del 1 al 5 inicials per comprovar que XDebug sí està
-instal·lat.</p>
-<p><img alt="" src="../assets/Screenshot_2019-09-14_Xdebug_Support__Tailored_Installation_Instructions%281%29.png"/></p>
-<p>Després caldrà configurar PHPStorm per a connectar-lo a XDebug <a href="https://www.jetbrains.com/help/phpstorm/configuring-xdebug.html#integrationWithProduct">Integració amb PHPStorm</a> i instal·lar una extensió de Firefox <a href="https://addons.mozilla.org/ca/firefox/addon/xdebug-helper-for-firefox/?src=search">Xdebug Helper</a> o Chrome.</p>
 <h2 id="bibliografia">Bibliografia</h2>
 <ul>
 <li>Education, I., 2020. <em>What is Three-Tier Architecture</em>. [online] Ibm.com. Available at: <a href="https://www.ibm.com/cloud/learn/three-tier-architecture">https://www.ibm.com/cloud/learn/three-tier-architecture</a> [Accessed 9 September 2022].</li>
@@ -920,6 +702,19 @@ instal·lat.</p>
               </span>
               Inici
             </div>
+</div>
+</a>
+<a aria-label="Següent: Activitats" class="md-footer__link md-footer__link--next" href="../99-tasks/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Següent
+              </span>
+              Activitats
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
 </div>
 </a>
 </nav>

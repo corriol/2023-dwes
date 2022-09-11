@@ -103,8 +103,8 @@
         Inici
       </a>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2">
           1.- Introducció a la programació Web
           <span class="md-nav__icon md-icon"></span>
@@ -117,8 +117,36 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../01-intro/">
-        Introducció
+        Estructura aplicacions web
       </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Activitats
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Activitats
+      </a>
+<nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#aplicacions-web">
+    Aplicacions Web
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#entorn-de-desenvolupament">
+    Entorn de desenvolupament
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -131,22 +159,50 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="activitats">Activitats</h1>
-<div class="admonition todo">
-<p class="admonition-title">Pràctica 1: Instal·lació de XAMPP</p>
+<h2 id="aplicacions-web">Aplicacions Web</h2>
+<ol start="111">
+<li>
+<p>Inspeccionant sol·licituds des del terminal</p>
+<p><code>curl</code> és un programari realitzar sol·licituds HTTP, és a dir, un client HTTP, des de la línia de comandaments. Permet l'automatització de les sol·licituds.</p>
+<p>Usa <code>curl</code> per a accedir a les següents URL i registra en un documents les respostes incloent el codi d'estat i el tipus MIME:</p>
+<ul>
+<li>http://www.google.com</li>
+<li>https://google.com</li>
+<li>https://www.google.com</li>
+<li>https://www.google.com/x</li>
+</ul>
+<p>L'ordre concreta és:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>curl -sSL -D - URL -o /dev/null
+</code></pre></div>
+</li>
+<li>
+<p>Inspeccionats sol·licituds HTTP des del navegador</p>
+<p>Des de l'opció <code>Eines per a desenvolupadors</code> de Firefox és possible accedir a la pestanya <code>Xarxa</code> per poder comprova totes les sol·licituds que ha generat la URL a la que hem accedit.</p>
+<p>Activa l'opció anterior i accedeix a Google. Fes una captura de les sol·licituds que inclouen JS, CSS i Imatges.</p>
+</li>
+<li>
+<p>Busca tres ofertes de treball de desenvolupament de software a Infojobs en la província d'Alacant que citen PHP i anota:</p>
+<p>Empresa + lloc de treball + frameworks PHP + requisits + salari + enllç a l'oferta.</p>
+</li>
+</ol>
+<h2 id="entorn-de-desenvolupament">Entorn de desenvolupament</h2>
+<ol start="121">
+<li>
+<p>Instal·lació d'un entorn de desenvolupament LAMP</p>
 <ol>
-<li>Descarreguem el paquet XAMPP per a la nostra màquina
+<li>Descarrega el paquet XAMPP que continga la versió de PHP en la que anem a treballar durant el curs per a la nostra màquina
 (<a href="https://www.apachefriends.org/">https://www.apachefriends.org/</a>).</li>
-<li>Li donem permisos d'execució a l'arxiu descarregat:
-<code>sudo chmod +x xampp-linux-x64-7.3.9-0-installer.run</code></li>
+<li>Dona-li permisos d'execució al fitxer descarregat:
+<code>sudo chmod +x xampp-linux-x64-X.X.X-X-installer.run</code></li>
 <li>Executem l'assistent d'instal·lació
-<code>sudo ./xampp-linux-x64-7.3.9-0-installer.run</code></li>
+<code>sudo ./xampp-linux-x64-X.X.X.-X-installer.run</code></li>
 <li>En l'assistent d'instal·lació, deixarem les opcions per defecte
 (excepte la qual ens parla de bitnami que la desmarcarem).</li>
 <li>Una vegada finalitzada la instal·lació, el nostre XAMPP es trobarà
 en el directori <code>/opt/lampp</code></li>
-<li>Ara ja podem arrancar els serveis amb el següent comando:
+<li>Ara ja pots arrancar els serveis amb la següent ordre:
 <code>sudo /opt/lampp/lampp start</code></li>
-<li>Quan els arranquem, si obrim el navegador i ens anem a la url
+<li>Quan els arranques, si obris el navegador i ens anem a la url
 <a href="http://localhost">http://localhost</a>, ens hauria d'aparèixer la pàgina de benvinguda de
 XAMPP.</li>
 <li>Per a parar els serveis podem fer açò:
@@ -157,67 +213,49 @@ control de XAMPP que podrem executar amb la següent ordre:
 <li>Veurem que s'inicia l'aplicació que ens permet controlar els
 serveis de XAMPP.</li>
 </ol>
-</div>
+</li>
+</ol>
+<figure>
 <p><img alt="[*Panell de control de
 XAMPP*]{.title}" src="../assets/Captura_de_pantalla_a_2019-09-13_21-03-02.png" title="Panell de control de XAMPP"/></p>
-<div class="admonition todo">
-<p class="admonition-title">Pràctica 2. Instal·lació de PHPStorm</p>
-<p>Seguint les instruccions anteriors instal·la i configura PHP Storm.</p>
-</div>
-<h3 id="creacio-de-projectes-i-comprovacio-de-la-installacio-de-php">Creació de projectes i comprovació de la instal·lació de PHP</h3>
-<p>Seguirem els passos que s'indiquen a continuació:</p>
-<ol>
-<li>Arrancar XAMPP</li>
-<li>Iniciar el mòdul Apache</li>
-<li>Executar PHPStorm</li>
-<li>Crear un projecte buit amb <code>Create New &gt; Project PHP Empty Project</code></li>
-<li>Posar al projecte el nom <code>practica1</code> i situar-lo en el directori
-    <code>/opt/lampp/htdocs</code> . Amb açò es crea un directori de nom <code>practica1</code> dintre de <code>/opt/lampp/htdocs</code>.</li>
-</ol>
-<p><img alt="" src="../assets/projecte.png"/></p>
-<ol start="6">
+<figcaption>Panell de control de
+XAMPP</figcaption>
+</figure>
+<ol start="122">
 <li>
-<p>En la finestra de l'esquerra (explorador de projectes) apareix el projecte creat. Dins d'ell crearem un nou fitxer PHP prement botó dret
-      sobre el nom i seleccionant <code>New &gt; PHP File</code> . Li posem de nom <code>index.php</code> .</p>
+<p>Instal·lació de PHPStorm</p>
+<p>Seguint les instruccions dels apunts instal·la i configura PHP Storm.</p>
 </li>
 <li>
-<p>En el fitxer creat introduïm les següents línies de codi:</p>
-<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>   <span class="o">&lt;!</span><span class="nx">doctype</span> <span class="nx">html</span><span class="o">&gt;</span>
-<span class="linenos" data-linenos=" 2 "></span>        <span class="o">&lt;</span><span class="nx">html</span> <span class="nx">lang</span><span class="o">=</span><span class="s2">"es"</span><span class="o">&gt;</span>
-<span class="linenos" data-linenos=" 3 "></span>            <span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
-<span class="linenos" data-linenos=" 4 "></span>                <span class="o">&lt;</span><span class="nx">meta</span> <span class="nx">charset</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="o">&gt;</span>
-<span class="linenos" data-linenos=" 5 "></span>                <span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">Desenvolupament</span> <span class="nx">web</span> <span class="nx">en</span> <span class="nx">entorn</span> <span class="nx">servidor</span><span class="o">&lt;/</span><span class="nx">title</span><span class="o">&gt;</span>
-<span class="linenos" data-linenos=" 6 "></span>                <span class="o">&lt;</span><span class="nx">meta</span> <span class="nx">name</span><span class="o">=</span><span class="s2">"description"</span> <span class="nx">content</span><span class="o">=</span><span class="s2">"PHP, PHPStorm"</span><span class="o">&gt;</span>
-<span class="linenos" data-linenos=" 7 "></span>                <span class="o">&lt;</span><span class="nx">meta</span> <span class="nx">name</span><span class="o">=</span><span class="s2">"author"</span> <span class="nx">content</span><span class="o">=</span><span class="s2">"Homer Simpson"</span><span class="o">&gt;</span>
-<span class="linenos" data-linenos=" 8 "></span>            <span class="o">&lt;/</span><span class="nx">head</span><span class="o">&gt;</span>
-<span class="linenos" data-linenos=" 9 "></span>            <span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
-<span class="linenos" data-linenos="10 "></span>            <span class="o">&lt;?</span><span class="nx">php</span>
-<span class="linenos" data-linenos="11 "></span>                <span class="nb">phpinfo</span><span class="p">();</span>
-<span class="linenos" data-linenos="12 "></span>            <span class="cp">?&gt;</span><span class="x"></span>
-<span class="linenos" data-linenos="13 "></span><span class="x">        &lt;/body&gt;</span>
-<span class="linenos" data-linenos="14 "></span><span class="x">        &lt;/html&gt;</span>
-</code></pre></div>
-8. Canviem l'autor del document al nostre nom.
-9. Obrim el navegador i teclegem en la barra d'adreces la url:
-<a href="http://localhost/practica1">http://localhost/practica1</a>
-10. Apareixerà una pàgina similar a la de la següent imatge:
-<img alt="" src="../assets/phpinfo.png"/></p>
-</li>
-</ol>
-<div class="admonition todo">
-<p class="admonition-title">Pràctica 3: Prova d'Apache i PHP</p>
+<p>Prova d'Apache i PHP</p>
 <p>L'objectiu d'aquesta pràctica és aprendre el maneig bàsic de l'entorn de desenvolupament PHPStorm creant una primera pàgina PHP que alhora servirà per a comprovar la correcta instal·lació de XAMPP.</p>
-<p>Seguint les instruccions anterior crea projecte i prova'l.</p>
-<div class="admonition todo">
-<p class="admonition-title">Pràctica 4. Instal·laciò d'XDebug</p>
-</div>
-<p>Seguint les instruccions anteriors instal·la i configura XDEBUG i connecta'l a PHP Storm. </p>
-</div>
+<p>Seguint les instruccions dels apunts crea projecte i prova'l.</p>
+</li>
+<li>
+<p>Instal·laciò d'XDebug</p>
+<p>Seguint les instruccions dels apunts instal·la i configura XDEBUG i connecta'l a PHP Storm. </p>
+</li>
+</ol>
 </article>
 </div>
 </div>
 </main>
 <footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Anterior: Estructura aplicacions web" class="md-footer__link md-footer__link--prev" href="../01-intro/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Anterior
+              </span>
+              Estructura aplicacions web
+            </div>
+</div>
+</a>
+</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-copyright">
