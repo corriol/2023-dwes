@@ -144,7 +144,7 @@
 <div class="admonition important">
 <p class="admonition-title">Objectius</p>
 <ul>
-<li>Conèixer la sintaxi bàsica de PHP i les noves característiques de PHP 7.</li>
+<li>Conèixer la sintaxi bàsica de PHP i les noves característiques de PHP 8.</li>
 <li>Entendre com s'integren PHP i HTML.</li>
 <li>Descriure els tipus de dades existents en PHP.</li>
 <li>Fer servir les estructures de control bàsiques.</li>
@@ -158,15 +158,15 @@
 <ul>
 <li>Acrònim de <em>Personal Home Page</em></li>
 <li>Llenguatge de propòsit general, encara que el seu fort és el desenvolupament web.</li>
-<li>Sintaxi similar a C / Java</li>
+<li>Sintaxi similar a C/Java</li>
 <li>El codi s'executa en el servidor (en Apache mitjançant <em>mod_php</em>)</li>
 <li>El client rep el resultat generat després d'interpretar el codi al servidor.</li>
 <li>El codi s'emmagatzema en arxiu amb extensió <code>.php.</code></li>
 </ul>
-<p>L'última versió és la 8.0, de novembre de 2020 (i en breu tindrem la versió 8.1). La versió 7.0 va sortir al desembre de 2015. A més de nombroses noves funcionalitats que anirem veient durant el curs, té més de dues vegades millor rendiment que PHP5. </p>
+<p>L'última versió és la 8.1, de novembre de 2021 (i en breu tindrem la versió 8.2). La versió 7.0 va sortir al desembre de 2015. A més de nombroses noves funcionalitats que anirem veient durant el curs, té més de dues vegades millor rendiment que PHP5. </p>
 <div class="admonition important">
-<p class="admonition-title">PHP 7.4</p>
-<p>Nosaltres farem ús de la versió 7.4 de PHP</p>
+<p class="admonition-title">PHP 8.1</p>
+<p>Nosaltres farem ús de la versió 8.1 de PHP</p>
 </div>
 <p>La seva documentació és extensa i està traduïda: https://www.php.net/manual/es/. </p>
 <h2 id="funcionament-i-estructura-basica">Funcionament i estructura bàsica</h2>
@@ -174,7 +174,28 @@
 <ul>
 <li>El codi PHP sempre va entre els simbolos <code>&lt;?php</code> i <code>?&gt;</code>.</li>
 <li>Les instruccions PHP acaben sempre amb <code>;</code>.</li>
-<li>Per a generar codi HTML des de PHP podem utilitzar el mètode <code>echo</code> passant-li el text del codi que volem generar.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"ca"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 3 "></span>  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"UTF-8"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>PHP fàcil<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span>  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span>  <span class="c">&lt;!-- Mostra una frase en HTML --&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>    Hola món!<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="10 "></span>  <span class="c">&lt;!-- Mostra una frase en PHP --&gt;</span>
+<span class="linenos" data-linenos="11 "></span>  <span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="s2">"És molt fàcil programar en PHP."</span><span class="p">;</span> <span class="cp">?&gt;</span>
+<span class="linenos" data-linenos="12 "></span>  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="13 "></span><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<ul>
+<li>Per a generar codi HTML des de PHP podem utilitzar diversos mètodes:  <ul>
+<li><code>echo expressió</code> </li>
+<li><code>print (expressió)</code></li>
+<li><code>&lt;?= expressió ?&gt;</code></li>
+</ul>
+</li>
 <li>El codi pot anar entre les etiquetes d'HTML.</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
@@ -183,9 +204,6 @@
 <span class="linenos" data-linenos="4 "></span>    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="s2">"Hola món"</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="5 "></span><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
 </code></pre></div>
-<ul>
-<li>També podem utilitzar l'etiqueta <strong>&lt;?=</strong> fa el echo al mateix temps.</li>
-</ul>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="2 "></span><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="3 "></span><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
@@ -197,17 +215,16 @@
 <li>De bloc entre <code>/*</code> i <code>*/</code>.</li>
 <li>De linea, començant per <code>//</code> o per <code>#</code>.</li>
 </ul>
-<h3 id="codi-incrustat">Codi incrustat</h3>
-<p>El documents que contenen codi PHP s'han d'anomenar amb l'extensió <strong>.php</strong></p>
 <h3 id="variables-i-tipus-de-dades">Variables i tipus de dades</h3>
-<p>Una de les característiques de php és que és un llenguatge <strong>no fortament tipat</strong>. 
-De fet no cal declarar la variable ni indicar el tipus de dades si la declare. 
+<p>Una de les característiques de PHP és que és un llenguatge <strong>no fortament tipat</strong> (com Javascript). 
+De fet, no cal declarar la variable ni indicar el tipus de dades si la declare. 
 Encara que si volem codi de qualitat ho hauriem de fer.</p>
 <h4 id="declaracio">Declaració</h4>
 <ul>
 <li>Els noms de les variables sempre comencen per <code>$</code> </li>
-<li>Després del $ els noms de les variables han d'anar seguits per una lletra o el caràcter <code>_</code> i poden contenir també números. </li>
-<li>No és necessari declarar una variable ni especificar-li un tipus (sencer, cadena,...) concret.</li>
+<li>Després del <code>$</code> els noms de les variables han d'anar seguits per una lletra o el caràcter <code>_</code> i poden contenir també números. </li>
+<li>No és necessari declarar una variable ni especificar-li un tipus (enter, cadena,...) concret.</li>
+<li>Les variables són <em>case sensitive</em>: <code>$var != $vAR</code>.</li>
 </ul>
 <p>Per crear una variable que continga el text a generar i mostrar-la:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
@@ -287,9 +304,12 @@ podem user la paraula reservada <code>const</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">const</span> <span class="no">PI</span> <span class="o">=</span> <span class="mf">3.1415927</span>
 <span class="linenos" data-linenos="2 "></span><span class="nb">define</span><span class="p">(</span><span class="s2">"PI"</span><span class="p">,</span> <span class="mf">3.1415927</span><span class="p">)</span>
 </code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Constants sempre en majúscules</p>
 <p>És una convenció utilitzar identificadors en majúscules per a les constants.</p>
+</div>
 <h3 id="operadors">Operadors</h3>
-<h3 id="arimetics">Arimètics</h3>
+<h4 id="arimetics">Arimètics</h4>
 <table>
 <thead>
 <tr>
@@ -359,7 +379,7 @@ ja que s'expandeixen automàticament:</p>
 <span class="linenos" data-linenos="3 "></span><span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
 <p>Més endavant estudiarem algunes funcions per al tractament de cadenes.</p>
-<h3 id="comparacio">Comparació</h3>
+<h4 id="comparacio">Comparació</h4>
 <table>
 <thead>
 <tr>
@@ -421,7 +441,7 @@ ja que s'expandeixen automàticament:</p>
 </tr>
 </tbody>
 </table>
-<h3 id="logics">Lògics</h3>
+<h4 id="logics">Lògics</h4>
 <table>
 <thead>
 <tr>
@@ -453,7 +473,7 @@ ja que s'expandeixen automàticament:</p>
 </tr>
 </tbody>
 </table>
-<h3 id="assignacio">Assignació</h3>
+<h4 id="assignacio">Assignació</h4>
 <table>
 <thead>
 <tr>
@@ -519,6 +539,50 @@ Més informació a <a href="https://www.php.net/manual/es/language.operators.pre
 <p class="admonition-title">Autoavaluació</p>
 <p>Si <code>$a=5</code> i <code>$b=4</code>, esbrina el valor de <code>$c</code> si <code>$c = $a*2 &gt; $b+5 &amp;&amp; !($b&lt;&gt;4)</code></p>
 </div>
+<h2 id="treballant-en-formularis">Treballant en formularis</h2>
+<p>Les dades s'envien via URL en el format <code>var1=valor1&amp;var2=valor2….</code> Per exemple: <code>exemple.php?nom=Homer+cognom=Simpson</code></p>
+<p>Es divideix en dos passos:</p>
+<ol>
+<li>Genera un formulari amb l'atribut <code>action='file.php' method='GET'</code>.</li>
+<li>En el fitxer <code>.php</code> cal llegir les dades amb <code>$_GET['varName']</code>.</li>
+</ol>
+<p>Anem a separar sempre que puguem el codi HTML del de PHP. Per exemple, el formulari el coloquem en <code>saluda.html</code>:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">"saluda.php"</span> <span class="na">method</span><span class="o">=</span><span class="s">"get"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">"nombre"</span><span class="p">&gt;</span>Nombre: <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">name</span><span class="o">=</span><span class="s">"nombre"</span> <span class="na">id</span><span class="o">=</span><span class="s">"nombre"</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">"apellido1"</span><span class="p">&gt;</span>Primer apellido:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span> 
+<span class="linenos" data-linenos="5 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">name</span><span class="o">=</span><span class="s">"apellido1"</span> <span class="na">id</span><span class="o">=</span><span class="s">"apellido1"</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"submit"</span> <span class="na">value</span><span class="o">=</span><span class="s">"enviar"</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="7 "></span><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></div>
+I recollim les dades en <code>saluda.php</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nv">$nombre</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s2">"nombre"</span><span class="p">];</span>
+<span class="linenos" data-linenos="3 "></span><span class="nv">$apellido1</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s2">"apellido1"</span><span class="p">];</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="k">echo</span> <span class="s2">"Hola </span><span class="si">$nombre</span><span class="s2"> </span><span class="si">$apellido1</span><span class="s2">"</span><span class="p">;</span>
+<span class="linenos" data-linenos="6 "></span><span class="cp">?&gt;</span><span class="x"></span>
+</code></pre></div>
+<p>Si volguéssim fer-ho tot en un únic fitxer (la qual cosa no es recomanable), podem fer-ho així:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">""</span> <span class="na">method</span><span class="o">=</span><span class="s">"get"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">"nombre"</span><span class="p">&gt;</span>Nombre: <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">name</span><span class="o">=</span><span class="s">"nombre"</span> <span class="na">id</span><span class="o">=</span><span class="s">"nombre"</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">"apellido1"</span><span class="p">&gt;</span>Primer apellido:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">name</span><span class="o">=</span><span class="s">"apellido1"</span> <span class="na">id</span><span class="o">=</span><span class="s">"apellido1"</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"submit"</span> <span class="na">value</span><span class="o">=</span><span class="s">"enviar"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="k">if</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">'nombre'</span><span class="p">]))</span> <span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="nv">$nombre</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s2">"nombre"</span><span class="p">];</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="nv">$apellido1</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s2">"apellido1"</span><span class="p">];</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span>        <span class="k">echo</span> <span class="s2">"Hola </span><span class="si">$nombre</span><span class="s2"> </span><span class="si">$apellido1</span><span class="s2">"</span><span class="p">;</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="16 "></span>    <span class="cp">?&gt;</span>
+<span class="linenos" data-linenos="17 "></span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></div>
+Més endavant aprofundirem en la gestió de formularis.</p>
 <h2 id="estructures-de-control-de-flux">Estructures de control de flux</h2>
 <ul>
 <li>
@@ -564,7 +628,14 @@ Més informació a <a href="https://www.php.net/manual/es/language.operators.pre
 <span class="linenos" data-linenos="3 "></span><span class="p">}</span>
 </code></pre></div></p>
 <p><a href="http://php.net/manual/es/language.control-structures.php">http://php.net/manual/es/language.control-structures.php</a></p>
-<h4 id="expansio-de-variables">Expansió de variables</h4>
+<h2 id="maneig-de-cadenes-de-text">Maneig de cadenes de text</h2>
+<ul>
+<li>Podem utilitzar tant cometes simples com a cometes dobles.</li>
+<li>Per a concatenar cadenes utilitzarem l'operador punt (.)</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>$fullName = $name.' '.$surname;
+</code></pre></div>
+<h3 id="expansio-de-variables">Expansió de variables</h3>
 <ul>
 <li>Podem introduir una variable dins d'un text sempre que usem les cometes dobles per a delimitar el text. Açò farà que el contingut de la variable s'expandisca i es concatene amb el text existent en la cadena.</li>
 </ul>
@@ -576,16 +647,9 @@ Més informació a <a href="https://www.php.net/manual/es/language.operators.pre
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">echo</span> <span class="s2">"&lt;p&gt;Mòdul: </span><span class="si">{</span><span class="nv">$module</span><span class="si">}</span><span class="s2">DAW&lt;/p&gt;"</span>
 </code></pre></div>
 <ul>
-<li>Si no posàrem les claus l'intèrpret cercaria una variable que es cride $moduleDAW</li>
+<li>Si no posàrem les claus l'intèrpret cercaria una variable que es cride <code>$moduleDAW</code></li>
 </ul>
-<h2 id="maneig-de-cadenes-de-text">Maneig de cadenes de text</h2>
-<ul>
-<li>Podem utilitzar tant cometes simples com a cometes dobles.</li>
-<li>Per a concatenar cadenes utilitzarem l'operador punt (.)</li>
-</ul>
-<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>$fullName = $name.' '.$surname;
-</code></pre></div>
-Més informació en <a href="https://www.php.net/manual/es/ref.strings.php">funcions de cadena</a></p>
+<p>Més informació en <a href="https://www.php.net/manual/es/ref.strings.php">funcions de cadena</a></p>
 <h2 id="maneig-de-dates">Maneig de dates</h2>
 <h3 id="funcio-time">Funció <code>time()</code></h3>
 <p>En PHP les dates s'emmagatzemen com a números enters. La funció <code>time()</code> retorna el nombre de segons transcorreguts 
@@ -1306,250 +1370,6 @@ Emprarem <code>$_FILES['image']</code> per obtenir les dades de l'arxiu penjat.<
 <li><code>UPLOAD_ERR_NO_FILE</code>: No s'ha enviat cap fitxer.</li>
 </ul>
 <p>En <a href="https://www.php.net/manual/es/features.file-upload.errors.php">Explicació dels missatges d'error</a> teniu més informació.</p>
-<h2 id="activitats">Activitats</h2>
-<h3 id="cadenes">Cadenes</h3>
-<ol start="221">
-<li>
-<p><code>221Cadenes.php</code>: Copia el contingut de la pàgina <code>index.php</code>, activa la directiva de tipus estricta (<code>declare( strict_types = 1 );</code>) i mostra el següent: </p>
-<ol>
-<li>Elimina els espais del principi i el final del nom si els hi haguera (<em>trim</em>). </li>
-<li>Elimina la lletra a del principi i el final del nom si els hi haguera (<em>trim</em>). </li>
-<li>Mostra la variable nom en majúscules, minúscules i amb la primera lletra en majúscula i les altres en minúscules (<em>strtoupper</em>, <em>strtolower</em>, <em>ucfirst</em>). </li>
-<li>Mostra el codi ascii de la primera lletra del nom (<em>ord</em>). </li>
-<li>Mostra la longitud del nom (<em>strlen</em>). </li>
-<li>Mostra el nombre de vegades que apareix la lletra a (majúscula o minúscula, <em>substr_count</em>). </li>
-<li>Mostra la posició de la primera <code>a</code> existent en el nom, siga majúscula o minúscula (<em>strpos</em>). Si no hi ha cap mostrarà -1. </li>
-<li>El mateix, però amb l''última a. </li>
-<li>Mostra el nom substituint la lletr o pel número zero, siga majúscula o minúscula (<em>str_replace</em>). </li>
-<li>Indica si el nom comença per <code>al</code> o no. </li>
-</ol>
-</li>
-<li>
-<p><code>222Cadenes.php</code>: En el mateix document <code>cadenes.php</code> i a partir d'una variable que continga una url:<br/>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$url</span><span class="o">=</span><span class="s1">'http://username:password@hostname:9090/path?arg=value#anchor'</span><span class="p">;</span>
-</code></pre></div>
-      Utilitza la funció <code>parse_url</code> per a extraure de la url les següents parts:<br/>
-        1. El protocol utilitzat (en l'exemple "http").<br/>
-        2. El nom d'usuari (en l'exemple "username").
-        3. El path de la url (en l'exemple "/path").
-        4. El querystring de la url (en l'exemple "arg=value").</p>
-</li>
-</ol>
-<h3 id="arrays-indexats">Arrays indexats</h3>
-<ol start="231">
-<li>
-<p><code>231Arrays.php</code>: Crea una pàgina, copia el contingut de la pàgina <code>index.php</code> i resol els exercicis següents 
-utilitzant funcions d'arrays:</p>
-<ol>
-<li>Crea un array amb els noms de diversos alumnes de la classe incloent el teu. </li>
-<li>Mostra el nombre d'elements que té l'array (<em>count</em>). </li>
-<li>Crea una cadena de text que continga els noms dels alumnes existents en l'array separats per un espai i 
-mostra-la (<em>implode</em>).</li>
-<li>Mostra l'array en un ordre aleatori diferent al que ho vas crear (<em>shuffle</em>). </li>
-<li>Mostra l'array ordenat alfabèticament (<em>sort</em>). </li>
-<li>Mostra els alumnes el nom dels quals continga almenys una “a” (<em>array_filter</em>).</li>
-<li>Mostra l'array en l'ordre invers al que es va crear (<em>rsort</em>). </li>
-<li>Mostra la posició que té el teu nom en l'array (<em>array_search</em>).</li>
-</ol>
-</li>
-<li>
-<p><code>232Ciutats.php</code>: Segons l'INE les 7 ciutats més grans d’Espanya (per habitants) el 2018 van ser les següents:</p>
-<ul>
-<li>Madrid, MAD, 3.223.334</li>
-<li>Sevilla, AN  , 688.711</li>
-<li>Murcia, MU,  447.182</li>
-<li>Málaga, AN,  571.026</li>
-<li>Zaragoza, AR, 666.880</li>
-<li>València, CV,     791.413</li>
-<li>Barcelona, CAT, 1.620.343</li>
-</ul>
-<p>Copia <code>index.php</code> i crea un nou document <code>cituats.php</code>. Defineix un array que continga aquesta informació sobre ciutats i 
-habitants. Imprimeix una taula d'ubicacions i habitants que incloga la població total de les 7 ciutats.</p>
-<p>Opcional:
-Modifica la solució de l’anterior exercici perquè mostre les ciutats ordenades per habitants. Després mostra-les per ordre alfabètic.</p>
-</li>
-</ol>
-<h3 id="arrays-multidimensionals_1">Arrays multidimensionals</h3>
-<ol start="233">
-<li>
-<p><code>233Alumnes.php</code>: Resol els exercicis següents utilitzant funcions d'arrays: </p>
-<ol>
-<li>Crea un array d'alumnes on cada element siga un altre array que continga nom i edat de l'alumne. </li>
-<li>Crea una taula HTML en la qual es mostren totes les dades dels alumnes. </li>
-<li>Utilitza la funció <code>array_column</code> per a obtenir un array indexat que continga únicament els noms dels alumnes i mostra’ls per pantalla.    </li>
-<li>Crea un array amb 10 números i utilitza la funció <code>array_sum</code> per a obtenir la suma dels 10 nombres. </li>
-<li>Sense usar bucles for calcula la mitjana d'edat de l'alumnat.     </li>
-</ol>
-</li>
-<li>
-<p><code>234CiutatsOpcional.php</code>: Modifica la solució del exercici <code>ciutats.php</code> perquè la taula continga també la columna del total d’habitants de la 
-comunitat autònoma de les ciutats de la llista i el percentatge sobre els habitants de la comunitat autònoma que representa.</p>
-<p>Per exemple: </p>
-<table>
-<thead>
-<tr>
-<th>Ciutat</th>
-<th align="right">Habitants</th>
-<th align="right">Habitats CA</th>
-<th align="right">% sobre CA</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>València</td>
-<td align="right">791.413</td>
-<td align="right">5.003.769</td>
-<td align="right">15.81%</td>
-</tr>
-</tbody>
-</table>
-<p>Pista: Caldrà modificar l'array  <code>$ciutats</code> i convertir-lo en multidimensional. Les dades de comunitats autònomes hauran
-d'estar en un altre array. </p>
-<p>Dades: <a href="https://es.wikipedia.org/wiki/Anexo:Municipios_de_Espa%C3%B1a_por_poblaci%C3%B3n">Municipis de España</a></p>
-</li>
-</ol>
-<h3 id="funcions_1">Funcions</h3>
-<ol start="241">
-<li>
-<p><code>241funcions.php</code>: Escriu una funció per retornar una etiqueta HTML <code>&lt;img /&gt;</code>. </p>
-<p>La funció hauria d’acceptar com a argument obligatori l’URL de la imatge i arguments opcionals per a un text 
-  alternatiu, alçada i amplada.</p>
-</li>
-<li>
-<p><code>242funcions.php</code>: Copieu la funció de l’exercici anterior i modifiqueu-la de manera que només es passe el nom de fitxer a la funció en
-lloc de l’URL completa. Dins de la funció, farem ús d’una variable global per fer l’URL completa.</p>
-<p>Per exemple, si passem <code>photo.png</code> a la funció, i la variable global conté <code>/images</code>, llavors l’atribut <code>src</code> de 
-  l'etiqueta <img/> retornada serà <code>/images/photo.png</code>. </p>
-<p>Una funció com aquesta és una forma senzilla de mantenir correctes les vostres etiquetes d’imatges, fins i tot si les
-  imatges es mouen a un nou camí o servidor. Només cal canviar la variable global, per exemple, de <code>/images</code> a 
-  <code>http://images.example.com/.</code></p>
-</li>
-<li>
-<p><code>243funciocolors.php</code>:  Els colors web com <code>#ffffff</code> i <code>#cc3399</code> es realitzen concatenant els valors hexadecimals de color per a vermell, 
-verd i blau. </p>
-<p>Escriu una funció que accepte 3 arguments: roig, verd i blau, i que retorne un string que conté el color adequat per
-  utilitzar-lo en una pàgina web. </p>
-<p>Per exemple, si els arguments són 255, 0, i 255, llavors la cadena retornada hauria de ser #FF00FF.</p>
-<p>Pot resultar útil utilitzeu la funció <code>dechex()</code> integrada, que es troba documentada a <a href="http://www.php.net/">http://www.php.net/</a></p>
-<p>Assegureu-vos que els paràmetres reben valors enters i que són colors vàlids.</p>
-<p>Implementa 3 exemples d’ús.</p>
-</li>
-<li>
-<p><code>244funcionsSQL.php</code>: Crea una funció anomenada <code>insert</code>  que ens genere una sentència INSERT INTO en SQL.  </p>
-<p>Per a açò la funció rebrà dos paràmetres:<br/>
-      1. El nom de la taula<br/>
-      2.   Un array associatiu que contindrà els noms i valors dels camps de la taula.</p>
-<p>La sentència resultant tindrà la següent forma: </p>
-<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>“INSERT INTO nom_taula (nom dels camps separats per comes) 
-<span class="linenos" data-linenos="2 "></span>  VALUES (noms dels camps separats per comes amb el caràcter “:” davant)  
-</code></pre></div>
-De moment, no farem res amb els valors dels camps. </p>
-<p>Ajuda: utilitza les funcions <code>sprintf</code>, <code>implode</code> i <code>array_keys</code></p>
-</li>
-<li>
-<p><code>245funcionsSQL2.php</code>: A partir de l'exercici anterior crea una altra funció que reba els mateixos paràmetres més un paràmetre booleà 
-per a indicar si volem generar la query amb els noms dels camps o no. </p>
-<p>El paràmetre tindrà el valor <code>true</code> per defecte.</p>
-<p>Si el seu valor és <code>true</code> generarà la consulta igual que en l'exercici anterior, però si és <code>false</code> la generarà així: </p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">nom_taula</span> 
-<span class="linenos" data-linenos="2 "></span>  <span class="k">VALUES</span> <span class="p">(</span><span class="n">valors</span> <span class="n">dels</span> <span class="n">camps</span> <span class="n">separats</span> <span class="n">per</span> <span class="n">comes</span> <span class="n">amb</span> <span class="n">el</span> <span class="n">caràcter</span> <span class="err">‘</span><span class="p">:</span><span class="err">’</span> <span class="n">davant</span><span class="p">)</span>
-</code></pre></div>
-</li>
-<li>
-<p><code>246funcionsSQLReferencia.php</code>: Repeteix l'exercici anterior amb els següents canvis: </p>
-<p>La cadena resultant es passarà per referència.</p>
-<p>Passarem la cadena de la següent forma: </p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>  <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">taula</span> <span class="p">(</span><span class="n">camps</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="n">valors</span><span class="p">)</span> 
-</code></pre></div>
-<p>Dins de la funció substituirem el següent: </p>
-<ol>
-<li>El text taula pel nom de la taula. </li>
-<li>El text camps pels noms dels camps separats per comes</li>
-<li>El text valors pels noms dels camps separats per comes i el caràcter ‘:’ davant. </li>
-</ol>
-</li>
-</ol>
-<h3 id="formularis">Formularis</h3>
-<ol start="261">
-<li>
-<p><code>261ExempleGet.php</code>: Crea una pàgina que reba com a paràmetre un nom i mostre el text ‘Benvingut [nom]!!!’ sent [nom] el nom has 
-passat com a paràmetre.</p>
-</li>
-<li>
-<p><code>262Formulari.php</code>: Crea un formulari que tinga els següents camps:</p>
-<ul>
-<li><code>firstname</code></li>
-<li><code>lastname</code></li>
-<li><code>phone</code></li>
-<li><code>email</code></li>
-</ul>
-<p>En l'atribut <code>action</code> del formulari posarem el següent:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">"262Formulari.php"</span> <span class="err">...</span><span class="p">/&gt;</span>
-</code></pre></div>
-<p>Açò farà que siga la pròpia pàgina del formulari la que processe les dades del mateix.</p>
-<p>En prémer <code>Enviar</code> han d'aparèixer sota el formulari les dades que s'han introduït en el mateix en format de 
-taula.</p>
-</li>
-<li>
-<p><code>263FormulariReparat.php</code>: Soluciona el problema dels paràmetres no enviats de l'exercici anterior.</p>
-</li>
-<li>
-<p><code>264FormulariValidat.php</code>: Modifica l'exercici anterior realitzant les següents validacions:</p>
-<ul>
-<li>Tots els camps són obligatoris.</li>
-<li><code>firstname</code>, no pot superar els 25 caracters.</li>
-<li><code>lastname</code>, no pot superar els 50 caracters.</li>
-<li><code>phone</code>, ha de contenir 9 digits (expressió regular: <code>^\d{9}$</code>).</li>
-<li><code>email</code>, ha de ser una adreça electrònica correcta.</li>
-</ul>
-<p>S'avaluaran tots els camps i si hi ha error/s caldrà mostrar-lo/s. Si no hi ha errors es mostraran les dades introduïdes per l'usuari.</p>
-</li>
-<li>
-<p><code>265FormulariOpcions.php</code>: Modifica l'exercici anterior afegint els següents camps al formulari:</p>
-<ul>
-<li><code>genre</code>: serà un <em>radio button</em> i podrà ser <em>home</em>, <em>dona</em> i <em>no binari</em>.</li>
-<li><code>hobbies</code>: serà un checkbox amb aficions de la que podràs triar-ne més d'una:<ul>
-<li>Lectura</li>
-<li>Programació</li>
-<li>Ciclisme</li>
-<li>Running</li>
-<li>...</li>
-</ul>
-</li>
-<li><code>contact-time</code>: serà una llista de les millores hores per a contactar: <ul>
-<li>Primera hora (08:00 a 10:00)</li>
-<li>Abans de dinar (12:00 a 13:00)</li>
-<li>Després de dinar (14:00 a 16:00)</li>
-<li>Per la nit (20:00 a 22:00)</li>
-</ul>
-</li>
-</ul>
-<p>En els tres casos són obligatoris, s'ha de mantindre el valor en cas de ser correcte .</p>
-</li>
-<li>
-<p><code>266FormulariArray</code>: Modifica l'exercici anterior de forma que el contingut dels camps de selecció es genere dinàmicament des d'arrays associatius. A més, els valors rebuts s'haurien de validar contra l'<em>array</em> i mostrar-se fent és d'ell.</p>
-</li>
-</ol>
-<h3 id="inclusio-de-fitxers">Inclusió de fitxers</h3>
-<ol>
-<li>
-<p><code>271Formulari.php</code>: Basant-te en l'activitat <code>264FormulariValidat.php</code> modifica les validacions perquè es facen mitjançant funcions. </p>
-<p>Les funcions es guardaran en el fitxer <code>helpers.php</code> i s'hauran d'incloure en fitxer <code>271Formulari.php</code>.</p>
-</li>
-<li>
-<p><code>272Formulari.php</code>: Basant-te en l'activitat <code>271Formulari.php</code> separa la part de codi de la presentació de forma que tota la lògica estiga en un fitxer i la part de presentació en altre fitxer <code>271Formulari.view.php</code>.</p>
-</li>
-</ol>
-<h3 id="pujada-de-fitxers_1">Pujada de fitxers</h3>
-<ol>
-<li><code>281FormularImatge.php</code>: Modifica l'activitat <code>272Formulari.php</code> afegint un camp de tipus <code>FILE</code> per a pujar una imatge al servidor. Es guardarà en la carpeta <code>uploads</code> i es mostrarà amb la resta de dades. </li>
-<li><code>282FormulariImage.php</code>: Modifica l'activitat anterior de forma que es controle el següent:<ol>
-<li>Les imatges sols podran ser <code>jpg</code>.</li>
-<li>No podran superar 1MB de grandària</li>
-<li>Es guardaran en un nom aleatori únic.</li>
-</ol>
-</li>
-</ol>
 <h2 id="credits">Crèdits</h2>
 <ul>
 <li>Aitor Medrano. (setembre de 2021) <em>Desarrollo Web en Entorno Servidor</em> disponible en: <a href="https://aitor-medrano.github.io/dwes2122/index.html">https://aitor-medrano.github.io/dwes2122/index.html</a></li>

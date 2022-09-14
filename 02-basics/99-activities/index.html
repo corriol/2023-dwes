@@ -141,22 +141,16 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="activitats">Activitats</h1>
-<div class="admonition todo">
-<p class="admonition-title">Activitat 3: Treballar amb dates</p>
-<p>Crea un fitxer anomenat dates.php i realitza les següents tasques:</p>
-<ol>
-<li>Mostra la data i hora actuals amb el format: <code>dd/mm/yyyy hh:mm:ss</code></li>
-<li>Mostra el nom de la zona horària que s'utilitza per defecte.</li>
-<li>Mostra la data de que serà d’ací 45 dies.</li>
-<li>Mostra el nombre de dies que han passat des de l'1 de gener.</li>
-<li>Mostra la data i hora actuals de Nova York.</li>
-<li>Mostra el dia de la setmana que era l'1 de gener d'enguany.</li>
-</ol>
-<p>En acabar penja el document a Aules.</p>
-</div>
-<div class="admonition todo">
-<p class="admonition-title">Activitat 4</p>
-<p><code>200dadesPersonals.php</code>: Escriu un programa que emmagatzeme en variables teu nom, primer cognom, segon cognom, email, any de naixement i telèfon. Després mostra'ls per pantalla dins d'una taula.     </p>
+<h2 id="php-basic">PHP Bàsic</h2>
+<ol start="201">
+<li>
+<p><code>201tresfrases.php</code>: Mostra 3 frases, cadascuna en un paràgraf utilitzant les tres possibilitats que hi ha de mostrar contingut. Després, introdueix dos comentaris, un de bloc i un altre d'una línia.</p>
+</li>
+<li>
+<p><code>202calculs.php</code>: Escriu un programa que utilitze les variables <code>$x</code> i <code>$y</code>. Assigna'ls els valors <code>166</code> i <code>999</code> respectivament. Tot seguit, mostra per pantalla el valor de cada variable, la suma, la resta, la divisió i la multiplicació.</p>
+</li>
+<li>
+<p><code>203dadesPersonals.php</code>: Escriu un programa que emmagatzeme en variables teu nom, primer cognom, segon cognom, email, any de naixement i telèfon. Després mostra'ls per pantalla dins d'una taula.     </p>
 <table>
 <thead>
 <tr>
@@ -193,9 +187,69 @@
 </tr>
 </tbody>
 </table>
-<p><code>206anyos.php</code>: Després de llegir l'edat d'una persona, mostrar l'edat que tindrà d'aquí a 10 anys i fa 10 anys. A més, mostra quin any serà en cada un dels casos. Finalment, mostra l'any de jubilació suposant que treballaràs fins als 65 anys.</p>
-<p>Tip: <code>$anyoActual = date("Y")</code>;</p>
-</div>
+</li>
+<li>
+<p><code>204dadesPersonales.html</code> i <code>204dadesPersonales.php</code>: És el mateix exercici que l'anterior, però separant la lògica. En el primer fitxer crearem el formulari per a introduir les dades i després recollirem les dades i generarem la taula en el segon arxiu.</p>
+</li>
+<li>
+<p><code>205anys.php</code>: Després de llegir l'edat d'una persona per la URL, mostrar l'edat que tindrà d'aquí a 10 anys i fa 10 anys. A més, mostra quin any serà en cada un dels casos. Finalment, mostra l'any de jubilació suposant que treballaràs fins als 67 anys. No cal que faces un formulari, pots provar-ho directament via URL: <code>205anys.php?edad=33</code>.</p>
+</li>
+</ol>
+<p>Tip: <code>$currentYear = date("Y")</code>;</p>
+<ol start="206">
+<li><code>206diners.php</code>: A partir d'una quantitat de diners, mostrar la seva descomposició en bitllets (500, 200, 100, 50, 20, 10, 5) i monedes (2, 1) perquè el nombre d'elements sigui mínim. No es pot utilitzar cap instrucció condicional. Per exemple, en introduir <code>139</code> ha de mostrar:</li>
+</ol>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>1 bitllet de 100
+<span class="linenos" data-linenos="2 "></span>0 bitllet de 50
+<span class="linenos" data-linenos="3 "></span>1 bitllet de 20
+<span class="linenos" data-linenos="4 "></span>1 bitllet de 10
+<span class="linenos" data-linenos="5 "></span>1 bitllet de 5
+<span class="linenos" data-linenos="6 "></span>2 moneda de 2
+</code></pre></div>
+  Tip: Pots forçar a realitzar la divisió sencera mitjançant la funció <code>intdiv($dividend, $divisor)</code> o passar un nombre flotant a sencer pots fer servir la funció <code>intval()</code>.</p>
+<ol start="207">
+<li>
+<p><code>207posnegzero.php</code>: A partir d'un número, mostra per pantalla si el número és positiu, negatiu o zero.</p>
+</li>
+<li>
+<p><code>208mayor3.php</code>: Sense fer ús de condicions que utilitzen dins de la condició els operadors lògics, mostra el més gran de tres números (a, b i c).</p>
+</li>
+<li>
+<p><code>209mayor3c.php</code>: Utilitza en les condicions els operadors lògics.</p>
+</li>
+<li>
+<p><code>210nomEdad.php</code>: A partir d'una edat mostra per pantalla:</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span> nadó si té menys de 3 anys
+<span class="linenos" data-linenos="2 "></span> nen si té entre 3 i 12 anys
+<span class="linenos" data-linenos="3 "></span> adolescent entre 13 i 17 anys
+<span class="linenos" data-linenos="4 "></span> adult entre 18 i 66
+<span class="linenos" data-linenos="5 "></span> jubilat a partir de 67
+</code></pre></div>
+<h3 id="exercicis-dinvestigacio">Exercicis d'investigació</h3>
+<ol start="211">
+<li>
+<p>Investiga perquè serveix l'operador nau espacial, disponible des de PHP7 (https://www.php.net/manual/es/migration70.new-features.php). Explica amb un parell de línies el seu propòsit i mitjançant el codi demostra el seu ús.</p>
+</li>
+<li>
+<p>Investiga per a què serveix la instrucció <code>match()</code>, disponible des de PHP8 (https://www.php.net/manual/ca/control-structures.match.php). Explica amb un parell de línies el seu propòsit i mitjançant el codi demostra el seu ús.</p>
+</li>
+</ol>
+<h2 id="dates">Dates</h2>
+<ol start="213">
+<li>
+<p><code>2013-dates.php</code>: Crea un fitxer que realitza les següents tasques:</p>
+<ol>
+<li>Mostra la data i hora actuals amb el format: <code>dd/mm/yyyy hh:mm:ss</code></li>
+<li>Mostra el nom de la zona horària que s'utilitza per defecte.</li>
+<li>Mostra la data de que serà d’ací 45 dies.</li>
+<li>Mostra el nombre de dies que han passat des de l'1 de gener.</li>
+<li>Mostra la data i hora actuals de Nova York.</li>
+<li>Mostra el dia de la setmana que era l'1 de gener d'enguany.</li>
+</ol>
+</li>
+</ol>
 <h2 id="cadenes">Cadenes</h2>
 <ol start="221">
 <li>
@@ -217,11 +271,13 @@
 <p><code>222Cadenes.php</code>: En el mateix document <code>cadenes.php</code> i a partir d'una variable que continga una url:<br/>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$url</span><span class="o">=</span><span class="s1">'http://username:password@hostname:9090/path?arg=value#anchor'</span><span class="p">;</span>
 </code></pre></div>
-      Utilitza la funció <code>parse_url</code> per a extraure de la url les següents parts:<br/>
-        1. El protocol utilitzat (en l'exemple "http").<br/>
-        2. El nom d'usuari (en l'exemple "username").
-        3. El path de la url (en l'exemple "/path").
-        4. El querystring de la url (en l'exemple "arg=value").</p>
+      Utilitza la funció <code>parse_url</code> per a extraure de la url les següents parts: </p>
+<ol>
+<li>El protocol utilitzat (en l'exemple "http").  </li>
+<li>El nom d'usuari (en l'exemple "username").</li>
+<li>El <em>path</em> de la url (en l'exemple "/path").</li>
+<li>El <em>querystring</em> de la url (en l'exemple "arg=value").</li>
+</ol>
 </li>
 </ol>
 <h2 id="arrays-indexats">Arrays indexats</h2>
