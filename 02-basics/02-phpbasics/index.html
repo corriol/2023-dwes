@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.3.1, mkdocs-material-7.3.3" name="generator"/>
-<title>El llenguatge PHP - DWES</title>
+<title>PHP Bàsic - DWES</title>
 <link href="../../assets/stylesheets/main.5143246d.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
 <meta content="#ef5552" name="theme-color"/>
@@ -46,7 +46,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              El llenguatge PHP
+              PHP Bàsic
             
           </span>
 </div>
@@ -127,6 +127,320 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../01-intro/99-tasks/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+          2.- El llenguatge PHP
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="2.- El llenguatge PHP" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          2.- El llenguatge PHP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          PHP Bàsic
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        PHP Bàsic
+      </a>
+<nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduccio">
+    Introducció
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#funcionament-i-estructura-basica">
+    Funcionament i estructura bàsica
+  </a>
+<nav aria-label="Funcionament i estructura bàsica" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#el-nostre-primer-codi-php">
+    El nostre primer codi PHP
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comentaris">
+    Comentaris
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#variables-i-tipus-de-dades">
+    Variables i tipus de dades
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#constants">
+    Constants
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#operadors">
+    Operadors
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#treballant-en-formularis">
+    Treballant en formularis
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#estructures-de-control-de-flux">
+    Estructures de control de flux
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#maneig-de-cadenes-de-text">
+    Maneig de cadenes de text
+  </a>
+<nav aria-label="Maneig de cadenes de text" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#expansio-de-variables">
+    Expansió de variables
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#maneig-de-dates">
+    Maneig de dates
+  </a>
+<nav aria-label="Maneig de dates" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#funcio-time">
+    Funció time()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#funcio-date">
+    Funció date()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#funcio-mktimehora-min-seg-mes-dia-any">
+    Funció mktime(hora, min, seg, mes, dia, any)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#operar-amb-dates">
+    Operar amb dates
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#validar-dates">
+    Validar dates
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#classe-datetime">
+    Classe DateTime
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#maneig-darrays">
+    Maneig d'arrays
+  </a>
+<nav aria-label="Maneig d'arrays" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#array-indexat">
+    Array indexat
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arrays-associatius">
+    Arrays associatius
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arrays-multidimensionals">
+    Arrays multidimensionals
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#funcions-darrays">
+    Funcions d'arrays
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#funcions">
+    Funcions
+  </a>
+<nav aria-label="Funcions" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#funcions-predefinides">
+    Funcions predefinides
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#funcions-definides-per-lusuari">
+    Funcions definides per l'usuari
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#valors-per-defecte-en-els-parametres">
+    Valors per defecte en els paràmetres
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pas-de-parametres-per-referencia">
+    Pas de paràmetres per referència
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#noves-caracterisques-php-7">
+    Noves caracterísques PHP 7
+  </a>
+<nav aria-label="Noves caracterísques PHP 7" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#spaceship-operator">
+    Spaceship operator  (&lt;==&gt;)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#operador-de-fusio-de-null">
+    Operador de fusió de null ??
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#processament-de-formularis">
+    Processament de formularis
+  </a>
+<nav aria-label="Processament de formularis" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#que-es-una-peticio-http">
+    Què és una petició HTTP?
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#metode-get">
+    Mètode GET
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#definicio-de-formularis">
+    Definició de formularis
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#accedir-a-les-dades-de-la-peticio-post">
+    Accedir a les dades de la petició POST
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#validacio-de-formularis">
+    Validació de formularis
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comprovar-la-data">
+    Comprovar la data
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#bones-practiques-en-lobtencio-de-dades-des-de-lexterior">
+    Bones pràctiques en l’obtenció de dades des de l’exterior
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sentencies-per-a-incloure-fitxers">
+    Sentències per a incloure Fitxers
+  </a>
+<nav aria-label="Sentències per a incloure Fitxers" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ambit-de-les-variables_1">
+    Àmbit de les variables
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#rutes">
+    Rutes
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pujada-de-fitxers">
+    Pujada de fitxers
+  </a>
+<nav aria-label="Pujada de fitxers" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#formulari">
+    Formulari
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#variable-superglobal-_files">
+    Variable superglobal $_FILES
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#moure-el-fitxer">
+    Moure el fitxer
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#gestio-derrors">
+    Gestió d'errors
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#credits">
+    Crèdits
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../99-activities/">
         Activitats
       </a>
 </li>
@@ -1308,15 +1622,15 @@ La funció <code>filter_input</code> agafa una variable externa (<code>$_GET</co
 <h3 id="ambit-de-les-variables_1">Àmbit de les variables</h3>
 <p>Com s'observa en l'exemple següent, les variables creades abans de cridar l'include, estaran disponibles en el fitxer inclòs. 
 És a dir, com si tot fora un únic document.</p>
-<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><label for="__tabbed_3_1">fruits.php</label><div class="tabbed-content"></div>
-</div>
+<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><label for="__tabbed_3_1">fruits.php</label><div class="tabbed-content"></div>
+</input></div>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="linenos" data-linenos="2 "></span><span class="nv">$color</span> <span class="o">=</span> <span class="s1">'green'</span><span class="p">;</span>
 <span class="linenos" data-linenos="3 "></span><span class="nv">$fruit</span> <span class="o">=</span> <span class="s1">'apple'</span><span class="p">;</span>
 <span class="linenos" data-linenos="4 "></span><span class="k">include</span> <span class="s1">'fruit.view.php'</span>
 </code></pre></div>
-<div class="tabbed-set" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"/><label for="__tabbed_4_1">fruits.view.php</label><div class="tabbed-content"></div>
-</div>
+<div class="tabbed-set" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><label for="__tabbed_4_1">fruits.view.php</label><div class="tabbed-content"></div>
+</input></div>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Fruites<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
@@ -1379,6 +1693,34 @@ Emprarem <code>$_FILES['image']</code> per obtenir les dades de l'arxiu penjat.<
 </div>
 </main>
 <footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Anterior: Activitats" class="md-footer__link md-footer__link--prev" href="../../01-intro/99-tasks/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Anterior
+              </span>
+              Activitats
+            </div>
+</div>
+</a>
+<a aria-label="Següent: Activitats" class="md-footer__link md-footer__link--next" href="../99-activities/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Següent
+              </span>
+              Activitats
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-footer-copyright">
