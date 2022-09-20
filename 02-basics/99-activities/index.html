@@ -6,9 +6,9 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.3.1, mkdocs-material-7.3.3" name="generator"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
 <title>Activitats - DWES</title>
-<link href="../../assets/stylesheets/main.5143246d.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
 <meta content="#ef5552" name="theme-color"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -106,8 +106,8 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2">
-          1.- Introducció a la programació Web
-          <span class="md-nav__icon md-icon"></span>
+        1.- Introducció a la programació Web
+        <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="1.- Introducció a la programació Web" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_2">
@@ -136,8 +136,8 @@
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
 <label class="md-nav__link" for="__nav_3">
-          2.- El llenguatge PHP
-          <span class="md-nav__icon md-icon"></span>
+        2.- El llenguatge PHP
+        <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="2.- El llenguatge PHP" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_3">
@@ -188,6 +188,15 @@
 <a class="md-nav__link" href="#cadenes">
     Cadenes
   </a>
+<nav aria-label="Cadenes" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#bucles">
+    Bucles
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#arrays-indexats">
@@ -327,16 +336,16 @@
 <h3 id="exercicis-dinvestigacio">Exercicis d'investigació</h3>
 <ol start="211">
 <li>
-<p>Investiga perquè serveix l'operador nau espacial, disponible des de PHP7 (https://www.php.net/manual/es/migration70.new-features.php). Explica amb un parell de línies el seu propòsit i mitjançant el codi demostra el seu ús.</p>
+<p>Investiga perquè serveix l'operador nau espacial, disponible des de PHP7 (<a href="https://www.php.net/manual/es/migration70.new-features.php">https://www.php.net/manual/es/migration70.new-features.php</a>). Explica amb un parell de línies el seu propòsit i mitjançant el codi demostra el seu ús.</p>
 </li>
 <li>
-<p>Investiga per a què serveix la instrucció <code>match()</code>, disponible des de PHP8 (https://www.php.net/manual/ca/control-structures.match.php). Explica amb un parell de línies el seu propòsit i mitjançant el codi demostra el seu ús.</p>
+<p>Investiga per a què serveix la instrucció <code>match()</code>, disponible des de PHP8 (<a href="https://www.php.net/manual/ca/control-structures.match.php">https://www.php.net/manual/ca/control-structures.match.php</a>). Explica amb un parell de línies el seu propòsit i mitjançant el codi demostra el seu ús.</p>
 </li>
 </ol>
 <h2 id="dates">Dates</h2>
 <ol start="213">
 <li>
-<p><code>2013-dates.php</code>: Crea un fitxer que realitza les següents tasques:</p>
+<p><code>213-dates.php</code>: Crea un fitxer que realitza les següents tasques:</p>
 <ol>
 <li>Mostra la data i hora actuals amb el format: <code>dd/mm/yyyy hh:mm:ss</code></li>
 <li>Mostra el nom de la zona horària que s'utilitza per defecte.</li>
@@ -348,19 +357,19 @@
 </li>
 </ol>
 <h2 id="cadenes">Cadenes</h2>
-<ol start="221">
+<ol start="214">
 <li>
-<p><code>221Cadenes.php</code>: Copia el contingut de la pàgina <code>index.php</code>, activa la directiva de tipus estricta (<code>declare( strict_types = 1 );</code>) i mostra el següent: </p>
+<p><code>214Cadenes.php</code>: Crea una pàgina que reba un nom. Amb la directiva de tipus estricta (<code>declare( strict_types = 1 );</code>) aplica les següents funcions: </p>
 <ol>
 <li>Elimina els espais del principi i el final del nom si els hi haguera (<em>trim</em>). </li>
-<li>Elimina la lletra a del principi i el final del nom si els hi haguera (<em>trim</em>). </li>
-<li>Mostra la variable nom en majúscules, minúscules i amb la primera lletra en majúscula i les altres en minúscules (<em>strtoupper</em>, <em>strtolower</em>, <em>ucfirst</em>). </li>
+<li>Elimina la lletra <code>a</code> del principi i el final del nom si els hi haguera (<em>trim</em>). </li>
+<li>Mostra la variable <code>nom</code> en majúscules, minúscules i amb la primera lletra en majúscula i les altres en minúscules (<em>strtoupper</em>, <em>strtolower</em>, <em>ucfirst</em>). </li>
 <li>Mostra el codi ascii de la primera lletra del nom (<em>ord</em>). </li>
 <li>Mostra la longitud del nom (<em>strlen</em>). </li>
-<li>Mostra el nombre de vegades que apareix la lletra a (majúscula o minúscula, <em>substr_count</em>). </li>
+<li>Mostra el nombre de vegades que apareix la lletra <code>a</code> (majúscula o minúscula, <em>substr_count</em>). </li>
 <li>Mostra la posició de la primera <code>a</code> existent en el nom, siga majúscula o minúscula (<em>strpos</em>). Si no hi ha cap mostrarà -1. </li>
-<li>El mateix, però amb l''última a. </li>
-<li>Mostra el nom substituint la lletr o pel número zero, siga majúscula o minúscula (<em>str_replace</em>). </li>
+<li>El mateix, però amb l''última <code>a</code>. </li>
+<li>Mostra el nom substituint la lletra <code>o</code> pel número <code>0</code>, siga majúscula o minúscula (<em>str_replace</em>). </li>
 <li>Indica si el nom comença per <code>al</code> o no. </li>
 </ol>
 </li>
@@ -377,11 +386,81 @@
 </ol>
 </li>
 </ol>
+<h3 id="bucles">Bucles</h3>
+<ol start="220">
+<li>
+<p><code>220parells050.php:</code> Escriu un programa que mostre els números parells del 0 al 50 (dintre d'una llista desordenada).</p>
+<p><code>220parellsAB.php</code>: A partir de l'anterior, refacciona perquè funcione amb els paràmetres <code>inici</code> i <code>fi</code>.</p>
+</li>
+<li>
+<p><code>221suma110.php</code>: Escriu un programa que sume els números de l'1 al 10.</p>
+<p><code>221sumaAB.php</code>: A partir de l'anterior, refacciona perquè funcione amb <code>inici</code> i <code>fi</code>.</p>
+</li>
+<li>
+<p><code>222potencia.php</code>: A partir d'una base i exponente, mitjançant l'acumulació de productes, calcula la potència utilitzant l'instrucció <code>for</code>.</p>
+<p><code>222potenciaWhile.php</code>: Reescriu l'exercici anterior fent ús de <code>while</code>.
+<code>222potenciaDoWhile.php</code>: Reescriu l'exercici anterior fent ús sols de <code>do-while</code>.</p>
+</li>
+<li>
+<p><code>223taulaMultiplicar.php</code>: Mostra dins d'una taula HTML la taula de multiplicar d'un <code>número</code>. Utiliza <code>&lt;thead&gt;</code> amb els seus respectius <code>&lt;th&gt;</code> y <code>&lt;tbody</code>&gt; per a dibujar la tabla. Per exemple:</p>
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>*</th>
+<th>b</th>
+<th>=</th>
+<th>a*b</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7</td>
+<td>*</td>
+<td>1</td>
+<td>=</td>
+<td>7</td>
+</tr>
+<tr>
+<td>7</td>
+<td>*</td>
+<td>2</td>
+<td>=</td>
+<td>14</td>
+</tr>
+<tr>
+<td>...</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>*</td>
+<td>10</td>
+<td>=</td>
+<td>70</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><code>224formulari.html</code>: Crea un formulario que permeta llegir una <code>quantitat</code>.  <code>224llegirDades.php</code>: A partir de <code>quantitat</code>, prepara un formulari amb tantes caixes (<em>textbox</em>) com el valor de <code>quantitat</code> rebut. Finalment, en <code>224sumarDades.php</code>: a partir de les dades de totes les caixes de text de la pàgina anterior, suma i mostra el total.</p>
+</li>
+<li>
+<p><code>225formulari.html</code> i <code>225taula.php</code>: A partir d'un nombre de <code>files</code> i <code>columnes</code>, crear una taula amb aquesta mida.
+Les cel·les han d'estar emplenades amb els valors de les coordenades de cada cel·la.</p>
+</li>
+<li><code>226formulari.html</code> i <code>226quadrat.php</code>: Basant-te en l'exercici anterior, omple la taula de manera que només les vores tinguin contingut, quedant-se la resta de cel·les en blanc.
+<img _="&amp;" align="right" alt="228" src="../assets/02p228.png" width="200"/></li>
+<li><code>227formulari.html</code> i <code>227equis.php</code>: Basant-te en l'exercici anterior, ara només ha d'aparèixer el contingut dels dos diagonals.</li>
+<li><code>228quadratMultiplicar.php</code>: Crea un programa que mostre per pantalla un quadrat exactament igual (fixa't bé a les capçaleres, tant de les files com de les columnes) al de la imatge amb les taules de multiplicar.</li>
+</ol>
 <h2 id="arrays-indexats">Arrays indexats</h2>
 <ol start="231">
 <li>
-<p><code>231Arrays.php</code>: Crea una pàgina, copia el contingut de la pàgina <code>index.php</code> i resol els exercicis següents 
-utilitzant funcions d'arrays:</p>
+<p><code>231Arrays.php</code>: Crea una pàgina i resol els exercicis següents utilitzant funcions d'arrays:</p>
 <ol>
 <li>Crea un array amb els noms de diversos alumnes de la classe incloent el teu. </li>
 <li>Mostra el nombre d'elements que té l'array (<em>count</em>). </li>
@@ -623,11 +702,10 @@ taula.</p>
             2022-2023 Vicent Jordà - Licencia CC BY-NC-SA
           </div>
         
-        
-          Made with
-          <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
-            Material for MkDocs
-          </a>
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
 </div>
 </div>
 </div>
@@ -636,8 +714,8 @@ taula.</p>
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "search": "../../assets/javascripts/workers/search.8397ff9e.min.js", "translations": {"clipboard.copied": "Copiat al porta-retalls", "clipboard.copy": "C\u00f2pia al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": null}</script>
-<script src="../../assets/javascripts/bundle.f89c2efe.min.js"></script>
+<script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+<script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
 <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
 </body>
 </html>
