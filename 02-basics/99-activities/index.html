@@ -10,14 +10,14 @@
 <title>Activitats - DWES</title>
 <link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
-<meta content="#ef5552" name="theme-color"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
 <link href="../../stylesheets/extra.css" rel="stylesheet"/>
 </head>
-<body data-md-color-accent="" data-md-color-primary="red" data-md-color-scheme="" dir="ltr">
+<body data-md-color-accent="" data-md-color-primary="red" data-md-color-scheme="default" dir="ltr">
 <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
@@ -52,6 +52,16 @@
 </div>
 </div>
 </div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="red" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="red" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69z"></path></svg>
+</label>
+</form>
 <label class="md-header__button md-icon" for="__search">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
 </label>
@@ -199,13 +209,8 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#arrays-indexats">
-    Arrays indexats
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#arrays-multidimensionals">
-    Arrays multidimensionals
+<a class="md-nav__link" href="#arrays">
+    Arrays
   </a>
 </li>
 <li class="md-nav__item">
@@ -345,7 +350,7 @@
 <h2 id="dates">Dates</h2>
 <ol start="213">
 <li>
-<p><code>213-dates.php</code>: Crea un fitxer que realitza les següents tasques:</p>
+<p><code>213Dates.php</code>: Crea un fitxer que realitza les següents tasques:</p>
 <ol>
 <li>Mostra la data i hora actuals amb el format: <code>dd/mm/yyyy hh:mm:ss</code></li>
 <li>Mostra el nom de la zona horària que s'utilitza per defecte.</li>
@@ -374,16 +379,15 @@
 </ol>
 </li>
 <li>
-<p><code>222Cadenes.php</code>: En el mateix document <code>cadenes.php</code> i a partir d'una variable que continga una url:<br/>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$url</span><span class="o">=</span><span class="s1">'http://username:password@hostname:9090/path?arg=value#anchor'</span><span class="p">;</span>
-</code></pre></div>
-      Utilitza la funció <code>parse_url</code> per a extraure de la url les següents parts: </p>
+<p><code>215Cadenes.php</code>: Utilitza la funció <code>parse_url</code> per a extraure de la url les següents parts: </p>
 <ol>
 <li>El protocol utilitzat (en l'exemple "http").  </li>
 <li>El nom d'usuari (en l'exemple "username").</li>
 <li>El <em>path</em> de la url (en l'exemple "/path").</li>
 <li>El <em>querystring</em> de la url (en l'exemple "arg=value").</li>
 </ol>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$url</span> <span class="o">=</span> <span class="s2">"http://username:password@hostname:9090/path?arg=value#anchor"</span><span class="p">;</span>
+</code></pre></div>
 </li>
 </ol>
 <h3 id="bucles">Bucles</h3>
@@ -397,7 +401,7 @@
 <p><code>221sumaAB.php</code>: A partir de l'anterior, refacciona perquè funcione amb <code>inici</code> i <code>fi</code>.</p>
 </li>
 <li>
-<p><code>222potencia.php</code>: A partir d'una base i exponente, mitjançant l'acumulació de productes, calcula la potència utilitzant l'instrucció <code>for</code>.</p>
+<p><code>222potencia.php</code>: A partir d'una base i exponent, mitjançant l'acumulació de productes, calcula la potència utilitzant l'instrucció <code>for</code>.</p>
 <p><code>222potenciaWhile.php</code>: Reescriu l'exercici anterior fent ús de <code>while</code>.
 <code>222potenciaDoWhile.php</code>: Reescriu l'exercici anterior fent ús sols de <code>do-while</code>.</p>
 </li>
@@ -457,10 +461,61 @@ Les cel·les han d'estar emplenades amb els valors de les coordenades de cada ce
 <li><code>227formulari.html</code> i <code>227equis.php</code>: Basant-te en l'exercici anterior, ara només ha d'aparèixer el contingut dels dos diagonals.</li>
 <li><code>228quadratMultiplicar.php</code>: Crea un programa que mostre per pantalla un quadrat exactament igual (fixa't bé a les capçaleres, tant de les files com de les columnes) al de la imatge amb les taules de multiplicar.</li>
 </ol>
-<h2 id="arrays-indexats">Arrays indexats</h2>
-<ol start="231">
+<h2 id="arrays">Arrays</h2>
+<ol start="230">
 <li>
-<p><code>231Arrays.php</code>: Crea una pàgina i resol els exercicis següents utilitzant funcions d'arrays:</p>
+<p><code>230aleatoris50.php</code>: Omple un <em>array</em> amb 50 números aleatoris compresos entre el 0 i el 99, i després mostra'l en una llista desordenada.
+Per crear un nombre aleatori, utilitzeu la funció <code>rand(inici, fi)</code>. Per exemple:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$num</span> <span class="o">=</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">99</span><span class="p">)</span>
+</code></pre></div>
+</li>
+<li>
+<p><code>231bola8.html</code>: Prepara un formulari amb una caixa de text que faça una pregunta a l\'usuari.
+<code>231bola8.php</code>: A partir de l'anterior, crea un programa que mostre la pregunta rebuda i genere una resposta de manera aleatòria entre un conjunt de respostes predefinides, emmagatzemades en un <em>array</em>: <em>Si, no, potser, és clar que sí, per suposat que no, no ho tinc clar, segur, jo diria que sí, ni de conya, etc.</em>.</p>
+<p>Aquest exercici es basa en el joc de la <a href="https://es.wikipedia.org/wiki/Magic_8-Ball">Bola 8 màgica</a>.</p>
+</li>
+<li>
+<p><code>232mates.php</code>: A partir de l'exercici 230, genera un array aleatori de 33 elements amb números compresos entre el 0 i 100 i calcula:</p>
+<ul>
+<li>El major</li>
+<li>El menor</li>
+<li>La mitjana</li>
+</ul>
+</li>
+<li>
+<p><code>233sexos.php</code>: Omple un array de 100 elements de manera aleatòria amb valors <code>M</code> o <code>F</code>.
+Un cop completat, torna a recórrer-lo i calcula quants elements hi ha de cadascun dels valors. Per això, emmagatzema el resultat en un array associatiu <code>['M' =&gt; 44, 'F' =&gt;66]</code>.</p>
+<p>Finalment, mostra el resultat per pantalla</p>
+</li>
+<li>
+<p><code>234monedes.php</code>: Torna a fer l'exercici 207, el de les monedes (500, 200, 100, 50, 20, 10, 5, 2, 1), però fent ús d'arrays i un bucle.
+Emmagatzema el resultat en un <em>array associatiu</em>.
+Mostra el resultat en una llista desordenada només amb les quantitats que tenen algun valor.</p>
+</li>
+<li>
+<p><code>235altures.php</code>: Mitjançant un array associatiu, emmagatzema el nom i l'alçada de 5 persones (<code>nom =&gt; altura</code>).
+Posteriorment, recorre l'array i mostra-ho en una taula HTML.
+Finalment afegeix una darrera fila a la taula amb l'alçada mitjana.</p>
+</li>
+<li>
+<p><code>236persones.php</code>: Mitjançant un array bidimensional, emmagatzema el nom, alçada i email de 5 persones. Per això, crea un <em>array</em> de persones, sent cada persona un array associatiu: <code>[ ['nom'=&gt;'Aitor', 'altura'=&gt;182, 'email'=&gt;'aitor@correo.com'],[ …],… ]</code>
+Posteriorment, recorre l'array i mostra'l en una taula HTML.</p>
+</li>
+<li>
+<p><code>237llegirQuantitat.html</code> i <code>237llegirPersones.php</code>: a partir d'un formulari amb un camp de <code>quantitat</code> de persones, generar un nou formulari per llegir el nom, alçada i email de <code>quantitat</code> persones.
+<code>237gestionarPersones.php</code>: A partir de les persones introduïdes, mostrar les vostres dades en una taula, i posteriorment, destacar les dades del més alt i la del més baix.</p>
+</li>
+<li>
+<p><code>238taulaDistints.php</code>: Omple un array bidimensional de 6 files per 9 columnes amb números aleatoris compresos entre 100 i 999 (tots dos inclosos). Tots els números han de ser diferents, és a dir, no se'n pot repetir cap.
+Mostra a continuació per pantalla el contingut de l'array de manera que:</p>
+<ul>
+<li>La columna del màxim ha d'aparèixer en blau.</li>
+<li>La fila del mínim ha d'aparèixer en verd</li>
+<li>La resta de números han d'aparèixer en negre.</li>
+</ul>
+</li>
+<li>
+<p><code>239Arrays.php</code>: Crea una pàgina i resol els exercicis següents utilitzant funcions d'arrays:</p>
 <ol>
 <li>Crea un array amb els noms de diversos alumnes de la classe incloent el teu. </li>
 <li>Mostra el nombre d'elements que té l'array (<em>count</em>). </li>
@@ -474,7 +529,7 @@ mostra-la (<em>implode</em>).</li>
 </ol>
 </li>
 <li>
-<p><code>232Ciutats.php</code>: Segons l'INE les 7 ciutats més grans d’Espanya (per habitants) el 2018 van ser les següents:</p>
+<p><code>240Ciutats.php</code>: Segons l'INE les 7 ciutats més grans d’Espanya (per habitants) el 2018 van ser les següents:</p>
 <ul>
 <li>Madrid, MAD, 3.223.334</li>
 <li>Sevilla, AN  , 688.711</li>
@@ -489,11 +544,8 @@ habitants. Imprimeix una taula d'ubicacions i habitants que incloga la població
 <p>Opcional:
 Modifica la solució de l’anterior exercici perquè mostre les ciutats ordenades per habitants. Després mostra-les per ordre alfabètic.</p>
 </li>
-</ol>
-<h2 id="arrays-multidimensionals">Arrays multidimensionals</h2>
-<ol start="233">
 <li>
-<p><code>233Alumnes.php</code>: Resol els exercicis següents utilitzant funcions d'arrays: </p>
+<p><code>241Alumnes.php</code>: Resol els exercicis següents utilitzant funcions d'arrays: </p>
 <ol>
 <li>Crea un array d'alumnes on cada element siga un altre array que continga nom i edat de l'alumne. </li>
 <li>Crea una taula HTML en la qual es mostren totes les dades dels alumnes. </li>
@@ -503,7 +555,7 @@ Modifica la solució de l’anterior exercici perquè mostre les ciutats ordenad
 </ol>
 </li>
 <li>
-<p><code>234CiutatsOpcional.php</code>: Modifica la solució del exercici <code>ciutats.php</code> perquè la taula continga també la columna del total d’habitants de la 
+<p><code>242CiutatsOpcional.php</code>: Modifica la solució del exercici <code>ciutats.php</code> perquè la taula continga també la columna del total d’habitants de la 
 comunitat autònoma de les ciutats de la llista i el percentatge sobre els habitants de la comunitat autònoma que representa.</p>
 <p>Per exemple: </p>
 <table>
@@ -530,9 +582,9 @@ d'estar en un altre array. </p>
 </li>
 </ol>
 <h2 id="funcions">Funcions</h2>
-<ol start="241">
+<ol start="243">
 <li>
-<p><code>241funcions.php</code>: Escriu una funció per retornar una etiqueta HTML <code>&lt;img /&gt;</code>. </p>
+<p><code>243funcions.php</code>: Escriu una funció per retornar una etiqueta HTML <code>&lt;img /&gt;</code>. </p>
 <p>La funció hauria d’acceptar com a argument obligatori l’URL de la imatge i arguments opcionals per a un text 
   alternatiu, alçada i amplada.</p>
 </li>
