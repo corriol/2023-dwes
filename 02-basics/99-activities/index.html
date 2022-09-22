@@ -219,21 +219,6 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#formularis">
-    Formularis
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#inclusio-de-fitxers">
-    Inclusió de fitxers
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#pujada-de-fitxers">
-    Pujada de fitxers
-  </a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#credits">
     Crèdits
   </a>
@@ -639,87 +624,6 @@ per a indicar si volem generar la query amb els noms dels camps o no. </p>
 <li>El text taula pel nom de la taula. </li>
 <li>El text camps pels noms dels camps separats per comes</li>
 <li>El text valors pels noms dels camps separats per comes i el caràcter ‘:’ davant. </li>
-</ol>
-</li>
-</ol>
-<h2 id="formularis">Formularis</h2>
-<ol start="261">
-<li>
-<p><code>261ExempleGet.php</code>: Crea una pàgina que reba com a paràmetre un nom i mostre el text ‘Benvingut [nom]!!!’ sent [nom] el nom has 
-passat com a paràmetre.</p>
-</li>
-<li>
-<p><code>262Formulari.php</code>: Crea un formulari que tinga els següents camps:</p>
-<ul>
-<li><code>firstname</code></li>
-<li><code>lastname</code></li>
-<li><code>phone</code></li>
-<li><code>email</code></li>
-</ul>
-<p>En l'atribut <code>action</code> del formulari posarem el següent:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">"262Formulari.php"</span> <span class="err">...</span><span class="p">/&gt;</span>
-</code></pre></div>
-<p>Açò farà que siga la pròpia pàgina del formulari la que processe les dades del mateix.</p>
-<p>En prémer <code>Enviar</code> han d'aparèixer sota el formulari les dades que s'han introduït en el mateix en format de 
-taula.</p>
-</li>
-<li>
-<p><code>263FormulariReparat.php</code>: Soluciona el problema dels paràmetres no enviats de l'exercici anterior.</p>
-</li>
-<li>
-<p><code>264FormulariValidat.php</code>: Modifica l'exercici anterior realitzant les següents validacions:</p>
-<ul>
-<li>Tots els camps són obligatoris.</li>
-<li><code>firstname</code>, no pot superar els 25 caracters.</li>
-<li><code>lastname</code>, no pot superar els 50 caracters.</li>
-<li><code>phone</code>, ha de contenir 9 digits (expressió regular: <code>^\d{9}$</code>).</li>
-<li><code>email</code>, ha de ser una adreça electrònica correcta.</li>
-</ul>
-<p>S'avaluaran tots els camps i si hi ha error/s caldrà mostrar-lo/s. Si no hi ha errors es mostraran les dades introduïdes per l'usuari.</p>
-</li>
-<li>
-<p><code>265FormulariOpcions.php</code>: Modifica l'exercici anterior afegint els següents camps al formulari:</p>
-<ul>
-<li><code>genre</code>: serà un <em>radio button</em> i podrà ser <em>home</em>, <em>dona</em> i <em>no binari</em>.</li>
-<li><code>hobbies</code>: serà un checkbox amb aficions de la que podràs triar-ne més d'una:<ul>
-<li>Lectura</li>
-<li>Programació</li>
-<li>Ciclisme</li>
-<li>Running</li>
-<li>...</li>
-</ul>
-</li>
-<li><code>contact-time</code>: serà una llista de les millores hores per a contactar: <ul>
-<li>Primera hora (08:00 a 10:00)</li>
-<li>Abans de dinar (12:00 a 13:00)</li>
-<li>Després de dinar (14:00 a 16:00)</li>
-<li>Per la nit (20:00 a 22:00)</li>
-</ul>
-</li>
-</ul>
-<p>En els tres casos són obligatoris, s'ha de mantindre el valor en cas de ser correcte .</p>
-</li>
-<li>
-<p><code>266FormulariArray</code>: Modifica l'exercici anterior de forma que el contingut dels camps de selecció es genere dinàmicament des d'arrays associatius. A més, els valors rebuts s'haurien de validar contra l'<em>array</em> i mostrar-se fent és d'ell.</p>
-</li>
-</ol>
-<h2 id="inclusio-de-fitxers">Inclusió de fitxers</h2>
-<ol>
-<li>
-<p><code>271Formulari.php</code>: Basant-te en l'activitat <code>264FormulariValidat.php</code> modifica les validacions perquè es facen mitjançant funcions. </p>
-<p>Les funcions es guardaran en el fitxer <code>helpers.php</code> i s'hauran d'incloure en fitxer <code>271Formulari.php</code>.</p>
-</li>
-<li>
-<p><code>272Formulari.php</code>: Basant-te en l'activitat <code>271Formulari.php</code> separa la part de codi de la presentació de forma que tota la lògica estiga en un fitxer i la part de presentació en altre fitxer <code>271Formulari.view.php</code>.</p>
-</li>
-</ol>
-<h2 id="pujada-de-fitxers">Pujada de fitxers</h2>
-<ol>
-<li><code>281FormularImatge.php</code>: Modifica l'activitat <code>272Formulari.php</code> afegint un camp de tipus <code>FILE</code> per a pujar una imatge al servidor. Es guardarà en la carpeta <code>uploads</code> i es mostrarà amb la resta de dades. </li>
-<li><code>282FormulariImage.php</code>: Modifica l'activitat anterior de forma que es controle el següent:<ol>
-<li>Les imatges sols podran ser <code>jpg</code>.</li>
-<li>No podran superar 1MB de grandària</li>
-<li>Es guardaran en un nom aleatori únic.</li>
 </ol>
 </li>
 </ol>
