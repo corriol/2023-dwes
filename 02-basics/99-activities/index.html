@@ -469,11 +469,11 @@ Per crear un nombre aleatori, utilitzeu la funció <code>rand(inici, fi)</code>.
 </li>
 <li>
 <p><code>233sexos.php</code>: Omple un array de 100 elements de manera aleatòria amb valors <code>M</code> o <code>F</code>.
-Un cop completat, torna a recórrer-lo i calcula quants elements hi ha de cadascun dels valors. Per això, emmagatzema el resultat en un array associatiu <code>['M' =&gt; 44, 'F' =&gt;66]</code>.</p>
+Un cop completat, torna a recórrer-lo i calcula quants elements hi ha de cadascun dels valors. Per això, emmagatzema el resultat en un array associatiu <code>['M' =&gt; 44, 'F' =&gt; 56]</code>.</p>
 <p>Finalment, mostra el resultat per pantalla</p>
 </li>
 <li>
-<p><code>234monedes.php</code>: Torna a fer l'exercici 207, el de les monedes (500, 200, 100, 50, 20, 10, 5, 2, 1), però fent ús d'arrays i un bucle.
+<p><code>234monedes.php</code>: Torna a fer l'exercici 206, el de les monedes (500, 200, 100, 50, 20, 10, 5, 2, 1), però fent ús d'arrays i un bucle.
 Emmagatzema el resultat en un <em>array associatiu</em>.
 Mostra el resultat en una llista desordenada només amb les quantitats que tenen algun valor.</p>
 </li>
@@ -567,14 +567,45 @@ d'estar en un altre array. </p>
 </li>
 </ol>
 <h2 id="funcions">Funcions</h2>
-<ol start="243">
+<ol start="250">
 <li>
-<p><code>243funcions.php</code>: Escriu una funció per retornar una etiqueta HTML <code>&lt;img /&gt;</code>. </p>
+<p><code>250arrayParell.php</code>: Crea les funcions següents:</p>
+<ul>
+<li>Una funció que esbrina si un nombre és parell: <code>esParell(int $num): bool</code>.</li>
+<li>Una funció que retorne un array de mida <code>$tam</code> amb números aleatoris compresos entre <code>$min</code> i <code>$max</code> : <code>arrayAleatori(int $tam, int $min, int $max): array</code>.</li>
+<li>Una funció que reba un <code>array</code> amb números aleatoris per referència i torne la quantitat de nombres parells que hi ha emmagatzemats: <code>arrayParells(array &amp;$array): int</code>.</li>
+</ul>
+</li>
+<li>
+<p><code>251parametrosVariables.php</code>: Crea les funcions següents:</p>
+<ul>
+<li>Una funció que retorne el nombre més gran de tots els números rebuts com a paràmetres: function <code>major(): int</code>. Utilitza les funcions <code>func_get_args()</code>, etc... No pots fer servir la funció <code>max()</code>.</li>
+<li>Una funció que concatene tots els paràmetres rebuts separant-los amb un espai: <code>function concatenar(...$paraules) : string</code>. Utilitza l'operador <code>.</code>.</li>
+</ul>
+</li>
+<li>
+<p><code>252matematiques.php</code>: Afegeix les funcions següents:</p>
+<ul>
+<li><code>digits(int $num): int</code> → retorna la quantitat de dígits d'un número.</li>
+<li><code>digitN(int $num, int $pos): int</code> → torna el dígit que ocupa, començant per l'esquerra, la posició <code>$pos</code>.</li>
+<li><code>llevarPerDarrere(int $num, int $quantitat): int</code> → li treu per darrere (dreta) <code>$quantitat</code> dígits.</li>
+<li><code>llevarPerDavant(int $num, int $quantitat): int</code> → li treu per davant (esquerra) <code>$quantitat</code> dígits.</li>
+</ul>
+</li>
+</ol>
+<p>Per provar les funcions, feu ús tant de pas d'arguments posicionals com arguments amb nom.</p>
+<ol start="253">
+<li><code>253biblioteca.php</code>: crea un fitxer amb funcions per sumar, restar, multiplicar i dividir dos números.</li>
+<li>
+<p><code>254arrayFunciones.php</code>: fent ús d'un array que emmagatzeme el nom de les funcions del fitxer anterior, a partir de dos números rebuts per URL, recorre l'array i invoca les funcions de manera dinàmica fent ús de funcions variable.</p>
+</li>
+<li>
+<p><code>255funcions.php</code>: Escriu una funció per retornar una etiqueta HTML <code>&lt;img /&gt;</code>. </p>
 <p>La funció hauria d’acceptar com a argument obligatori l’URL de la imatge i arguments opcionals per a un text 
   alternatiu, alçada i amplada.</p>
 </li>
 <li>
-<p><code>242funcions.php</code>: Copieu la funció de l’exercici anterior i modifiqueu-la de manera que només es passe el nom de fitxer a la funció en
+<p><code>256funcions.php</code>: Copieu la funció de l’exercici anterior i modifiqueu-la de manera que només es passe el nom de fitxer a la funció en
 lloc de l’URL completa. Dins de la funció, farem ús d’una variable global per fer l’URL completa.</p>
 <p>Per exemple, si passem <code>photo.png</code> a la funció, i la variable global conté <code>/images</code>, llavors l’atribut <code>src</code> de 
   l'etiqueta <img/> retornada serà <code>/images/photo.png</code>. </p>
@@ -583,7 +614,7 @@ lloc de l’URL completa. Dins de la funció, farem ús d’una variable global 
   <code>http://images.example.com/.</code></p>
 </li>
 <li>
-<p><code>243funciocolors.php</code>:  Els colors web com <code>#ffffff</code> i <code>#cc3399</code> es realitzen concatenant els valors hexadecimals de color per a vermell, 
+<p><code>257funciocolors.php</code>:  Els colors web com <code>#ffffff</code> i <code>#cc3399</code> es realitzen concatenant els valors hexadecimals de color per a vermell, 
 verd i blau. </p>
 <p>Escriu una funció que accepte 3 arguments: roig, verd i blau, i que retorne un string que conté el color adequat per
   utilitzar-lo en una pàgina web. </p>
@@ -592,20 +623,25 @@ verd i blau. </p>
 <p>Assegureu-vos que els paràmetres reben valors enters i que són colors vàlids.</p>
 <p>Implementa 3 exemples d’ús.</p>
 </li>
-<li>
-<p><code>244funcionsSQL.php</code>: Crea una funció anomenada <code>insert</code>  que ens genere una sentència INSERT INTO en SQL.  </p>
-<p>Per a açò la funció rebrà dos paràmetres:<br/>
-      1. El nom de la taula<br/>
-      2.   Un array associatiu que contindrà els noms i valors dels camps de la taula.</p>
-<p>La sentència resultant tindrà la següent forma: </p>
-<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>“INSERT INTO nom_taula (nom dels camps separats per comes) 
-<span class="linenos" data-linenos="2 "></span>  VALUES (noms dels camps separats per comes amb el caràcter “:” davant)  
+</ol>
+<p>258.<code>258funcionsSQL.php</code>: Crea una funció anomenada <code>insert</code>  que ens genere una sentència INSERT INTO en SQL.  </p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>Per a açò la funció rebrà dos paràmetres:  
+<span class="linenos" data-linenos=" 2 "></span>      1. El nom de la taula  
+<span class="linenos" data-linenos=" 3 "></span>      2.   Un array associatiu que contindrà els noms i valors dels camps de la taula.
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span>  La sentència resultant tindrà la següent forma:
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span>  ```
+<span class="linenos" data-linenos=" 8 "></span>  “INSERT INTO nom_taula (nom dels camps separats per comes) 
+<span class="linenos" data-linenos=" 9 "></span>    VALUES (noms dels camps separats per comes amb el caràcter “:” davant)  
+<span class="linenos" data-linenos="10 "></span>  ```
+<span class="linenos" data-linenos="11 "></span>De moment, no farem res amb els valors dels camps.
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span>Ajuda: utilitza les funcions `sprintf`, `implode` i `array_keys`
 </code></pre></div>
-De moment, no farem res amb els valors dels camps. </p>
-<p>Ajuda: utilitza les funcions <code>sprintf</code>, <code>implode</code> i <code>array_keys</code></p>
-</li>
+<ol start="259">
 <li>
-<p><code>245funcionsSQL2.php</code>: A partir de l'exercici anterior crea una altra funció que reba els mateixos paràmetres més un paràmetre booleà 
+<p><code>259funcionsSQL2.php</code>: A partir de l'exercici anterior crea una altra funció que reba els mateixos paràmetres més un paràmetre booleà 
 per a indicar si volem generar la query amb els noms dels camps o no. </p>
 <p>El paràmetre tindrà el valor <code>true</code> per defecte.</p>
 <p>Si el seu valor és <code>true</code> generarà la consulta igual que en l'exercici anterior, però si és <code>false</code> la generarà així: </p>
@@ -614,7 +650,7 @@ per a indicar si volem generar la query amb els noms dels camps o no. </p>
 </code></pre></div>
 </li>
 <li>
-<p><code>246funcionsSQLReferencia.php</code>: Repeteix l'exercici anterior amb els següents canvis: </p>
+<p><code>260funcionsSQLReferencia.php</code>: Repeteix l'exercici anterior amb els següents canvis: </p>
 <p>La cadena resultant es passarà per referència.</p>
 <p>Passarem la cadena de la següent forma: </p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>  <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">taula</span> <span class="p">(</span><span class="n">camps</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="n">valors</span><span class="p">)</span> 
