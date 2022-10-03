@@ -409,6 +409,31 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+        3.- PHP Orientat a Objectes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="3.- PHP Orientat a Objectes" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          3.- PHP Orientat a Objectes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0301-phpoo-basic/">
+        PHP OO Bàsic
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03-phpoo/0399-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </div>
@@ -1421,8 +1446,12 @@ Si una funció no té una sentència <strong>return</strong>, retorna <strong>nu
 <p>Podem fer llibreries de funcions guardant-les en un fitxer que desprès importem des d'on les utilitzem. Ho podem fer amb include, o utilitzant composer per a fer-ho.</p>
 <h2 id="sentencies-per-a-incloure-fitxers">Sentències per a incloure Fitxers</h2>
 <p>Les sentències <code>include()</code> i <code>include_once()</code> i <code>require()</code> i <code>require_once()</code> inclouen i avaluen el fitxeru especificat. </p>
-<p><code>include_once()</code> i <code>require_once()</code> a més verifique que el fitxer no haja sigut inclòs abans i és preferible a <code>include</code>. Cal ser curòs amb el <code>path</code> de l'arxiu a incloure. </p>
+<p><code>include_once()</code> i <code>require_once()</code> a més verifique que el fitxer no haja sigut inclòs abans i és preferible a <code>include</code>. Cal ser curòs amb el <code>path</code> del fitxer a incloure. </p>
 <p>La diferència entre <code>require</code> i <code>include</code> és el tractament de l'error quan el fitxer no existeix. Mentre <code>include</code> mostra un avís, <code>require</code> mostra una error fatal que para l'execució de l'script.</p>
+<div class="admonition info">
+<p class="admonition-title">Vistes</p>
+<p>Un ús habitual de les funcions d'inclusió és crear vistes. Una vista és la part de l'aplicació que mostra la informació a l'usuari. Amb les inclusions podem separar la part de lògica de la d'interfície d'usuari.</p>
+</div>
 <h3 id="ambit-de-les-variables_1">Àmbit de les variables</h3>
 <p>Com s'observa en l'exemple següent, les variables creades abans de cridar l'include, estaran disponibles en el fitxer inclòs. </p>
 <p>És a dir, com si tot fora un únic document.</p>

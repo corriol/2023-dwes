@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
-<title>POO en PHP. Conceptes bàsics - DWES</title>
+<title>PHP OO Bàsic - DWES</title>
 <link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -46,7 +46,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              POO en PHP. Conceptes bàsics
+              PHP OO Bàsic
             
           </span>
 </div>
@@ -168,6 +168,112 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+        3.- PHP Orientat a Objectes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="3.- PHP Orientat a Objectes" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          3.- PHP Orientat a Objectes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          PHP OO Bàsic
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        PHP OO Bàsic
+      </a>
+<nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduccio">
+    Introducció
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#caracteristiques-basiques-de-lus-dobjectes-en-php">
+    Característiques bàsiques de l'ús d'objectes en PHP
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#definicio-de-classes">
+    Definició de classes
+  </a>
+<nav aria-label="Definició de classes" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#visibilitat">
+    Visibilitat
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#constructor">
+    Constructor
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#la-pseuodovariable-this">
+    La pseuodovariable $this
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#constants-de-classe">
+    Constants de classe
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#utilitzacio-dobjectes">
+    Utilització d'objectes
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comparacio-dobjectes">
+    Comparació d'Objectes
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#herencia">
+    Herència
+  </a>
+<nav aria-label="Herència" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#la-paraula-reservada-extends">
+    La paraula reservada extends
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#bibliografia">
+    Bibliografia
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../0399-activities/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </div>
@@ -200,8 +306,8 @@ membres de una classe pot haver-hi:</p>
     l'objecte al que pertanyen (i per tant, el seu valor pot ser
     diferent per a cadascun dels objectes de la mateixa classe).</li>
 </ul>
-<p>A la creació de un objecte basat en una classe se li anomena instanciar
-una classe i a l'objecte obtingut també se li coneix com a instància
+<p>A la creació d'un objecte basat en una classe se li anomena <strong>instanciar
+una classe</strong> i a l'objecte obtingut també se li coneix com a <strong>instància</strong>
 d'aqueixa classe.</p>
 <p>Els pilars fonamentals de la POO són:</p>
 <ul>
@@ -226,9 +332,9 @@ objectes són:</p>
     comportament dels ja existents.</li>
 <li><strong>Manteniment</strong>. Els programes desenvolupats utilitzant POO són més
     senzills de mantenir, a causa de la modularitat abans comentada.
-    També ajuda seguir certes convencions en escriure'ls , per exemple,
+    També ajuda seguir certes convencions en escriure'ls, per exemple,
     escriure cada classe en un fitxer propi. No ha d'haver-hi dues
-    classes en un mateix fitxer, ni un altre codi a part de el propi de
+    classes en un mateix fitxer, ni un altre codi a part del propi de
     la classe.</li>
 </ul>
 <h2 id="caracteristiques-basiques-de-lus-dobjectes-en-php">Característiques bàsiques de l'ús d'objectes en PHP</h2>
@@ -282,6 +388,11 @@ d'altres llenguatges de programació, estan:</p>
     s'usen en cada instant).</li>
 </ul>
 <p>PHP 7 incorpora millores en el rendiment i el tipat d'arguments, valors de retorn i atributs (des de la versió 7.4)</p>
+<p>Quant a les novetats aportades per PHP 8 cal destacar: l'operador <code>nullsafe</code>, la propagació de propietats en els constructors, la unió de tipus que permet definir tipus múltiples.</p>
+<div class="admonition important">
+<p class="admonition-title">Objectes sempre es passen per referència</p>
+<p>Els objectes  que s'envien o reben com a paràmetres sempre es passen per referència.</p>
+</div>
 <h2 id="definicio-de-classes">Definició de classes</h2>
 <p>La declaració de una classe en PHP es fa utilitzant la paraula <code>class</code>. A continuació i entre claus, han de 
 figurar els membres de la classe.</p>
@@ -339,11 +450,11 @@ principals nivells són:</p>
     accedits i modificats per els mètodes definits en la classe, no
     directament per els objectes de la mateixa. És el cas de l'atribut
     <code>$code</code>.</li>
-<li><code>protected</code>. Una propietat o mètode <code>protected</code> sols pot ser accedida per la classe on es defineix o per un subclasse. No és accessible des de fora.  </li>
+<li><code>protected</code>. Una propietat o mètode <code>protected</code> sols pot ser accedida per la classe on es defineix o per un subclasse. No és accessible des de fora.</li>
 </ul>
 <p>Un dels motius per a crear atributs privats és que el seu valor forma
 part de la informació interna de l'objecte i no ha de formar part de la
-seua interfície. Un altre motiu és mantenir cert control sobre els seus
+seua interfície (els punts de comunicació amb altres objectes). Un altre motiu és mantenir cert control sobre els seus
 possibles valors. Per exemple, si no vols que es puga canviar lliurement
 el valor del codi d'un producte. O necessites conèixer quin serà el nou
 valor abans d'assignar-lo. En aquests casos, se solen definir aqueixos
@@ -362,9 +473,9 @@ exemple:</p>
 </code></pre></div>
 <p>Encara que no és obligatori, el nom del mètode que ens permet obtenir el
 valor de un atribut sol començar per <code>get</code>, i el que ens permet
-modificar-lo per <code>set</code>.</p>
+modificar-lo per <code>set</code>. Aquest mètodes solen anomenar-se <code>getters</code> i <code>setters</code> o <code>accessors</code>.</p>
 <h2 id="constructor">Constructor</h2>
-<p>Com ja has vist, per a instanciar objectes de una classe s'utilitza la
+<p>Com ja has vist, per a instanciar objectes d'una classe s'utilitza la
 paraula <code>new</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$product</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Product</span><span class="p">();</span>
 </code></pre></div>
@@ -397,10 +508,19 @@ No obstant açò, només pot haver-hi un mètode constructor en cada classe.</p>
 <span class="linenos" data-linenos="8 "></span><span class="p">}</span>
 <span class="linenos" data-linenos="9 "></span><span class="nv">$product</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Product</span><span class="p">(</span><span class="s1">'GALAXYS'</span><span class="p">);</span>
 </code></pre></div>
-<p>Per exemple, si com en aquest exemple, definim un constructor en el qual
+<p>Si com en aquest exemple, definim un constructor en el qual
 cal passar el codi, sempre que instancies un nou objecte d'aqueixa
-classe hauràs de indicar el seu codi.</p>
-<h2 id="la-pseuodovariable-this">La pseuodovariable $this</h2>
+classe hauràs d'indicar el seu codi.</p>
+<p>En PHP8 podem definir les propietats de la següent manera:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">class</span> <span class="nc">Product</span> <span class="p">{</span>    
+<span class="linenos" data-linenos="2 "></span>    <span class="k">public</span> <span class="nx">string</span> <span class="nv">$name</span><span class="p">;</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="k">private</span> <span class="nx">string</span> <span class="nv">$code</span><span class="p">)</span> <span class="p">{</span>        
+<span class="linenos" data-linenos="4 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="o">...</span>
+<span class="linenos" data-linenos="6 "></span><span class="p">}</span>
+</code></pre></div>
+D'aquest forma ens estalviem diverses línies de codi.</p>
+<h2 id="la-pseuodovariable-this">La pseuodovariable <code>$this</code></h2>
 <p>Quan des d'un objecte s'invoca un mètode de la classe, a aquest se li
 passa sempre una referència a l'objecte que ha fet la crida. Aquesta
 referència s'emmagatzema en la pseudovariable <code>$this.</code> S'utilitza, per
@@ -408,8 +528,6 @@ exemple, en el codi anterior per a tenir accés als atributs privats de
 l'objecte (que només són accessibles des dels mètodes de la classe).</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>echo "<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>" . $this-&gt;code . "<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>";
 </code></pre></div>
-<p>En la documentació de PHP tens més informació sobre els mètodes màgics:
-<a href="http://es.php.net/manual/es/language.oop5.magic.php">http://es.php.net/manual/es/language.oop5.magic.php</a></p>
 <h2 id="constants-de-classe">Constants de classe</h2>
 <p>A més de mètodes i propietats, en una classe també es poden definir constants, 
 utilitzant la paraula <code>const</code>. És important que no confongues els atributs amb
@@ -439,10 +557,10 @@ són recomanacions sobre l'estil de programació amb l'objectiu d'aplicar estand
 així facilitar la lectura del codi realitzar per altres.</p>
 <p>Algunes recomancions que cal seguir:</p>
 <ol>
-<li>Class names MUST be declared in <code>StudlyCaps</code>. For instance: <code>Product</code>.</li>
-<li>Class constants MUST be declared in all upper case with underscore separators. For example: const IMAGE_PATH.      </li>
-<li>About property names the only recommendation is to be consistent. So, we SHOULD use <code>$camelCase</code>. The same recommendations applies for variables.</li>
-<li>Method names MUST be declared in <code>camelCase()</code>.</li>
+<li>Les classes s'han de declarar en <code>StudlyCaps</code>. Per exemple: <code>Product</code>.</li>
+<li>Les constants de classes s'HAN DE declarar en majúscules i separats amb guió baix. Per exemple: <code>const IMAGE_PATH</code>.      </li>
+<li>Sobre els noms de les propietats la única recomanació és ser consistent. Així, PODEM usar <code>$camelCase</code>. La mateixa recomanació aplicarem a les variables.</li>
+<li>Els mètodes S'HAN DE declarar en <code>camelCase()</code>.</li>
 </ol>
 <p>Més informació en <a href="http://coppeldev.github.io/php/standards/psr-1.html">Estándares</a></p>
 <h2 id="utilitzacio-dobjectes">Utilització d'objectes</h2>
@@ -480,11 +598,11 @@ veuria també reflectit en accedir utilitzant l'altre identificador. Recorda que
 més identificadors del mateix objecte, en realitat tots es refereixen a l'única còpia que s'emmagatzema 
 del mateix.</p>
 <h2 id="comparacio-dobjectes">Comparació d'Objectes</h2>
-<p>En utilitzar l'operador de comparació (==), es comparen d'una manera
+<p>En utilitzar l'operador de comparació (<code>==</code>), es comparen d'una manera
 senzilla les variables de cada objecte, és a dir: dues instàncies d'un
 objecte són iguals si tenen els mateixos atributs i valors (els valors
-es comparen amb ==), i són instàncies de la mateixa classe.</p>
-<p>Quan s'utilitza l'operador identitat (===), les variables d'un objecte
+es comparen amb <code>==</code>), i són instàncies de la mateixa classe.</p>
+<p>Quan s'utilitza l'operador identitat (<code>===</code>), les variables d'un objecte
 són idèntiques si i només sí fan referència a la mateixa instància de
 la mateixa classe.</p>
 <h2 id="herencia">Herència</h2>
@@ -551,15 +669,43 @@ simplement creant en la subclasse un nou mètode amb el mateix nom.</p>
     Disponible en
     &lt;<a href="https://github.com/statickidz/TemarioDAW/tree/master/DWES">https://github.com/statickidz/TemarioDAW/tree/master/DWES</a>&gt;</li>
 <li>Antonio López. <em>Learning PHP 7.</em> Packt Publishing (29 de marzo de
-    2016) .</li>
-<li>https://stackify.com/oop-concept-for-beginners-what-is-encapsulation/</li>
-<li>https://stackify.com/oop-concept-abstraction/</li>
+    2016).</li>
+<li>Janssen, Thorben. «OOP Concept for Beginners: What Is Encapsulation». Stackify, 7 gener 2022, <a href="https://stackify.com/oop-concept-for-beginners-what-is-encapsulation/">https://stackify.com/oop-concept-for-beginners-what-is-encapsulation/</a> [data de consulta: 11 de setembre de 2022].  </li>
+<li>Janssen, Thorben. «OOP Concept for Beginners: What Is Abstraction?» Stackify, 23 novembre 2017, <a href="https://stackify.com/oop-concept-abstraction/">https://stackify.com/oop-concept-abstraction/</a> [data de consulta: 11 de setembre de 2022].</li>
 </ul>
 </article>
 </div>
 </div>
 </main>
 <footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Anterior: Activitats" class="md-footer__link md-footer__link--prev" href="../../02-basics/99-activities/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Anterior
+              </span>
+              Activitats
+            </div>
+</div>
+</a>
+<a aria-label="Següent: Activitats" class="md-footer__link md-footer__link--next" href="../0399-activities/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Següent
+              </span>
+              Activitats
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-footer-copyright">

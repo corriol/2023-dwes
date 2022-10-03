@@ -168,6 +168,54 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+        3.- PHP Orientat a Objectes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="3.- PHP Orientat a Objectes" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          3.- PHP Orientat a Objectes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../0301-phpoo-basic/">
+        PHP OO Bàsic
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Activitats
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Activitats
+      </a>
+<nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#poo-basic">
+    POO Bàsic
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#errors-i-excepcions">
+    Errors i excepcions
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </div>
@@ -179,7 +227,40 @@
 <h2 id="poo-basic">POO Bàsic</h2>
 <ol start="301">
 <li>
-<p><code>301-Card</code>: Crea una classe anomenada <code>Card</code> que contindrà la informació
+<p>Crea una classe <code>Employee</code> que represente un empleat amb el seu nom, cognoms i sou. Encapsula les 
+propietats mitjançant mètodes <em>getters</em>/<em>setters</em> i afegeix els següents mètodes:</p>
+</li>
+<li>
+<p>Obtenir el nom complet: <code>getFullname(): string</code>.</p>
+</li>
+<li>
+<p>Que torne un booleà indicant si deu o no pagar impostos (es paguen quan el sou és superior a 3333€): <code>mustPayTaxes():bool</code>.</p>
+</li>
+<li>
+<p>Afegeix una propietat privada que que emmagatzeme una sèrie de números de telèfons. Afegiu els següents mètodes:</p>
+</li>
+<li>
+<p><code>public function addPhone(string $phone): void</code> → Afegeix un telèfon a l'array</p>
+</li>
+<li><code>public function listPhones(): string</code> → Mostra els telèfons separats per comes</li>
+<li>
+<p><code>public function emptyPhones(): void</code> → Elimina tots els telèfons</p>
+</li>
+<li>
+<p>Crea el constructor amb els paràmetres nom i cognoms. Si el constructor rep un tercer paràmetre, serà el sou. Si no, s’assignaran 1000€ com a sou inicial. Fes una versió fent ús de la propagació de propietats de PHP8.</p>
+</li>
+<li>
+<p>Afegeix una constant <code>MAX_SALARY</code> amb el valor del sou que ha de pagar impostos, i modifica el codi per utilitzar la constant.</p>
+</li>
+<li>
+<p>Completa el següent mètode amb una cadena HTML que mostre les dades d'un empleat dins d'un paràgraf i tots els telèfons mitjançant una llista ordenada (hauràs de crear un <em>getter</em> per als telèfons):</p>
+<p><code>public static function toHtml (Employee $emp): string</code></p>
+</li>
+<li>
+<p>Representa la classe en UML.</p>
+</li>
+<li>
+<p>Crea una classe anomenada <code>Card</code> que contindrà la informació
      relativa una carta de la baralla francesa amb les seguents propietats:</p>
 <ul>
 <li><code>suit</code>, string, privada.</li>
@@ -198,7 +279,7 @@ class Card {
 </div>
 </li>
 <li>
-<p><code>302-CardCollection</code>: Crea una classe anomenada <code>CardCollection</code> que contindrà la propietat
+<p>Crea una classe anomenada <code>CardCollection</code> que contindrà la propietat
      <code>cards</code> que serà un array de cartes (objectes <code>Card</code>).</p>
 <p>Hi haurà dues formes d'inserir cartes, mitjançant el mètode <code>CardCollection::add(array $array)</code> que rebrà un array de cartes i els afegirà a la propietat <code>cards</code> i el mètode <code>CardCollecion::addCard(Card $card)</code> que rebrà una carta i la inserirà en la propietat <code>card</code>.</p>
 <p>A més, contindrà el mètode <code>shuffle()</code> que ordenarà les cartes de forma aleatòria.</p>
@@ -208,23 +289,23 @@ class CardCollection {
      -cards: array
      +add(cards: array)
      +addCard(card: Card): void
+     shuffle()
+     getCards() array
 }
 class Card {
     -suit: string
     -symbol: string
     -value: int
     __construct (suit: string, symbol: string, value: int)
-    shuffle()
-    getCards() array
 } 
 CardCollection "1"--"*" Card
 </div>
 </li>
 <li>
-<p><code>303-writer</code>: crea el mètodo <code>writer</code> en la classe <code>CardCollection</code> de forma que mostre en format lliure la   col·leció de cartes. Amb aquest mètode afegirem una nova capa d'abstracció ja que no caldrà accedir directament als mètodes de la classe <code>Card</code>.  Afig un segon mètode que mostre la col·lecció de cartes en una imatge que represente cada carta (les imatges que hem usat en activitats anteriors).</p>
+<p>Crea el mètodo <code>writer</code> en la classe <code>CardCollection</code> de forma que mostre en format lliure la   col·leció de cartes. Amb aquest mètode afegirem una nova capa d'abstracció ja que no caldrà accedir directament als mètodes de la classe <code>Card</code>.  Afig un segon mètode que mostre la col·lecció de cartes en una imatge que represente cada carta (les imatges que hem usat en activitats anteriors).</p>
 </li>
 <li>
-<p><code>304-basic-game</code>: fent ús de les classes anteriors crearem una aplicació bàsica en la que s'enfronten dos jugadors. Un exemple de partida podria ser el següent:</p>
+<p>Fent ús de les classes anteriors crearem una aplicació bàsica en la que s'enfronten dos jugadors. Un exemple de partida podria ser el següent:</p>
 <p><img alt="" src="../assets/cartes.png"/></p>
 <p>La classe <code>CardCollection</code> quedarà així:</p>
 <div class="mermaid">classDiagram
@@ -250,7 +331,7 @@ class CardCollection {
 <p>Així que en la aplicació interactuaran 3 objectes de tipus <code>CardCollection</code>.</p>
 </li>
 <li>
-<p><code>305-abstract-game</code>: en l'activitat anterior vam crear tres objectes de tipus <code>CardCollection</code>.  Podem observar que alguns mètodes, com per exemple <code>deal</code> (<em>repartir</em>) tenen sentit en l'objecte quan representen la mà d'un jugador.</p>
+<p><code>abastract_game</code>: en l'activitat anterior vam crear tres objectes de tipus <code>CardCollection</code>.  Podem observar que alguns mètodes, com per exemple <code>deal</code> (<em>repartir</em>) tenen sentit en l'objecte quan representen la mà d'un jugador.</p>
 <p>Podem replantejar la solució de la següent manera:</p>
 <div class="mermaid">
 classDiagram
@@ -313,59 +394,26 @@ classDiagram
 </ul>
 </li>
 </ol>
-<h2 id="projecte-moviefx">Projecte: MovieFX</h2>
-<p>En primer lloc caldrà crear el lloc web virtual que allotjarà l'aplicació que haurà d'estar en un directori.</p>
-<p>Allí disposarem de la següent estructura de directoris:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>.
-<span class="linenos" data-linenos="2 "></span>├── index.php
-<span class="linenos" data-linenos="3 "></span>├── src                
-<span class="linenos" data-linenos="4 "></span>└── views
-</code></pre></div>
-<p><code>src</code>contindrà les classes i <code>view</code> les vistes.</p>
-<p>Caldrà crear un repositori privat de Github on mantindrem una versió del projecte.</p>
-<ol>
-<li>Crea la classe <code>Movie</code> en la carpeta <code>src</code> del projecte, <strong>cal usar tipat esctricte</strong>. Les propietats seran:<ul>
-<li>id (integer)</li>
-<li>title (string)</li>
-<li>overview (string)</li>
-<li>releaseDate (string)</li>
-<li>rating (float)</li>
-<li>poster (string)</li>
-</ul>
-</li>
-<li>Crea els <em>setters</em> i els <em>getters</em>.</li>
-<li>Crea la constant de classe <code>POSTER_PATH</code> contindrà la ruta al directori on es troben les imatges.</li>
-<li>Crea un array <code>$movies</code> que siga un array d’objectes <code>Movie</code>. Crean 3.</li>
-<li>Crea la pàgina d'index.php perquè mostre les pel·licules de l'array.</li>
-<li>El títol de la pel·licula  serà un enllaç a <code>movie.php?id=[atribut id de la pel·lícula]</code>.</li>
-<li>
-<p>La pàgina <code>movie.php</code> mostrarà les dades de la pel·licula que tinga l'<code>id</code> que s'ha passat pel 
-querystring. Post usar <code>array_filter</code> per trobar l'objecte que té l'id indicat.</p>
-</li>
-<li>
-<p>Crea la classe <code>User</code> en la carpeta <code>src</code> amb les següents propietats:</p>
-<ul>
-<li>id (integer)</li>
-<li>username (string)</li>
-<li>password (string)</li>
-<li>plan (Plan)</li>
-</ul>
-</li>
-<li>
-<p>Crea la classe <code>Plan</code> en la carpeta <code>src</code>amb les següents propietats:</p>
-<ul>
-<li>id (integer)</li>
-<li>name (enumeration: BASIC, PREMIUM)</li>
-<li>quality (enumeration: SD, HD, 4K)</li>
-<li>screens (integer)</li>
-</ul>
-</li>
-</ol>
 </article>
 </div>
 </div>
 </main>
 <footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Anterior: PHP OO Bàsic" class="md-footer__link md-footer__link--prev" href="../0301-phpoo-basic/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Anterior
+              </span>
+              PHP OO Bàsic
+            </div>
+</div>
+</a>
+</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-footer-copyright">
