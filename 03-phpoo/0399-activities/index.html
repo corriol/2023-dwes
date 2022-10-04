@@ -229,22 +229,18 @@
 <li>
 <p>Crea una classe <code>Employee</code> que represente un empleat amb el seu nom, cognoms i sou. Encapsula les 
 propietats mitjançant mètodes <em>getters</em>/<em>setters</em> i afegeix els següents mètodes:</p>
-</li>
-<li>
-<p>Obtenir el nom complet: <code>getFullname(): string</code>.</p>
-</li>
-<li>
-<p>Que torne un booleà indicant si deu o no pagar impostos (es paguen quan el sou és superior a 3333€): <code>mustPayTaxes():bool</code>.</p>
+<ol>
+<li>Obtenir el nom complet: <code>getFullname(): string</code>.</li>
+<li>Que torne un booleà indicant si deu o no pagar impostos (es paguen quan el sou és superior a 3333€): <code>mustPayTaxes():bool</code>.</li>
+</ol>
 </li>
 <li>
 <p>Afegeix una propietat privada que que emmagatzeme una sèrie de números de telèfons. Afegiu els següents mètodes:</p>
-</li>
-<li>
-<p><code>public function addPhone(string $phone): void</code> → Afegeix un telèfon a l'array</p>
-</li>
-<li><code>public function listPhones(): string</code> → Mostra els telèfons separats per comes</li>
-<li>
-<p><code>public function emptyPhones(): void</code> → Elimina tots els telèfons</p>
+<ol>
+<li><code>public function addPhone(string $phone): void</code> → Afegeix un telèfon a l'array</li>
+<li><code>public function listPhones(): string</code> → Torna els telèfons en separats per comes</li>
+<li><code>public function emptyPhones(): void</code> → Elimina tots els telèfons</li>
+</ol>
 </li>
 <li>
 <p>Crea el constructor amb els paràmetres nom i cognoms. Si el constructor rep un tercer paràmetre, serà el sou. Si no, s’assignaran 1000€ com a sou inicial. Fes una versió fent ús de la propagació de propietats de PHP8.</p>
@@ -372,7 +368,7 @@ classDiagram
 </li>
 </ol>
 <h2 id="errors-i-excepcions">Errors i excepcions</h2>
-<ol start="306">
+<ol>
 <li>
 <p><code>306-error-handling</code>: modifica l'activitat 284 (formulari de contactes) de forma que quan es produisca un error de validació és llance una excepció que serà capturada.</p>
 <p>Caldrà construir la següent jerarquia d'errors:</p>
