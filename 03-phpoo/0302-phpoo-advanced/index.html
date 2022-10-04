@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
-<title>PPO en PHP. Conceptes avançants - DWES</title>
+<title>PHP OO Avançat - DWES</title>
 <link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -46,7 +46,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              PPO en PHP. Conceptes avançants
+              PHP OO Avançat
             
           </span>
 </div>
@@ -168,8 +168,8 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4">
         3.- PHP Orientat a Objectes
         <span class="md-nav__icon md-icon"></span>
@@ -184,6 +184,73 @@
 <a class="md-nav__link" href="../0301-phpoo-basic/">
         PHP OO Bàsic
       </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          PHP OO Avançat
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        PHP OO Avançat
+      </a>
+<nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#metodes-i-propietats-estatiques">
+    Mètodes i propietats estàtiques
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#classes-abstractes">
+    Classes abstractes
+  </a>
+<nav aria-label="Classes abstractes" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#metodes-abstractes">
+    Mètodes abstractes
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#interficies">
+    Interfícies
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#classes-abstractes-vs-interficies">
+    Classes abstractes vs interfícies
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#trets-traits">
+    Trets (Traits)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#clonacio-dobjectes">
+    Clonació d'Objectes
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#classes-i-metodes-finals">
+    Classes i mètodes finals
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#bibliografia">
+    Bibliografia
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../0399-activities/">
@@ -233,7 +300,7 @@ d'instànciar-la.</p>
 <span class="linenos" data-linenos=" 9 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos="10 "></span>
 <span class="linenos" data-linenos="11 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getSummaryLine</span><span class="p">()</span> <span class="o">:</span> <span class="nx">string</span> <span class="p">{</span>
-<span class="linenos" data-linenos="12 "></span>        <span class="k">return</span> <span class="s2">"El producte "</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">codigo</span><span class="o">.</span><span class="s2">" és el número "</span><span class="o">.</span><span class="nx">self</span><span class="o">::</span><span class="nv">$numOfProducts</span><span class="p">;</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="k">return</span> <span class="s2">"El producte "</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">code</span><span class="o">.</span><span class="s2">" és el número "</span><span class="o">.</span><span class="nx">self</span><span class="o">::</span><span class="nv">$numOfProducts</span><span class="p">;</span>
 <span class="linenos" data-linenos="13 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos="14 "></span><span class="p">}</span>
 <span class="linenos" data-linenos="15 "></span>
@@ -264,7 +331,7 @@ li passarà un array amb els valors dels atributs del nou producte.</p>
 <span class="linenos" data-linenos=" 4 "></span>    <span class="k">public</span> <span class="nv">$shortName</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 5 "></span>    <span class="k">public</span> <span class="nv">$price</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 6 "></span>
-<span class="linenos" data-linenos=" 7 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">()</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span> <span class="p">{</span>
 <span class="linenos" data-linenos=" 8 "></span>        <span class="k">echo</span> <span class="s2">"&lt;p&gt;"</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">code</span> <span class="o">.</span> <span class="s2">"&lt;/p&gt;"</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 9 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos="10 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$row</span><span class="p">)</span> <span class="p">{</span>
@@ -322,7 +389,7 @@ en HTML diferent per a cada tipus de producte.</p>
 <p>Si vols assegurar-te que tots els tipus de productes tinguen un mètode
 <code>show</code>, pots crear un interface com el següent.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">interface</span> <span class="nx">IShow</span> <span class="p">{</span>
-<span class="linenos" data-linenos="2 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">();</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">()</span><span class="o">:</span> <span class="nx">Void</span><span class="p">;</span>
 <span class="linenos" data-linenos="3 "></span><span class="p">}</span>
 </code></pre></div>
 <p>I quan crees les subclasses hauràs d'indicar amb la paraula <code>implements</code>
@@ -347,7 +414,7 @@ amb quins objectiu han sigut escrits.</p>
 <p>Per exemple, en la llibreria de PHP està definit la interfície
 <code>countable</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nx">Countable</span> <span class="p">{</span>
-<span class="linenos" data-linenos="2 "></span>    <span class="k">abstract</span> <span class="k">public</span> <span class="nx">int</span> <span class="nb">count</span> <span class="p">(</span> <span class="nx">void</span> <span class="p">)</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="k">abstract</span> <span class="k">public</span> <span class="nx">int</span> <span class="nb">count</span><span class="p">(</span><span class="nx">void</span><span class="p">)</span>
 <span class="linenos" data-linenos="3 "></span><span class="p">}</span>
 </code></pre></div>
 <p>Si crees una classe per a la cistella de la compra en la tenda web,
@@ -365,7 +432,7 @@ la llista d'interfícies per comes després de la paraula <code>implements</code
 d'implementar en els diferents interfícies no coincidisquen. És a dir,
 en el nostre exemple, la interfície <code>IShow</code> no podria contenir el
 mètode <code>count</code>, doncs aquest ja està declarat en <code>Countable</code>.</p>
-<p>En PHP7 també es poden crear nous interfícies heretant d'uns altres ja
+<p>Des de PHP7 també es poden crear nous interfícies heretant d'uns altres ja
 existents. Es fa de la mateixa forma que amb les classes, utilitzant la
 paraula <code>extends</code>.</p>
 <h2 id="classes-abstractes-vs-interficies">Classes abstractes vs interfícies</h2>
@@ -408,9 +475,9 @@ faries com una classe abstracta o com una interfície.</p>
 Client i a Empleat, hauries de crear una classe abstracta Usuari de la
 qual hereten.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">abstract</span> <span class="k">class</span> <span class="nc">Usuari</span> <span class="p">{</span>
-<span class="linenos" data-linenos="2 "></span>    <span class="k">public</span> <span class="nv">$dni</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="k">public</span> <span class="nx">string</span> <span class="nv">$dni</span><span class="p">;</span>
 <span class="linenos" data-linenos="3 "></span>
-<span class="linenos" data-linenos="4 "></span>    <span class="k">protected</span> <span class="nv">$nom</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="k">protected</span> <span class="nx">string</span> <span class="nv">$nom</span><span class="p">;</span>
 <span class="linenos" data-linenos="5 "></span>        <span class="o">...</span>
 <span class="linenos" data-linenos="6 "></span><span class="p">}</span>
 </code></pre></div>
@@ -488,9 +555,9 @@ el comportament dels mètodes existents en la superclasse: utilitzar la
 paraula <code>final</code>.</p>
 <p>Si en el nostre exemple haguérem fet:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">class</span> <span class="nc">Product</span> <span class="p">{</span> 
-<span class="linenos" data-linenos="2 "></span>    <span class="k">public</span> <span class="nv">$code</span><span class="p">;</span> 
-<span class="linenos" data-linenos="3 "></span>    <span class="k">public</span> <span class="nv">$name</span><span class="p">;</span>         
-<span class="linenos" data-linenos="4 "></span>    <span class="k">public</span> <span class="nv">$price</span><span class="p">;</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="k">public</span> <span class="nx">string</span> <span class="nv">$code</span><span class="p">;</span> 
+<span class="linenos" data-linenos="3 "></span>    <span class="k">public</span> <span class="nx">string</span> <span class="nv">$name</span><span class="p">;</span>         
+<span class="linenos" data-linenos="4 "></span>    <span class="k">public</span> <span class="nx">float</span> <span class="nv">$price</span><span class="p">;</span>
 <span class="linenos" data-linenos="5 "></span>
 <span class="linenos" data-linenos="6 "></span>    <span class="k">public</span> <span class="k">final</span> <span class="k">function</span> <span class="nf">show</span><span class="p">()</span> <span class="p">{</span>
 <span class="linenos" data-linenos="7 "></span>        <span class="k">print</span> <span class="s2">"&lt;p&gt;"</span> <span class="o">.</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">code</span> <span class="o">.</span> <span class="s2">"&lt;/p&gt;"</span><span class="p">;</span>
@@ -520,6 +587,34 @@ podran crear-se classes heretades utilitzant-les com a base.</p>
 </div>
 </main>
 <footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Anterior: PHP OO Bàsic" class="md-footer__link md-footer__link--prev" href="../0301-phpoo-basic/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Anterior
+              </span>
+              PHP OO Bàsic
+            </div>
+</div>
+</a>
+<a aria-label="Següent: Activitats" class="md-footer__link md-footer__link--next" href="../0399-activities/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Següent
+              </span>
+              Activitats
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-footer-copyright">
