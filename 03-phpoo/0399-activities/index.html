@@ -282,7 +282,7 @@ class Card {
 <li>
 <p>Crea una classe anomenada <code>CardCollection</code> que contindrà la propietat
      <code>cards</code> que serà un array de cartes (objectes <code>Card</code>).</p>
-<p>Hi haurà dues formes d'inserir cartes, mitjançant el mètode <code>CardCollection::add(array $array)</code> que rebrà un array de cartes i els afegirà a la propietat <code>cards</code> i el mètode <code>CardCollecion::addCard(Card $card)</code> que rebrà una carta i la inserirà en la propietat <code>card</code>.</p>
+<p>Hi haurà dues formes d'inserir cartes, mitjançant el mètode <code>CardCollection::add(array $array)</code> que rebrà un array de cartes i els afegirà a la propietat <code>cards</code> i el mètode <code>CardCollecion::addCard(Card $card)</code> que rebrà una carta i la inserirà en la propietat <code>cards</code>.</p>
 <p>A més, contindrà el mètode <code>shuffle()</code> que ordenarà les cartes de forma aleatòria.</p>
 <p>Instància la classe, afig 5 cartes, reordena-les i mostra-les.</p>
 <div class="mermaid">classDiagram
@@ -303,7 +303,10 @@ CardCollection "1"--"*" Card
 </div>
 </li>
 <li>
-<p>Crea el mètodo <code>writer</code> en la classe <code>CardCollection</code> de forma que mostre en format lliure la   col·leció de cartes. Amb aquest mètode afegirem una nova capa d'abstracció ja que no caldrà accedir directament als mètodes de la classe <code>Card</code>.  Afig un segon mètode que mostre la col·lecció de cartes en una imatge que represente cada carta (les imatges que hem usat en activitats anteriors).</p>
+<p>Crea el mètodo <code>writer</code> en la classe <code>CardCollection</code> de forma que mostre en format lliure la col·leció de cartes. Amb aquest mètode afegirem una nova capa d'abstracció ja que no caldrà accedir directament als mètodes de la classe <code>Card</code> per representar-les.  </p>
+</li>
+<li>
+<p>Implementa la interfície <code>Iterator</code> en <code>CardCollection</code> de forma que es puguen recórrer la col·lecció de cartes en un <code>foreach</code>;</p>
 </li>
 <li>
 <p>Fent ús de les classes anteriors crearem una aplicació bàsica en la que s'enfronten dos jugadors. Un exemple de partida podria ser el següent:</p>
@@ -321,14 +324,14 @@ class CardCollection {
 
 </div>
 <p>Els requisits seran els següents:</p>
-<ol>
-<li>Es repartiran 5 cartes per jugador.
-*  El mètode <code>deal</code> que repartirà el número de cartes que s'indique com a paràmetre eliminant-les de la col·lecció.
-*  El mètode <code>play</code> jugarà una carta que s'eliminarà de la col·lecció.
-*  Cada tirada la guanya el jugador que té la carta més alta, segons el valor.
-*  La partida la guanya el jugador que ha guanyat més vegades.
-*  En cas d'empat es repartirà una nova carta a cada jugador.</li>
-</ol>
+<ul>
+<li>Es repartiran 5 cartes per jugador.</li>
+<li>El mètode <code>deal</code> que repartirà el número de cartes que s'indique com a paràmetre eliminant-les de la col·lecció.</li>
+<li>El mètode <code>play</code> jugarà una carta que s'eliminarà de la col·lecció.</li>
+<li>Cada tirada la guanya el jugador que té la carta més alta, segons el valor.</li>
+<li>La partida la guanya el jugador que ha guanyat més vegades.</li>
+<li>En cas d'empat es repartirà una nova carta a cada jugador.</li>
+</ul>
 <p>Així que en la aplicació interactuaran 3 objectes de tipus <code>CardCollection</code>.</p>
 </li>
 <li>
