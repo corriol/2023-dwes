@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
-<title>Gestió d'errors i excepcions - DWES</title>
+<title>Errors i excepcions - DWES</title>
 <link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -46,7 +46,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Gestió d'errors i excepcions
+              Errors i excepcions
             
           </span>
 </div>
@@ -168,8 +168,8 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4">
         3.- PHP Orientat a Objectes
         <span class="md-nav__icon md-icon"></span>
@@ -189,6 +189,87 @@
 <a class="md-nav__link" href="../0302-phpoo-advanced/">
         PHP OO Avançat
       </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Errors i excepcions
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Errors i excepcions
+      </a>
+<nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#errors">
+    Errors
+  </a>
+<nav aria-label="Errors" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#canviar-el-comportament-de-php">
+    Canviar el comportament de PHP
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#notificacio-derror-en-entorns-de-produccio">
+    Notificació d'error en entorns de producció
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#gestio-global-dels-errors">
+    Gestió global dels errors
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#errorexception">
+    ErrorException
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#excepcions">
+    Excepcions
+  </a>
+<nav aria-label="Excepcions" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#el-bloc-finally">
+    El bloc finally
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#multiples-catch">
+    Múltiples catch
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ampliant-les-excepcions">
+    Ampliant les excepcions
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#interficie-throwable">
+    Interfície Throwable
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#bibliografia">
+    Bibliografia
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../0399-activities/">
@@ -406,16 +487,16 @@ configurar la connexió fent:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$dwes</span><span class="o">-&gt;</span> <span class="na">setAttribute</span> <span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_ERRMODE</span><span class="p">,</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">ERRMODE_EXCEPTION</span><span class="p">);</span>
 </code></pre></div>
 <p>Per exemple, el següent codi:
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>    <span class="nv">$dwes</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span><span class="p">(</span><span class="s2">"mysql:host=localhost;dbname=dwes"</span><span class="p">,</span> <span class="s2">"dwes"</span><span class="p">,</span> <span class="s2">"abc123."</span><span class="p">);</span>
-<span class="linenos" data-linenos=" 2 "></span>    <span class="nv">$dwes</span><span class="o">-&gt;</span> <span class="na">setAttribute</span> <span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_ERRMODE</span><span class="p">,</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">ERRMODE_EXCEPTION</span><span class="p">);</span>
-<span class="linenos" data-linenos=" 3 "></span>    <span class="k">try</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 4 "></span>        <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">"SELECT * FROM stox"</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 5 "></span>        <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$dwes</span><span class="o">-&gt;</span><span class="na">query</span> <span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
-<span class="linenos" data-linenos=" 6 "></span>        <span class="o">...</span>
-<span class="linenos" data-linenos=" 7 "></span>    <span class="p">}</span>
-<span class="linenos" data-linenos=" 8 "></span>    <span class="k">catch</span> <span class="p">(</span><span class="nx">PDOException</span> <span class="nv">$p</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 9 "></span>        <span class="k">echo</span> <span class="s2">"Error"</span><span class="o">.</span> <span class="nv">$p</span><span class="o">-&gt;</span> <span class="na">getMessage</span> <span class="p">()</span><span class="o">.</span> <span class="s2">"&lt;br /&gt;"</span><span class="p">;</span>
-<span class="linenos" data-linenos="10 "></span>    <span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nv">$dwes</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span><span class="p">(</span><span class="s2">"mysql:host=localhost;dbname=dwes"</span><span class="p">,</span> <span class="s2">"dwes"</span><span class="p">,</span> <span class="s2">"abc123."</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nv">$dwes</span><span class="o">-&gt;</span> <span class="na">setAttribute</span> <span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">ATTR_ERRMODE</span><span class="p">,</span> <span class="nx">PDO</span><span class="o">::</span><span class="na">ERRMODE_EXCEPTION</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">try</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">"SELECT * FROM stox"</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$dwes</span><span class="o">-&gt;</span><span class="na">query</span> <span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="o">...</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="p">}</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="k">catch</span> <span class="p">(</span><span class="nx">PDOException</span> <span class="nv">$p</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">echo</span> <span class="s2">"Error"</span><span class="o">.</span> <span class="nv">$p</span><span class="o">-&gt;</span> <span class="na">getMessage</span> <span class="p">()</span><span class="o">.</span> <span class="s2">"&lt;br /&gt;"</span><span class="p">;</span>
+<span class="linenos" data-linenos="10 "></span><span class="p">}</span>
 </code></pre></div></p>
 <p>Captura l'excepció que llança PDO a causa de que la taula no existeix.
 El bloc <code>catch</code> mostra el següent missatge:</p>
@@ -468,6 +549,8 @@ la connexió a un servei proporcionats per tercers.<code></code></p>
 <span class="linenos" data-linenos="6 "></span>  <span class="k">echo</span> <span class="s2">"Excepció desconeguda"</span><span class="o">.</span>  <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
 <span class="linenos" data-linenos="7 "></span><span class="p">}</span>
 </code></pre></div>
+<p>Les excepcions personalitzades ens permeten una gestió més senzilla dels errors i major flexibilitat a l'hora de gestionar
+les possibles situacions d'errors.</p>
 <h2 id="interficie-throwable">Interfície Throwable</h2>
 <p><em>Throwable</em> és la interfície base per a qualsevol objecte que puga ser llançat 
 mitjançant una sentència <code>throw</code> en PHP 7, incloent <code>Error</code> i <code>Exception</code>.</p>
@@ -475,153 +558,7 @@ mitjançant una sentència <code>throw</code> en PHP 7, incloent <code>Error</co
 de manera que han d'estendre en el seu lloc <code>Exception</code>.</p>
 <p>Aquesta nova interfície té per objectiu unificar les dos tipologies d'exceptions. Tant <code>Exception</code> com 
 <code>Error</code> implementen la interfície <code>Throwable</code>. </p>
-<h3 id="gestio-derrors-i-excepcions_1">Gestió d'errors i excepcions</h3>
-<ol>
-<li>Modifica les classes Input creades anteriorment perquè en cas que
-    el atribut <code>$name</code> no tinga valor llance una excepció amb el missatge
-    "L'atribut name no pot estar buit".</li>
-<li>Captura l'excepció.</li>
-<li>Crea una excepció personalitzada <code>ValuesNotFoundException</code> en cas
-    que el paràmetre <code>$values</code> del control <code>InputRadio</code> estiga buit.</li>
-<li>Captura l'excepció.</li>
-<li>Crea una excepció personalitzada <code>MovieNotFound</code> que es llance
-    en cas que l'identificador <code>$id</code> sol·licitat no trobe cap pel·licula en <code>single-page.php</code> </li>
-<li>Captura l'excepció.</li>
-</ol>
-<h2 id="exercicis-practics">Exercicis pràctics</h2>
-<h3 id="activitat-pellicules">Activitat: Pel·lícules</h3>
-<h4 id="objectius">Objectius</h4>
-<p>Els objectius de l'activitat són els següents:
-* Aprendre a crear classes
-* Instanciar objectes
-* Accedir a les seues propietats.</p>
-<h4 id="enunciat">Enunciat</h4>
-<ol>
-<li>Crea la classe Movie en la carpeta src del projecte (<strong>cal usar tipat esctricte</strong>).</li>
-<li>Els atributs seran:<ul>
-<li>id (enter)</li>
-<li>title (string)</li>
-<li>tagline (string)</li>
-<li>releaseDate (DateTime)</li>
-<li>starsRating (float)</li>
-<li>poster (string)</li>
-</ul>
-</li>
-<li>Crea els <em>setters</em> i els <em>getters</em>.</li>
-<li>La constant de classe <code>POSTER_PATH</code> contindrà la ruta al directori dels posters.</li>
-<li>Modifica el projecte de forma que <code>$movies</code> siga un array d’objectes <code>Movie</code>.</li>
-<li>Modifica'l també perquè les pàgines index.php i movies.php funcionen correctament</li>
-</ol>
-<h3 id="activitat-pellicules-ii">Activitat: Pel·licules II</h3>
-<h4 id="objectius_1">Objectius</h4>
-<p>Els objectius de l'activitat són els següents:
-* Repassar el concepte de paràmetres per referència.
-* Clonar objectes.</p>
-<h4 id="enunciat_1">Enunciat</h4>
-<ol>
-<li>Crea una pel·lícula copiant-la (=) de la darrera pel·lícula de l'array.  </li>
-<li>Comprova en movies.php que s'ha insertat i que tenen les mateixes dades.</li>
-<li>Ara canvia el títol de la còpia afegint-li "(Còpia)" al títol que tenía. Per exemple si el títol era "Ava" ara serà 
-"Ava (còpia)".</li>
-<li>Comprova en <code>movies.php</code> que s'ha insertat i que és diferent a l'original. Tenen les mateixes dades? Per què?</li>
-<li>Repassa els apunts i soluciona-ho. </li>
-</ol>
-<h3 id="activitat-pellicules-iii">Activitat: Pel·lícules III</h3>
-<h4 id="objectius_2">Objectius</h4>
-<p>Els objectius de l'activitat són els següents:
-* Seguir construint el projecte.
-* Treballar amb objectes.</p>
-<h4 id="enunciat_2">Enunciat</h4>
-<ol>
-<li>El títol de la pel·licula  serà un enllaç a <code>single-page.php?id=[atribut id de la pel·lícula]</code>.</li>
-<li>La pàgina <code>single-page.php</code> mostrarà les dades de la pel·licula que tinga l'<code>id</code> que s'ha passat pel 
-querystring.</li>
-<li>Post usar <code>array_filter</code> per trobar l'objecte que té l'id indicat.</li>
-</ol>
-<h3 id="activitat-42-herencia">Activitat 4.2: Herència</h3>
-<h4 id="objectius_3">Objectius</h4>
-<p>Els objectius de l'activitat són els següents:
-* Treballar l'herència.
-* Treballar amb classes abstractes</p>
-<h4 id="enunciat_3">Enunciat</h4>
-<p>Anem a crear una sèrie de classes per mostrar camps de formulari.</p>
-<p>Pots incloure'ls al projecte en <code>src/utils</code> o crear-les a banda en la carpeta <code>activitat4</code> en 
-l'arrel del projecte.</p>
-<p>Crea la classe abstracta <code>Input</code> que tindrà les propietats:
-* <strong>title</strong>, serà el text que apareix com a etiqueta de camp.
-* <strong>name</strong>, serà el atribut name del camp.
-* <strong>value</strong>, serà el valor a mostrar si hi ha.
-* <strong>type</strong> , serà el tipus de camp, el valor per defecte serà 'text' i es modificarà
-internament en les subclasses (<code>$this-&gt;type=??</code>).</p>
-<p>El constructor serà 
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$title</span><span class="p">,</span> <span class="nx">string</span> <span class="nv">$name</span><span class="p">,</span> <span class="nx">string</span> <span class="nv">$value</span><span class="p">);</span>
-</code></pre></div></p>
-<p>Tindrà un mètode <code>generateHTML()</code> que no tindrà paràmetres i tornarà un string amb
-l'HTML que representa el camp.</p>
-<p>Per exemple:
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>Nom<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos="2 "></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">value</span><span class="o">=</span><span class="s">""</span>  <span class="na">name</span><span class="o">=</span><span class="s">"nom"</span> <span class="p">/&gt;</span>
-</code></pre></div></p>
-<p>A continuació crea les classes <code>InputText</code>, <code>InputEmail</code> (<em>type=email</em>), <code>InputTel</code>(<em>type=tel</em>), 
- que hereten de la classe abstracta i usa-les per a crear un formulari en els camps
- * Nom
- * Cogonms
- * Correu electrònic
- * Telèfon fixe
- * Telèfon mòbil.
- * Enviar (pots implementar la classe <code>InputSubmit</code> o escriure'l directament en HTML.</p>
-<p>La pàgina de resposta mostrarà els valors enviats pel formulari. </p>
-<h3 id="activitat-43-herencia-i-2">Activitat 4.3: Herència (i 2)</h3>
-<p>{:.no_toc .nocount}</p>
-<h4 id="objectius_4">Objectius</h4>
-<p>{:.no_toc .nocount}
-Els objectius de l'activitat són els següents:
-* Treballar l'herència.
-* Treballar amb classes abstractes
-* Treballar el polimorfisme</p>
-<h4 id="enunciat_4">Enunciat</h4>
-<p>{:.no_toc .nocount}</p>
-<p>Anem a crear una sèrie de classes per mostrar camps de formulari.</p>
-<p>Pots incloure'ls al projecte en <code>src/utils</code> o crear-les a banda en la carpeta <code>activitat4</code> en 
-l'arrel del projecte.</p>
-<p>Crea les classes <code>InputRange</code> i <code>InputRadio</code> que heretaran de la classe abstracta però que
-tindran el constructor i els atributs diferents. Afig als camps ja existents els camps:</p>
-<ul>
-<li>Edat (de tipus range, 40 serà el valor per defecte)</li>
-<li>Sexe (de tipus radio amb el sexe)</li>
-</ul>
-<p>Crea la classe <code>Form</code> que representarà un formulari HTML.  </p>
-<p>El constructor serà 
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$action</span><span class="p">,</span> <span class="nx">string</span> <span class="nv">$method</span> <span class="o">=</span><span class="s1">'POST'</span><span class="p">);</span>
-</code></pre></div></p>
-<p>Tindrà una propietat pública <code>$elements</code> que serà un array d'objectes <code>Input</code>. Un mètode <code>Form::add(Input $input)</code>
-que afegirà elements a l'array.</p>
-<p>Tindrà també altres dos mètodes <code>Form::generateStartHTML()</code> que generarà l'etiqueta <code>&lt;form...&gt;</code> i 
-<code>Form::generaEndHTML()</code> que generarà l'etiqueta de tancament <code>&lt;/form&gt;</code></p>
-<p>Crea un objecte <code>Form</code> i afig mitjançant el mètode <code>add</code> els elements ja existents i mostra el formulari.</p>
-<p>La pàgina de resposta mostrarà els valors enviats pel formulari.</p>
-<h3 id="activitat-44-interficie-icontrol">Activitat 4.4: Interfície IControl</h3>
-<h4 id="objectius_5">Objectius</h4>
-<p>Els objectius de l'activitat són els següents:
-* Crear interfícies.
-* Treballar amb classes abstractes
-* Treballar el polimorfisme</p>
-<h4 id="enunciat_5">Enunciat</h4>
-<p>{:.no_toc .nocount}</p>
-<p>Crea una nova classe <code>Textarea</code> semblant a la classe <code>Input</code> que generarà 
-un camp textarea de formulari. </p>
-<p>Podrem afegir objectes <code>Textarea</code> mitjançant el mètode <code>Form::add()</code>?;</p>
-<p>Crea la interfície <code>IControl</code>:</p>
-<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">interface</span> <span class="nx">IControl</span> <span class="p">{</span>
-<span class="linenos" data-linenos="2 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">render</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
-<span class="linenos" data-linenos="3 "></span><span class="p">}</span>
-</code></pre></div>
-Totes les classes creades implementaran eixa interfície.</p>
-<p>Modifica <code>Form::add()</code> perquè admeta paràmetres de tipus <code>IControl</code>.</p>
-<p>Implementa en la classe <code>Form</code> la interfície <code>Countable</code>. </p>
-<p>Després mitjançant la funció <code>count()</code> mostra el número total d'elements del formulari.</p>
 <h2 id="bibliografia">Bibliografia</h2>
-<p>{: .no_toc }</p>
 <ul>
 <li>José Luis Comesaña.  <em>Apuntes de formación a distancia del módulo
     «Desarrollo web en entorno servidor» del CFGS DAW, elaborados y
@@ -637,6 +574,34 @@ Totes les classes creades implementaran eixa interfície.</p>
 </div>
 </main>
 <footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Anterior: PHP OO Avançat" class="md-footer__link md-footer__link--prev" href="../0302-phpoo-advanced/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Anterior
+              </span>
+              PHP OO Avançat
+            </div>
+</div>
+</a>
+<a aria-label="Següent: Activitats" class="md-footer__link md-footer__link--next" href="../0399-activities/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Següent
+              </span>
+              Activitats
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-footer-copyright">
