@@ -481,10 +481,12 @@ del codi.</p>
 <div class="mermaid">classDiagram
      direction BT
      class Media {
+
+          &lt;&lt; abstract &gt;&gt;
           __construct(caption, width, height) 
-          caption: string
-          width: int          
-          height: int
+          -caption: string
+          -width: int          
+          -height: int
           getHeight() int
           getWidth() int
           getSummary()* string
@@ -495,14 +497,14 @@ del codi.</p>
      }
      class Photo {
           __construct(caption, width, height, altText) 
-          altText :string
+          -altText :string
           getSummary() string
           getAltText() 
           setAltText(altText) 
      }
      class Video {
           __construct(caption, width, height, duration) 
-          duration: int
+          -duration: int
           setDuration(duration) 
           getSummary() string
           getDuration() int
@@ -525,18 +527,158 @@ del codi.</p>
 </code></pre></div>
 </div>
 <input id="__tabbed_3_2" name="__tabbed_3" type="radio"><label for="__tabbed_3_2">Navegador</label><div class="tabbed-content">
-<p><pre>
- ...
- <strong>Media</strong></pre></p>
+<p><strong>Media</strong></p>
 <p>Vídeo 1 [1080x1024] (25 s)</p>
-<p>Foto 1 (Text alternatiu) [800x600]</p>
-</div></input></input></div></article></div></div></main></div><script>mermaid.initialize({});</script></body></html>
+<p>Foto 1 (Text alternatiu) [800x600] </p>
+</div>
+</input></input></div>
+<ol start="343">
+<li>Arribats a aquest punt anem a relacionar totes les classes que hem creat mitjançant la classe <code>Twitter</code>. Crea la classe
+     representada en el gràfic tenint en compte que <code>users</code> és un array d'usuaris, <code>tweets</code> és un array de tuits i <code>attachements</code>
+     un array de mitjans. S'han omitit algunes propietats i mètodes per simplicar el diagrama UML.</li>
+</ol>
+<div class="mermaid">
+classDiagram
+     direction LR
+     class Twitter {
+          __construct() 
+          tweets: array
+          users: array
+          numberOfTweets: int
+          numberOfUsers: int
+          LikeTweet(user, tweet) void
+          addTweet(tweet) void
+          setTweets(tweets) void
+          getNumberOfUsers() int
+          setNumberOfUsers(numberOfUsers) void
+          getTweets() array
+          addUser(user) void
+          setNumberOfTweets(numberOfTweets) void
+          setUsers(users) void
+          getNumberOfTweets() int
+          getUsers() array
+     }
+     class User {
+
+     }
 
 
+     class Tweet {
+          attachments: array
+          getAttachments() array
+          addAttachment(media) void          
+     }
 
+     class Media {       
+          &lt;&lt; abstract &gt;&gt;
+     }
+     class Photo {
+     }
 
+     class Video {
+     }
 
+     Twitter "0" -- "*" Tweet
+     Tweet "0" -- "*" Media
+     Twitter "0" -- "*" User 
+     Photo  --&gt;  Media 
+     Video  --&gt;  Media 
 
+</div>
+<div class="tabbed-set" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><label for="__tabbed_4_1">Codi de prova</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="nv">$twitter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Twitter</span><span class="p">();</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="nv">$user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="s1">'Bart Simpson'</span><span class="p">,</span> <span class="s1">'bart'</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="nv">$twitter</span><span class="o">-&gt;</span><span class="na">addUser</span><span class="p">(</span><span class="nv">$user</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="c1">// fem un delay de 4 segons perquè les dates de creació no coincidisquen</span>
+<span class="linenos" data-linenos="10 "></span><span class="nb">sleep</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<span class="linenos" data-linenos="11 "></span><span class="nv">$userH</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">(</span><span class="s1">'Homer Simpson'</span><span class="p">,</span> <span class="s1">'homerj'</span><span class="p">);</span>
+<span class="linenos" data-linenos="12 "></span><span class="nv">$twitter</span><span class="o">-&gt;</span><span class="na">addUser</span><span class="p">(</span><span class="nv">$userH</span><span class="p">);</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span><span class="nv">$users</span> <span class="o">=</span> <span class="nv">$twitter</span><span class="o">-&gt;</span><span class="na">getUsers</span><span class="p">();</span>
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span><span class="nb">sleep</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<span class="linenos" data-linenos="17 "></span><span class="nv">$tweet</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Tweet</span><span class="p">(</span><span class="s1">'Hola món!'</span><span class="p">,</span> <span class="nv">$user</span><span class="p">);</span>
+<span class="linenos" data-linenos="18 "></span><span class="nv">$video</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Video</span><span class="p">(</span><span class="s1">'Vídeo 1'</span><span class="p">,</span> <span class="mi">1080</span><span class="p">,</span> <span class="mi">1024</span><span class="p">,</span> <span class="mi">25</span><span class="p">);</span>
+<span class="linenos" data-linenos="19 "></span><span class="nv">$photo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Photo</span><span class="p">(</span><span class="s1">'Foto 1'</span><span class="p">,</span> <span class="mi">1080</span><span class="p">,</span> <span class="mi">1024</span><span class="p">,</span> <span class="s1">'Text alternatiu'</span><span class="p">);</span>
+<span class="linenos" data-linenos="20 "></span>
+<span class="linenos" data-linenos="21 "></span><span class="nv">$tweet</span><span class="o">-&gt;</span><span class="na">addAttachment</span><span class="p">(</span><span class="nv">$video</span><span class="p">);</span>
+<span class="linenos" data-linenos="22 "></span><span class="nv">$tweet</span><span class="o">-&gt;</span><span class="na">addAttachment</span><span class="p">(</span><span class="nv">$photo</span><span class="p">);</span>
+<span class="linenos" data-linenos="23 "></span>
+<span class="linenos" data-linenos="24 "></span><span class="nv">$twitter</span><span class="o">-&gt;</span><span class="na">addTweet</span><span class="p">(</span><span class="nv">$tweet</span><span class="p">);</span>
+<span class="linenos" data-linenos="25 "></span><span class="nv">$twitter</span><span class="o">-&gt;</span><span class="na">LikeTweet</span><span class="p">(</span><span class="nv">$user</span><span class="p">,</span> <span class="nv">$tweet</span><span class="p">);</span>
+<span class="linenos" data-linenos="26 "></span><span class="nv">$twitter</span><span class="o">-&gt;</span><span class="na">LikeTweet</span><span class="p">(</span><span class="nv">$userH</span><span class="p">,</span> <span class="nv">$tweet</span><span class="p">);</span>
+<span class="linenos" data-linenos="27 "></span>
+<span class="linenos" data-linenos="28 "></span><span class="nv">$tweet</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Tweet</span><span class="p">(</span><span class="s2">"Kids, just because I don’t care doesn’t mean I’m not listening."</span><span class="p">,</span> <span class="nv">$userH</span><span class="p">);</span>
+<span class="linenos" data-linenos="29 "></span><span class="nv">$twitter</span><span class="o">-&gt;</span><span class="na">addTweet</span><span class="p">(</span><span class="nv">$tweet</span><span class="p">);</span>
+<span class="linenos" data-linenos="30 "></span>
+<span class="linenos" data-linenos="31 "></span><span class="nv">$tweet</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Tweet</span><span class="p">(</span><span class="s2">"I’ve learned that life is one crushing defeat after another until you just wish Flanders was dead."</span><span class="p">,</span> <span class="nv">$userH</span><span class="p">);</span>
+<span class="linenos" data-linenos="32 "></span><span class="nv">$twitter</span><span class="o">-&gt;</span><span class="na">addTweet</span><span class="p">(</span><span class="nv">$tweet</span><span class="p">);</span>
+<span class="linenos" data-linenos="33 "></span>
+<span class="linenos" data-linenos="34 "></span><span class="nv">$tweets</span> <span class="o">=</span> <span class="nv">$twitter</span><span class="o">-&gt;</span><span class="na">getTweets</span><span class="p">();</span>
+<span class="linenos" data-linenos="35 "></span><span class="cp">?&gt;</span>
+<span class="linenos" data-linenos="36 "></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Welcome to Truiter<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="37 "></span>
+<span class="linenos" data-linenos="38 "></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$twitter</span><span class="o">-&gt;</span><span class="na">getNumberOfUsers</span><span class="p">()</span> <span class="cp">?&gt;</span> users, <span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$twitter</span><span class="o">-&gt;</span><span class="na">getNumberOfTweets</span><span class="p">()</span> <span class="cp">?&gt;</span> tweets.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="39 "></span><span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Users<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="40 "></span><span class="cp">&lt;?php</span> <span class="k">foreach</span> <span class="p">(</span><span class="nv">$users</span> <span class="k">as</span> <span class="nv">$user</span><span class="p">)</span> <span class="o">:</span> <span class="cp">?&gt;</span>
+<span class="linenos" data-linenos="41 "></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">getName</span><span class="p">()</span> <span class="cp">?&gt;</span> (@<span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">getUsername</span><span class="p">()</span> <span class="cp">?&gt;</span>) - Creation
+<span class="linenos" data-linenos="42 "></span>     date: <span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">getCreatedAt</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="s1">'d-m-Y h:i:s'</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="43 "></span><span class="cp">&lt;?php</span> <span class="k">endforeach</span><span class="p">;</span> <span class="cp">?&gt;</span>
+<span class="linenos" data-linenos="44 "></span>
+<span class="linenos" data-linenos="45 "></span><span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Tweets<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="46 "></span>
+<span class="linenos" data-linenos="47 "></span><span class="cp">&lt;?php</span> <span class="k">foreach</span> <span class="p">(</span><span class="nv">$tweets</span> <span class="k">as</span> <span class="nv">$tweet</span><span class="p">)</span> <span class="o">:</span> <span class="cp">?&gt;</span>
+<span class="linenos" data-linenos="48 "></span>
+<span class="linenos" data-linenos="49 "></span><span class="cp">&lt;?php</span> <span class="nv">$tweetUser</span> <span class="o">=</span> <span class="nv">$tweet</span><span class="o">-&gt;</span><span class="na">getAuthor</span><span class="p">()</span> <span class="cp">?&gt;</span>
+<span class="linenos" data-linenos="50 "></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$tweetUser</span><span class="o">-&gt;</span><span class="na">getName</span><span class="p">()</span> <span class="cp">?&gt;</span> (@<span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$tweetUser</span><span class="o">-&gt;</span><span class="na">getUsername</span><span class="p">()</span> <span class="cp">?&gt;</span>) - Creation
+<span class="linenos" data-linenos="51 "></span>     date: <span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$tweet</span><span class="o">-&gt;</span><span class="na">getCreatedAt</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="s1">'d-m-Y h:i:s'</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="52 "></span><span class="p">&lt;</span><span class="nt">blockquote</span><span class="p">&gt;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$tweet</span><span class="o">-&gt;</span><span class="na">getText</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">blockquote</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="53 "></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Like counter: <span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$tweet</span><span class="o">-&gt;</span><span class="na">getLikeCount</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="54 "></span><span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="nb">count</span><span class="p">(</span><span class="nv">$tweet</span><span class="o">-&gt;</span><span class="na">getAttachments</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">:</span> <span class="cp">?&gt;</span>
+<span class="linenos" data-linenos="55 "></span><span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Attachments<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="56 "></span><span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="57 "></span>     <span class="cp">&lt;?php</span> <span class="k">foreach</span> <span class="p">(</span><span class="nv">$tweet</span><span class="o">-&gt;</span><span class="na">getAttachments</span><span class="p">()</span> <span class="k">as</span> <span class="nv">$attachment</span><span class="p">)</span> <span class="o">:</span> <span class="cp">?&gt;</span>
+<span class="linenos" data-linenos="58 "></span>          <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$attachment</span><span class="o">-&gt;</span><span class="na">getSummary</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="59 "></span>     <span class="cp">&lt;?php</span> <span class="k">endforeach</span><span class="p">;</span> <span class="cp">?&gt;</span>
+<span class="linenos" data-linenos="60 "></span><span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="61 "></span><span class="cp">&lt;?php</span> <span class="k">endif</span> <span class="p">;</span><span class="cp">?&gt;</span>
+<span class="linenos" data-linenos="62 "></span><span class="p">&lt;</span><span class="nt">hr</span><span class="p">/&gt;</span>
+<span class="linenos" data-linenos="63 "></span><span class="cp">&lt;?php</span> <span class="k">endforeach</span><span class="p">;</span> <span class="cp">?&gt;</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_4_2" name="__tabbed_4" type="radio"><label for="__tabbed_4_2">Navegador</label><div class="tabbed-content">
+<pre>
+<p><strong>Welcome to Truiter</strong>
+ 2 users, 3 tweets.   <br/>
+<strong>Users</strong>
+ Bart Simpson (@bart) - Creation date: 13-10-2022 09:45:52
+ Homer Simpson (@homerj) - Creation date: 13-10-2022 09:45:56   <br/>
+<strong>Tweets</strong>
+ Bart Simpson (@bart) - Creation date: 13-10-2022 09:46:00
+      Hola món!
+ Like counter: 2
+ <em>Attachments</em>
+ - Vídeo 1 [1080x1024] ( 25 s)
+ - Foto 1 (Text alternatiu) [1080x1024]</p>
+<p>Homer Simpson (@homerj) - Creation date: 13-10-2022 09:46:00
+      Kids, just because I don’t care doesn’t mean I’m not listening.
+ Like counter: 0</p>
+<p>Homer Simpson (@homerj) - Creation date: 13-10-2022 09:46:00
+      I’ve learned that life is one crushing defeat after another until you 
+      just wish Flanders was dead.
+ Like counter: 0</p>
+</pre>
+</div>
+</input></input></div>
+</article>
+</div>
+</div>
+</main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
 <a aria-label="Anterior: Errors i excepcions" class="md-footer__link md-footer__link--prev" href="../0303-errorhandling/" rel="prev">
@@ -568,11 +710,12 @@ del codi.</p>
 </div>
 </div>
 </footer>
-
+</div>
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
 <script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
 <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
-
+<script>mermaid.initialize({});</script></body>
+</html>
