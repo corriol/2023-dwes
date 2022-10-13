@@ -541,22 +541,22 @@ del codi.</p>
 classDiagram
      direction LR
      class Twitter {
-          __construct() 
-          tweets: array
-          users: array
-          numberOfTweets: int
-          numberOfUsers: int
-          LikeTweet(user, tweet) void
-          addTweet(tweet) void
-          setTweets(tweets) void
-          getNumberOfUsers() int
-          setNumberOfUsers(numberOfUsers) void
-          getTweets() array
-          addUser(user) void
-          setNumberOfTweets(numberOfTweets) void
-          setUsers(users) void
-          getNumberOfTweets() int
-          getUsers() array
+          - tweets: array
+          - users: array
+          - numberOfTweets: int
+          - numberOfUsers: int
+          + __construct()           
+          + LikeTweet(user, tweet) void
+          + addTweet(tweet) void
+          + setTweets(tweets) void
+          + getNumberOfUsers() int
+          + setNumberOfUsers(numberOfUsers) void
+          + getTweets() array
+          + addUser(user) void
+          + setNumberOfTweets(numberOfTweets) void
+          + setUsers(users) void
+          + getNumberOfTweets() int
+          + getUsers() array
      }
      class User {
 
@@ -564,9 +564,9 @@ classDiagram
 
 
      class Tweet {
-          attachments: array
-          getAttachments() array
-          addAttachment(media) void          
+          - attachments: array
+          + getAttachments() array
+          + addAttachment(media) void          
      }
 
      class Media {       
