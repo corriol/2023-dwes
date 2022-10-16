@@ -726,8 +726,8 @@ en la capçalera, després del <code>namespace</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="linenos" data-linenos="2 "></span><span class="nb">spl_autoload_register</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="nv">$className</span><span class="p">)</span> <span class="p">{</span>
 <span class="linenos" data-linenos="3 "></span>    <span class="nv">$ruta</span> <span class="o">=</span> <span class="s2">"src</span><span class="se">\\</span><span class="s2">"</span><span class="o">.</span><span class="nv">$className</span><span class="o">.</span><span class="s1">'.php'</span><span class="p">;</span>
-<span class="linenos" data-linenos="4 "></span>    <span class="nv">$ruta</span> <span class="o">=</span> <span class="nb">str_replace</span><span class="p">(</span><span class="s2">"</span><span class="se">\\</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"/"</span><span class="p">,</span> <span class="nv">$ruta</span><span class="p">);</span> <span class="c1">// Sustituimos las barras</span>
-<span class="linenos" data-linenos="5 "></span>    <span class="k">include_once</span> <span class="nv">$ruta</span><span class="err">'</span><span class="p">;</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="nv">$ruta</span> <span class="o">=</span> <span class="nb">str_replace</span><span class="p">(</span><span class="s2">"</span><span class="se">\\</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"/"</span><span class="p">,</span> <span class="nv">$ruta</span><span class="p">);</span> <span class="c1">// Sustituím les barres</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="k">include_once</span> <span class="nv">$ruta</span><span class="p">;</span>
 <span class="linenos" data-linenos="6 "></span>    <span class="p">}</span> 
 <span class="linenos" data-linenos="7 "></span><span class="p">);</span>    
 </code></pre></div>
