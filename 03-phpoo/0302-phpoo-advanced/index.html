@@ -294,6 +294,31 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
+        4.- Programació web
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="4.- Programació web" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          4.- Programació web
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-01-forms/">
+        Formularis
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-99-tasks/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </div>
@@ -628,7 +653,7 @@ podran crear-se classes heretades utilitzant-les com a base.</p>
 <p>Per exemple, per col·locar la classe <code>Product</code> dins de l'espai de noms <code>Dwes\Examples</code> faríem:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="linenos" data-linenos=" 2 "></span>
-<span class="linenos" data-linenos=" 3 "></span><span class="k">use</span> <span class="nx">Dwes\Examples</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">namespace</span> <span class="nx">Dwes\Examples</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 4 "></span>
 <span class="linenos" data-linenos=" 5 "></span><span class="k">const</span> <span class="no">IVA</span> <span class="o">=</span> <span class="mf">0.21</span><span class="p">;</span>
 <span class="linenos" data-linenos=" 6 "></span>
@@ -723,18 +748,16 @@ en la capçalera, després del <code>namespace</code>:</p>
 <div class="admonition danger">
 <p class="admonition-title">Autoload i rutes errònies</p>
 <p>A Ubuntu, quan fa la classe que rep com a paràmetre, les barres de l’espai de noms (<code>\</code>) són diferents de les de les rutes (<code>/</code>).Per tant, utilitzem millor aquesta implementació del fitxer <code>autoload.php</code>:</p>
-<p>```php
-&lt;?php
-spl_&lt;?php
-spl_autoload_register(function($className) {
-    $ruta = "src\".$className.'.php';
-    $ruta = str_replace("\", "/", $ruta); // Sustituimos las barras
-    include_once $ruta;
-}</p>
-</div>
-<p>);</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>```
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="linenos" data-linenos="2 "></span><span class="nx">spl_</span><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="linenos" data-linenos="3 "></span><span class="nb">spl_autoload_register</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="nv">$className</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="nv">$ruta</span> <span class="o">=</span> <span class="s2">"src</span><span class="se">\\</span><span class="s2">"</span><span class="o">.</span><span class="nv">$className</span><span class="o">.</span><span class="s1">'.php'</span><span class="p">;</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="nv">$ruta</span> <span class="o">=</span> <span class="nb">str_replace</span><span class="p">(</span><span class="s2">"</span><span class="se">\\</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"/"</span><span class="p">,</span> <span class="nv">$ruta</span><span class="p">);</span> <span class="c1">// Sustituimos las barras</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="k">include_once</span> <span class="nv">$ruta</span><span class="p">;</span>
+<span class="linenos" data-linenos="7 "></span><span class="p">}</span>
+<span class="linenos" data-linenos="8 "></span><span class="p">);</span>
 </code></pre></div>
+</div>
 <h2 id="bibliografia">Bibliografia</h2>
 <ul>
 <li>José Luis Comesaña.  <em>Apuntes de formación a distancia del módulo
