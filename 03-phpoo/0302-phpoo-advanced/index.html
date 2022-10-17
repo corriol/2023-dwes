@@ -728,7 +728,6 @@ en la capçalera, després del <code>namespace</code>:</p>
 spl_&lt;?php
 spl_autoload_register(function($className) {
     $ruta = "src\".$className.'.php';
-    $ruta = str_replace("App\", "", $ruta);
     $ruta = str_replace("\", "/", $ruta); // Sustituimos las barras
     include_once $ruta;
 }</p>
