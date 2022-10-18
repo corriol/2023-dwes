@@ -307,17 +307,17 @@ passat com a paràmetre.</p>
 <li>URL de la pàgina personal (<code>url</code>).</li>
 </ul>
 <p>En l'atribut <code>action</code> del formulari posarem el següent:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">"262Formulari.php"</span> <span class="na">method</span><span class="o">=</span><span class="s">"POST"</span> <span class="err">...</span><span class="p">/&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">"402formulari.php"</span> <span class="na">method</span><span class="o">=</span><span class="s">"POST"</span> <span class="err">...</span><span class="p">/&gt;</span>
 </code></pre></div>
-<p>Açò farà que siga la pròpia pàgina del formulari la que processe les dades del mateix.</p>
-<p>En prémer <code>Enviar</code> han d'aparèixer sota el formulari les dades que s'han introduït en format de 
+<p>Açò farà que siga la pàgina <code>402formulari.php</code> la que processe les dades del formulari.</p>
+<p>En prémer <code>Enviar</code> han d'aparèixer en la pàgina les dades que s'han introduït en format de 
 taula.</p>
 </li>
 <li>
-<p><code>403FormulariReparat.php</code>: Soluciona el problema dels paràmetres no enviats de l'exercici anterior.</p>
+<p><code>403formulariReparat.php</code>: Soluciona el problema dels paràmetres no enviats en accedir directament a la pàgina de processament del formulari.</p>
 </li>
 <li>
-<p><code>404FormulariValidat.php</code>: Modifica l'exercici anterior realitzant les següents validacions:</p>
+<p><code>404formulariValidat.php</code>: Modifica l'exercici anterior realitzant les següents validacions:</p>
 <ul>
 <li>Tots els camps són obligatoris.</li>
 <li><code>name</code>, no pot superar els 100 caracters.      </li>
@@ -328,36 +328,39 @@ taula.</p>
 <p>S'avaluaran tots els camps i si hi ha error/s caldrà mostrar-lo/s. Si no hi ha errors es mostraran les dades introduïdes per l'usuari.</p>
 </li>
 <li>
-<p><code>405FormulariOpcions.php</code>: Modifica l'exercici anterior afegint els següents camps al formulari:</p>
+<p><code>405formulariOpcions.html</code> i <code>405formulariOpcions.php</code>: Modifica l'exercici anterior afegint els següents camps al formulari:</p>
 <ul>
 <li><code>genre</code>: serà un <em>radio button</em> i podrà ser <em>home</em>, <em>dona</em> i <em>no binari</em>.</li>
-<li><code>hobbies</code>: serà un checkbox amb aficions de la que podràs triar-ne més d'una:<ul>
+<li><code>hobbies</code>: serà un <em>checkbox</em> amb aficions de la que podràs triar-ne més d'una:<ul>
 <li>Lectura</li>
 <li>Programació</li>
 <li>Ciclisme</li>
-<li>Running</li>
+<li>Córrer</li>
 <li>...</li>
 </ul>
 </li>
-<li><code>contact-time</code>: serà una llista de les millores hores per a contactar: <ul>
+<li><code>contact_time</code>: serà una llista de les millores hores per a contactar: <ul>
 <li>Primera hora (08:00 a 10:00)</li>
 <li>Abans de dinar (12:00 a 13:00)</li>
 <li>Després de dinar (14:00 a 16:00)</li>
-<li>Per la nit (20:00 a 22:00)</li>
+<li>A la nit (20:00 a 22:00)</li>
 </ul>
 </li>
 </ul>
-<p>En els tres casos són obligatoris, s'ha de mantindre el valor en cas de ser correcte.</p>
+<p>En els tres casos són obligatoris.</p>
 </li>
 <li>
-<p><code>406FormulariArray</code>: Modifica l'exercici anterior de forma que el contingut dels camps de selecció es genere dinàmicament des d'arrays associatius. A més, els valors rebuts s'haurien de validar contra l'<em>array</em> i mostrar-se fent és d'ell.</p>
+<p><code>406formulariUnic.php</code>. Modifica l'exercici anterior de forma que tant el formulari com el seu processament es realitze en el mateix fitxer. La taula es mostrarà baix del formulari, els errors dalt i el formulari guardarà els valors vàlids en cas d'error (<em>sticky form</em>).</p>
+</li>
+<li>
+<p><code>407formulariArray</code>: Modifica l'exercici anterior de forma que el contingut dels camps de selecció es genere dinàmicament des d'arrays associatius. Les claus seran <code>man</code>, <code>woman</code>, <code>nobinary</code> per als gèneres, <code>reading</code>, <code>programming</code>, <code>cycling</code>, <code>running</code> per a les aficions i <code>morning</code>, <code>before_lunch</code>, <code>after_lunch</code> i <code>evening</code> per a les hores de contacte. A més, els valors rebuts s'haurien de validar-se contra l'<em>array</em>, és a dir, que el valor enviat és una clau vàlida de l'array. També caldrà mostrar en la taula els valors dels arrays, no les claus.</p>
 </li>
 </ol>
 <h2 id="inclusio-de-fitxers">Inclusió de fitxers</h2>
 <ol>
 <li>
-<p><code>271Formulari.php</code>: Basant-te en l'activitat <code>264FormulariValidat.php</code> modifica les validacions perquè es facen mitjançant funcions. </p>
-<p>Les funcions es guardaran en el fitxer <code>helpers.php</code> i s'hauran d'incloure en fitxer <code>271Formulari.php</code>.</p>
+<p><code>410formulari.php</code>: Basant-te en l'activitat <code>404formulariValidat.php</code> modifica les validacions perquè es facen mitjançant funcions. </p>
+<p>Les funcions es guardaran en el fitxer <code>helpers.php</code> i s'hauran d'incloure en fitxer <code>410formulari.php</code>.</p>
 </li>
 <li>
 <p><code>272Formulari.php</code>: Basant-te en l'activitat <code>271Formulari.php</code> separa la part de codi de la presentació de forma que tota la lògica estiga en un fitxer i la part de presentació en altre fitxer <code>271Formulari.view.php</code>.</p>
