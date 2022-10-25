@@ -326,42 +326,42 @@
 <p>Una vegada iniciada la sessió podríem controlar que sols els usuaris autenticats pogueren entrar
 ho faríem així.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;?php</span>
-<span class="linenos" data-linenos=" 2 "></span>    <span class="c1">// Recuperamos la información de la sesión</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="c1">// Recuperem la informació de la sessió</span>
 <span class="linenos" data-linenos=" 3 "></span>    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">))</span> <span class="p">{</span>
 <span class="linenos" data-linenos=" 4 "></span>        <span class="nb">session_start</span><span class="p">();</span>
 <span class="linenos" data-linenos=" 5 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos=" 6 "></span>
-<span class="linenos" data-linenos=" 7 "></span>    <span class="c1">// Y comprobamos que el usuario se haya autentificado</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="c1">// I comprovem que l'usuari s'ha autenticat</span>
 <span class="linenos" data-linenos=" 8 "></span>    <span class="k">if</span> <span class="p">(</span><span class="k">empty</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'user'</span><span class="p">]))</span> <span class="p">{</span>
-<span class="linenos" data-linenos=" 9 "></span>       <span class="k">die</span><span class="p">(</span><span class="s2">"Error - debe &lt;a href='login.php'&gt;identificarse&lt;/a&gt;.&lt;br /&gt;"</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 9 "></span>       <span class="k">die</span><span class="p">(</span><span class="s2">"Error - debe &lt;a href='login.php'&gt;identificar-se&lt;/a&gt;.&lt;br /&gt;"</span><span class="p">);</span>
 <span class="linenos" data-linenos="10 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos="11 "></span><span class="cp">?&gt;</span>
 <span class="linenos" data-linenos="12 "></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="linenos" data-linenos="13 "></span><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"es"</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="13 "></span><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"ca"</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="14 "></span><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="15 "></span>    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"UTF-8"</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="16 "></span>    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1.0"</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos="17 "></span>    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Listado de productos<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="17 "></span>    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Llista de productes<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="18 "></span><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="19 "></span><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos="20 "></span>    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Bienvenido <span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'usuario'</span><span class="p">]</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos="21 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Pulse <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"logout.php"</span><span class="p">&gt;</span>aquí<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span> para salir<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos="22 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Volver al <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"main.php"</span><span class="p">&gt;</span>inicio<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos="23 "></span>    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Listado de productos<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="20 "></span>    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Benvingut <span class="cp">&lt;?</span><span class="o">=</span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'usuario'</span><span class="p">]</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="21 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Polse <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"logout.php"</span><span class="p">&gt;</span>ací<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span> per a eixir<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="22 "></span>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Tornar a l'<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"index.php"</span><span class="p">&gt;</span>inici<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="23 "></span>    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Llista de productes<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="24 "></span>    <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos="25 "></span>        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Producto 1<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos="26 "></span>        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Producto 2<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-<span class="linenos" data-linenos="27 "></span>        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Producto 3<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="25 "></span>        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Product 1<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="26 "></span>        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Product 2<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="27 "></span>        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Product 3<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="28 "></span>    <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="29 "></span><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 <span class="linenos" data-linenos="30 "></span><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>Per a tancar la sessió eliminaríem la variable de sessió <code>user</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="cp">&lt;?php</span>
-<span class="linenos" data-linenos="2 "></span><span class="c1">// Recuperamos la información de la sesión</span>
+<span class="linenos" data-linenos="2 "></span><span class="c1">// Recuperem la informació de la sessió</span>
 <span class="linenos" data-linenos="3 "></span><span class="nb">session_start</span><span class="p">();</span>
 <span class="linenos" data-linenos="4 "></span>
-<span class="linenos" data-linenos="5 "></span><span class="c1">// Y la destruimos</span>
+<span class="linenos" data-linenos="5 "></span><span class="c1">// I la destruïm</span>
 <span class="linenos" data-linenos="6 "></span><span class="nb">session_destroy</span><span class="p">();</span>
 <span class="linenos" data-linenos="7 "></span><span class="nb">header</span><span class="p">(</span><span class="s2">"Location: index.php"</span><span class="p">);</span>
 <span class="linenos" data-linenos="8 "></span><span class="k">exit</span><span class="p">();</span>

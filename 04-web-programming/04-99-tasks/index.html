@@ -276,13 +276,13 @@
     Cookies
   </a>
 </li>
-</ul>
-</nav>
-</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#maneig-de-sessions">
     Maneig de sessions
   </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -369,7 +369,7 @@ taula.</p>
 <p>Les funcions es guardaran en el fitxer <code>helpers.php</code> i s'hauran d'incloure en fitxer <code>410formulari.php</code>.</p>
 </li>
 <li>
-<p><code>411formulari.php</code>: Basant-te en l'activitat <code>410formulari.php</code> separa la part de codi de la presentació de forma que tota la lògica estiga en un fitxer i la part de presentació en altre fitxer <code>271formulari.view.php</code>.</p>
+<p><code>411formulari.php</code>: Basant-te en l'activitat <code>410formulari.php</code> separa la part de codi de la presentació de forma que tota la lògica estiga en un fitxer i la part de presentació en altre fitxer <code>411formulari.view.php</code>.</p>
 </li>
 </ol>
 <h2 id="pujada-de-fitxers">Pujada de fitxers</h2>
@@ -387,11 +387,13 @@ taula.</p>
 <ol start="422">
 <li>
 <p>Pàgina d'inici de sessió.</p>
-<p>Crea en <code>login.php</code> un formulari d'inici de sessió:
-    1. En un únic fitxer es mostrarà i processarà el formulari. 
-    2. Les dades d'usuari estaran en un array associatiu.
-    3. Si la validació és correcta es mostrarà un missatge de confirmació.
-    4. De no ser-ho es mostrarà un missatge d'error.</p>
+<p>Crea en <code>login.php</code> un formulari d'inici de sessió:</p>
+<ol>
+<li>En un únic fitxer es mostrarà i processarà el formulari. </li>
+<li>Les dades d'usuari estaran en un array associatiu.</li>
+<li>Si la validació és correcta es mostrarà un missatge de confirmació.</li>
+<li>De no ser-ho es mostrarà un missatge d'error.</li>
+</ol>
 </li>
 </ol>
 <h3 id="cookies">Cookies</h3>
@@ -414,23 +416,27 @@ taula.</p>
 <p>Després de llegir l'article enllaçat als apunts, aplica els canvis oportuns per a fer més segures les <em>cookies</em>.</p>
 </li>
 </ol>
-<h2 id="maneig-de-sessions">Maneig de sessions</h2>
-<ol>
+<h3 id="maneig-de-sessions">Maneig de sessions</h3>
+<ol start="434">
 <li>
 <p>Registre de visites</p>
-<p>Modifica la pàgina inicial del projecte de forma que s'emmagatzeme en la sessió d'usuari els instants de totes les seves últimes visites. Si és la seva primera visita, mostra un missatge de benvinguda. En cas contrari, mostra la data i hora de totes les seves visites anteriors. Afegeix un botó a la pàgina que permeti esborrar el registre de visites.</p>
+<p>Modifica la pàgina inicial del projecte (<code>index.php</code>) de forma que s'emmagatzeme en la sessió d'usuari els instants de totes les seves últimes visites. Si és la seva primera visita, mostra un missatge de benvinguda. En cas contrari, mostra la data i hora de totes les seves visites anteriors. Afegeix un botó a la pàgina que permeta esborrar el registre de visites.</p>
 </li>
 <li>
 <p>Control d'accés</p>
-<p>Utilitza també una variable de sessió per a comprovar si l'usuari ja ha iniciat sessió correctament. D'aquesta manera no caldrà comprovar les credencials amb la base de dades constantment.</p>
+<p>Modifica el projecte de forma que en iniciar sessió s'emmagatzeme un <em>token</em> en una variable de sessió. Aquesta variable ens servirà per comprovar si l'usuari ja ha iniciat sessió correctament. Un usuari sols podrà accedir a la pàgina <code>logout.php</code> si ha iniciat sessió.</p>
+</li>
+<li>
+<p>Nous tuits</p>
+<p>Crea la pàgina <code>tweet-new.php</code> que contindrà un formulari per a la creació d'un tweet.     </p>
 </li>
 <li>
 <p>Evitar atacts CSRF</p>
-<p>Implementa en el formulari de creació de pel·lícules la solució proposada en els apunts.</p>
+<p>Implementa en el formulari de creació de tuits la solució proposada en els apunts.</p>
 </li>
 <li>
 <p>Gestió de formularis en dos fitxers.</p>
-<p>Modifica el formulari de creació de pel·lícules de forma que es gestione en dos fitxers tal com s'indica en els apunts.</p>
+<p>Modifica el formulari de creació de tuits de forma que es gestione en dos fitxers tal com s'indica en els apunts.</p>
 </li>
 <li>
 <p>Bones pràctiques</p>

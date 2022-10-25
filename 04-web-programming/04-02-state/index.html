@@ -493,8 +493,8 @@ exemple, per comptar el nombre de vegades que l'usuari visita la pàgina, pots f
 <h4 id="separar-la-logica-dels-formularis">Separar la lògica dels formularis</h4>
 <p>Fins ara, hem creat formularis (<em>self-processing forms</em>) que es processaven en el mateix fitxer. 
 Combinant variables de sessió i redireccions podem aconseguir separar la lògica del formulari en dos fitxer.</p>
-<p>Si agafem com a exemple la creació de noves pel·lícules:</p>
-<p>El fitxer <code>movies-create.php</code> s'encarregarà de mostrar el formulari i el fitxer <code>movies-store.php</code> s'encarregarà de processar-lo.  En cas d'errors de validació es redirigirà a <code>movies-create.php</code> guardant en una variable de sessió els errors i les dades correctament validades. En cas d'èxit, <code>movies-store.php</code> redirigirà a la pàgina <code>index.php</code> guardant en una variable de sessió el missatge d'èxit, que caldrà mostrar en <code>index.php</code>.</p>
+<p>Si agafem com a exemple la creació de nous tuits:</p>
+<p>El fitxer <code>tweet-new.php</code> s'encarregarà de mostrar el formulari i el fitxer <code>tweet-process.php</code> s'encarregarà de processar-lo.  En cas d'errors de validació es redirigirà a <code>tweet-new.php</code> guardant en una variable de sessió els errors i les dades correctament validades. En cas d'èxit, <code>tweet-process.php</code> redirigirà a la pàgina <code>index.php</code> guardant en una variable de sessió el missatge d'èxit, que caldrà mostrar en <code>index.php</code>.</p>
 <div class="admonition info">
 <p class="admonition-title">Redireccions</p>
 <p>Una redirecció és una tècnica que permet fer que el servidor web responga amb una URL diferent a l’actual.</p>
