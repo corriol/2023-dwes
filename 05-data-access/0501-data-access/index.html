@@ -5,11 +5,9 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="['books', 'programming']" name="keywords"/>
-<meta content="Vicent Jordà" name="author"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
-<title>5. Accés a dades amb PHP PDO - DWES</title>
+<title>Accés a dades amb PHP - DWES</title>
 <link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -48,7 +46,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              5. Accés a dades amb PHP PDO
+              Accés a dades amb PHP
             
           </span>
 </div>
@@ -233,7 +231,165 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../04-web-programming/04-04-best-practices/">
+        Bones pràctiques
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../04-web-programming/04-99-tasks/">
+        Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
+        5.- Accés a dades amb PHP
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="5.- Accés a dades amb PHP" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          5.- Accés a dades amb PHP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../0500-intro/">
+        Introducció
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Accés a dades amb PHP
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Accés a dades amb PHP
+      </a>
+<nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#classes-pdo-pdostatement-i-pdoexception">
+    Classes PDO, PDOStatement i PDOException
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#connexio-a-la-base-de-dades">
+    Connexió a la base de dades
+  </a>
+<nav aria-label="Connexió a la base de dades" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tancar-la-connexio-a-la-base-de-dades">
+    Tancar la connexió a la base de dades
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#execucio-de-consultes">
+    Execució de consultes
+  </a>
+<nav aria-label="Execució de consultes" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#estil-de-busqueda-fetch-style">
+    Estil de búsqueda (fetch style)
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#consultes-preparades">
+    Consultes preparades
+  </a>
+<nav aria-label="Consultes preparades" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#assignacio-amb-marcadors-anonims">
+    Assignació amb marcadors anònims
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#diferencia-entre-lus-de-bindparam-i-bindvalue">
+    Diferència entre l'ús de bindParam i bindValue
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#assignacio-amb-marcadors-coneguts">
+    Assignació amb marcadors coneguts
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#exemple-dus">
+    Exemple d'ús
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#insercio-modificacio-i-eliminacio-de-dades-de-la-bbdd">
+    Inserció, modificació i eliminació de dades de la BBDD
+  </a>
+<nav aria-label="Inserció, modificació i eliminació de dades de la BBDD" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#exemples-crud-create-read-update-delete-insert-update-y-delete">
+    Exemples CRUD (Create, Read, Update, Delete): INSERT, UPDATE y DELETE
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#alguns-metodes-dinteres">
+    Alguns mètodes d'interès
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#gestio-derrors-en-lacces">
+    Gestió d'errors en l'accés
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#transaccions">
+    Transaccions
+  </a>
+<nav aria-label="Transaccions" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#transaccions-en-pdo">
+    Transaccions en PDO
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#esquema-basic-dus-de-transaccions-amb-pdo">
+    Esquema bàsic d'ús de transaccions amb PDO
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#exemple">
+    Exemple
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../0599-tasks/">
         Activitats
       </a>
 </li>
@@ -248,18 +404,20 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="acces-a-dades-mitjancant-php-pdo">Accés a dades mitjançant PHP PDO</h1>
-<p>PHP permet treballar en base de dades MySQL gràcies a dues llibreries. MySQLi i PDO. Com que MySQLi està
-dissenyada exclusivament per a MySQL nosaltres aprofundirem en PDO, que permet connectar fins amb
-12 sistemes gestors de base de dades diferents.</p>
+<p>PHP permet treballar en base de dades MySQL gràcies a dues llibreries. MySQLi i PDO. Com que MySQLi està dissenyada exclusivament per a MySQL nosaltres aprofundirem en PDO, que permet connectar fins amb 12 sistemes gestors de base de dades diferents.</p>
 <p>Les sigles PDO (<em>PHP Data Objects</em>) fan referència a una interfície de PHP
 que ens permet accedir a bases de dades de qualsevol tipus en PHP.</p>
 <p>Cada controlador de bases de dades que implemente la interfície PDO pot
 exposar característiques específiques de la base de dades, com les
-funcions habituals de l'extensió. Cal observar que no es pot realitzar
-cap de les funcions de la bases de dades utilitzant l'extensió PDO per
-si mateixa; s'ha d'utilitzar-ne una de PDO específica de la base de
-dades per tenir accés a un servidor de base de dades.</p>
+funcions habituals de l'extensió. </p>
+<div class="admonition important">
+<p class="admonition-title">Un controlador per SGDB</p>
+<p>Cal observar que no es pot realitzar cap de les funcions de la bases de dades utilitzant l'extensió PDO per si mateixa; s'ha d'utilitzar-ne una de PDO específica de la base de dades per tenir accés a un servidor de base de dades.</p>
+</div>
+<figure>
 <p><img alt="" src="../assets/Pdo.png"/></p>
+<figcaption>Capes PDO</figcaption>
+</figure>
 <p>PDO proporciona una capa d'abstracció d'accés a dades, el que significa
 que, independentment de la base de dades que s'estiga utilitzant, s'usen
 les mateixes funcions per fer consultes i obtenir dades.</p>
@@ -358,8 +516,8 @@ volem que ens torne les dades de la base de dades.</p>
 <li><code>PDO::FETCH_ASSOC</code>: Torna les dades en un array associatiu pel nom de camp de la
   taula.</li>
 <li><code>PDO::FETCH_NUM</code>: Retorna un array indexat per la posició del camp.</li>
-<li><code>PDO::FETCH_BOTH</code>: Retorna un array associatiu pel nom de camp de la taula i un</li>
-<li>indexat per la posició del camp. És una combinació dels dos estils anteriors. És l'estil per defecte.</li>
+<li><code>PDO::FETCH_BOTH</code>: Retorna un array associatiu pel nom de camp de la taula i un 
+  indexat per la posició del camp. És una combinació dels dos estils anteriors. És l'estil per defecte.</li>
 <li><code>PDO::FETCH_BOUND</code>: Assigna els valors retornats a les variables
   assignades amb el mètode <code>bindColumn()</code>.</li>
 <li><code>PDO::FETCH_CLASS</code>: Assigna els valors dels camps a les propietats
@@ -372,24 +530,30 @@ volem que ens torne les dades de la base de dades.</p>
   propietats que es corresponen amb els noms de columnes.</li>
 </ul>
 <p>Podem ajustar l'estil de búsqueda de dues formes:</p>
-<p>Abans de recuperar registres</p>
+<ol>
+<li>
+<p>Abans de recuperar registres:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">setFetchMode</span><span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">FETCH_ASSOC</span><span class="p">);</span>
 </code></pre></div>
-<p>O en el moment de recuperar-los:</p>
+</li>
+<li>
+<p>En el moment de recuperar-los:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">fetch</span><span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">FETCH_ASSOC</span><span class="p">);</span>
 <span class="linenos" data-linenos="2 "></span><span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">fechtall</span><span class="p">(</span><span class="nx">PDO</span><span class="o">::</span><span class="na">FETCH_ASSOC</span><span class="p">);</span>
 </code></pre></div>
+</li>
+</ol>
 <div class="admonition important">
 <p class="admonition-title"><code>PDO::FETCH_CLASS</code></p>
 <p>Cal saber que no podem usar <code>PDO::FETCH_CLASS</code> com a paràmetre de <code>PDOStatement::fetch()</code>. Cal controlar l'estil de
 búsqueda amb <code>PDOStatement::setFetchMode()</code>.</p>
 </div>
-<p><strong>FETCH_ASSOC</strong></p>
+<h4 id="array-associatiu-fetch_assoc">Array associatiu <code>FETCH_ASSOC</code></h4>
 <p>Per executar la consulta SELECT si no tenim paràmetres en la consulta podrem usar <code>PDO::query()</code></p>
 <p>Vegem un exemple de consulta SELECT:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">try</span> <span class="p">{</span>
 <span class="linenos" data-linenos=" 2 "></span>    <span class="c1">#Per executar la consulta SELECT si no tenim paràmetres en la consulta podrem usar -&gt; query ()</span>
-<span class="linenos" data-linenos=" 3 "></span>    <span class="nv">$stmt</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">query</span> <span class="p">(</span><span class="s1">'SELECT name, addr, city from colleague'</span><span class="p">);</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="nv">$stmt</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s2">"SELECT name, addr, city from colleague"</span><span class="p">);</span>
 <span class="linenos" data-linenos=" 4 "></span>
 <span class="linenos" data-linenos=" 5 "></span>    <span class="cm">/* Indiquem en quin format volem obtenir les dades de la taula en format d'array associatiu.</span>
 <span class="linenos" data-linenos=" 6 "></span><span class="cm">       Si no indiquem res per defecte s'usarà FETCH_BOTH el que ens permetrà accedir com a vector</span>
@@ -411,7 +575,7 @@ búsqueda amb <code>PDOStatement::setFetchMode()</code>.</p>
 <span class="linenos" data-linenos="22 "></span>    <span class="k">echo</span> <span class="s2">"Error: executant consulta SQL."</span><span class="p">;</span>
 <span class="linenos" data-linenos="23 "></span> <span class="p">}</span>
 </code></pre></div>
-<p><strong>FETCH_OBJ</strong></p>
+<h4 id="objecte-fetch_obj">Objecte (<code>FETCH_OBJ</code>)</h4>
 <p>En aquest estil de búsqueda es crearà un objecte estàndard (<code>stdClass</code>) per
 cada fila que llegim del recordset.</p>
 <p>Per exemple:</p>
@@ -439,7 +603,7 @@ cada fila que llegim del recordset.</p>
 <span class="linenos" data-linenos="22 "></span>    <span class="k">echo</span> <span class="s2">"Error: executant consulta SQL."</span><span class="p">;</span>
 <span class="linenos" data-linenos="23 "></span><span class="p">}</span>
 </code></pre></div>
-<p><strong>FETCH_CLASS</strong></p>
+<h4 id="classe-fetch_class">Classe (<code>FETCH_CLASS</code>)</h4>
 <p>En aquest estil de búsqueda els registres es tornaran en una nova instància
 de la classe indicada en el segon paràmetre, fent correspondre les columnes del conjunt de resultats amb els noms de les
 propietats de la classe, i cridant al constructor després, a menys que también es proporcione
@@ -508,7 +672,7 @@ d'assignar els valors d'eixos marcadors.</p>
 utilitzar <code>bindParam</code> o <code>bindValue</code>:</p>
 <div class="admonition warning">
 <p class="admonition-title">Marcadors anònims</p>
-<p>ATENCIÓ:<code>$pdo-&gt;prepare()</code> usant marcadors anònims <code>?</code>, tracta totes les
+<p><code>$pdo-&gt;prepare()</code> usant marcadors anònims <code>?</code>, tracta totes les
 variables com si foren <em>string</em>, per la qual cosa farà servir cometes
 per delimitar els seus valors per defecte.</p>
 </div>
@@ -540,7 +704,7 @@ associatiu:</p>
 <span class="linenos" data-linenos="4 "></span> <span class="nv">$stmt</span> <span class="o">=</span> <span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="s2">"INSERT INTO colleague (name, addr, city) values (?, ?, ?)"</span><span class="p">);</span>
 <span class="linenos" data-linenos="5 "></span> <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">(</span><span class="nv">$dades</span><span class="p">);</span>
 </code></pre></div>
-<h3 id="diferencia-entre-lus-de-bindparam-i-bindvalue">Diferència entre l'ús de bindParam i bindValue</h3>
+<h3 id="diferencia-entre-lus-de-bindparam-i-bindvalue">Diferència entre l'ús de <code>bindParam</code> i <code>bindValue</code></h3>
 <p>Amb <code>bindParam</code> es vincula la variable al paràmetre i en el moment de
 fer l'<em>execute</em> és quan s'assigna realment el valor de la variable a
 aquest paràmetre.</p>
@@ -871,118 +1035,39 @@ necessari.</p>
 <span class="linenos" data-linenos="19 "></span>        <span class="k">echo</span> <span class="s2">"Fallo: "</span> <span class="o">.</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
 <span class="linenos" data-linenos="20 "></span>    <span class="p">}</span>
 </code></pre></div>
-<h2 id="projecte-moviefx">Projecte MovieFX</h2>
-<p>L'objectiu és afegir al projecte funcionalitats de base de dades.</p>
-<h3 id="crear-la-base-de-dades">Crear la base de dades</h3>
-<ol>
-<li>Crea la base de dades <code>movieFX</code>.</li>
-<li>Crea la següent taula:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">movie</span><span class="o">`</span> <span class="p">(</span>
-<span class="linenos" data-linenos=" 2 "></span>  <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-<span class="linenos" data-linenos=" 3 "></span>  <span class="o">`</span><span class="n">title</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="k">COLLATE</span> <span class="n">utf8_spanish2_ci</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-<span class="linenos" data-linenos=" 4 "></span>  <span class="o">`</span><span class="n">overview</span><span class="o">`</span> <span class="nb">text</span> <span class="k">COLLATE</span> <span class="n">utf8_spanish2_ci</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-<span class="linenos" data-linenos=" 5 "></span>  <span class="o">`</span><span class="n">release_date</span><span class="o">`</span> <span class="nb">date</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-<span class="linenos" data-linenos=" 6 "></span>  <span class="o">`</span><span class="n">rating</span><span class="o">`</span> <span class="nb">float</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-<span class="linenos" data-linenos=" 7 "></span>  <span class="o">`</span><span class="n">poster</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="k">COLLATE</span> <span class="n">utf8_spanish2_ci</span> <span class="k">DEFAULT</span> <span class="k">NULL</span>
-<span class="linenos" data-linenos=" 8 "></span><span class="p">)</span> <span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span> <span class="k">DEFAULT</span> <span class="n">CHARSET</span><span class="o">=</span><span class="n">utf8</span> <span class="k">COLLATE</span><span class="o">=</span><span class="n">utf8_spanish2_ci</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 9 "></span>
-<span class="linenos" data-linenos="10 "></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">movie</span><span class="o">`</span>
-<span class="linenos" data-linenos="11 "></span>  <span class="k">ADD</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">);</span>
-<span class="linenos" data-linenos="12 "></span>
-<span class="linenos" data-linenos="13 "></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">movie</span><span class="o">`</span>
-<span class="linenos" data-linenos="14 "></span>  <span class="k">MODIFY</span> <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">;</span>
-<span class="linenos" data-linenos="15 "></span><span class="k">COMMIT</span><span class="p">;</span>
-</code></pre></div>
-<ol start="3">
-<li>Crea l'usuari <code>dbuser</code> amb <code>1234</code> de contrasenya.</li>
-<li>Dona-li els privilegis necessaris perquè sols puga fer SELECT, INSERT, DELETE i UPDATE</li>
-</ol>
-<div class="admonition danger">
-<p class="admonition-title">Copiar i pegar</p>
-<p>La temptació de copiar i pegar codi serà gran, però en aquest punt podeu fer-ho sense pietat. Més avant vorem tècniques per a evitar-ho.</p>
-</div>
-<h3 id="modificar-la-pagina-principal">Modificar la pàgina principal</h3>
-<ol>
-<li>Modifica <code>index.php</code> perquè obtinga les pel·lícules de la base de dades (com un <em>array</em> associatiu).</li>
-<li>Caldrà transformar els resultats en un <em>array</em> d'objectes <code>movie</code>.</li>
-</ol>
-<h3 id="modificar-la-pagina-de-detall">Modificar la pàgina de detall</h3>
-<ol>
-<li>Modifica <code>movie.php</code> perquè obtinga la pel·licula seleccionada de la base de dades (com un <em>array</em> associatiu).</li>
-<li>Caldrà transformar els resultats en un <em>array</em> d'objectes <code>movie</code>.</li>
-</ol>
-<h3 id="inserint-noves-pellicules">Inserint noves pel·lícules</h3>
-<ol>
-<li>Crea un formulari en (<code>movies-create.php</code>) per a inserir noves pel·lícules. </li>
-<li>Posa un enllaç al formulari en la pàgina principal.</li>
-<li>La pàgina (<code>movies-create.php</code>) processarà el formulari i després de validar tots
-  els camps els inserirà a la base de dades.</li>
-</ol>
-<p>Cal tenir en compte la separació de la lògica i la presentació.</p>
-<h3 id="modificant-i-esborrants-pellicules">Modificant i esborrants pel·lícules</h3>
-<ol>
-<li>Crea el formulari per a editar pel·lícules (<code>movies-edit.php</code>).</li>
-<li>Crea el formulari per a esborrar pel·lícules (<code>movies-delete.php</code>).</li>
-<li>Afig en cada pel·lícula un enllaç per a esborrar i editar la película.</li>
-</ol>
-<h3 id="creant-transaccions">Creant transaccions</h3>
-<p>Per poder fer aquesta activitat caldrà tenir en la base de dades les taules: <code>user</code> i <code>rating</code>.</p>
-<div class="mermaid">erDiagram
-    user ||--o{ rating : places
-    movie ||--o{ rating : contains
-    rating {
-        int id    
-        int value        
-    }
-    user {
-     int id
-     string username
-     string password     
-    }    
-</div>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">rating</span><span class="o">`</span> <span class="p">(</span>
-<span class="linenos" data-linenos=" 2 "></span>  <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-<span class="linenos" data-linenos=" 3 "></span>  <span class="o">`</span><span class="n">value</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-<span class="linenos" data-linenos=" 4 "></span>  <span class="o">`</span><span class="n">movie_id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-<span class="linenos" data-linenos=" 5 "></span>  <span class="o">`</span><span class="n">user_id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span>
-<span class="linenos" data-linenos=" 6 "></span><span class="p">)</span> <span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span> <span class="k">DEFAULT</span> <span class="n">CHARSET</span><span class="o">=</span><span class="n">utf8</span> <span class="k">COLLATE</span><span class="o">=</span><span class="n">utf8_spanish2_ci</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 7 "></span>
-<span class="linenos" data-linenos=" 8 "></span>
-<span class="linenos" data-linenos=" 9 "></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="o">`</span><span class="k">user</span><span class="o">`</span> <span class="p">(</span>
-<span class="linenos" data-linenos="10 "></span>  <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-<span class="linenos" data-linenos="11 "></span>  <span class="o">`</span><span class="n">username</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="k">COLLATE</span> <span class="n">utf8_spanish2_ci</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-<span class="linenos" data-linenos="12 "></span>  <span class="o">`</span><span class="n">password</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">COLLATE</span> <span class="n">utf8_spanish2_ci</span> <span class="k">NOT</span> <span class="k">NULL</span>
-<span class="linenos" data-linenos="13 "></span><span class="p">)</span> <span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span> <span class="k">DEFAULT</span> <span class="n">CHARSET</span><span class="o">=</span><span class="n">utf8</span> <span class="k">COLLATE</span><span class="o">=</span><span class="n">utf8_spanish2_ci</span><span class="p">;</span>
-<span class="linenos" data-linenos="14 "></span>
-<span class="linenos" data-linenos="15 "></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="o">`</span><span class="k">user</span><span class="o">`</span>
-<span class="linenos" data-linenos="16 "></span>  <span class="k">ADD</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">);</span>
-<span class="linenos" data-linenos="17 "></span>
-<span class="linenos" data-linenos="18 "></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="o">`</span><span class="k">user</span><span class="o">`</span>
-<span class="linenos" data-linenos="19 "></span>  <span class="k">MODIFY</span> <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">;</span>
-<span class="linenos" data-linenos="20 "></span>
-<span class="linenos" data-linenos="21 "></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">rating</span><span class="o">`</span>
-<span class="linenos" data-linenos="22 "></span>  <span class="k">ADD</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">),</span>
-<span class="linenos" data-linenos="23 "></span>  <span class="k">ADD</span> <span class="k">UNIQUE</span> <span class="k">KEY</span> <span class="o">`</span><span class="n">movie_user_idx</span><span class="o">`</span> <span class="p">(</span><span class="o">`</span><span class="n">movie_id</span><span class="o">`</span><span class="p">,</span><span class="o">`</span><span class="n">user_id</span><span class="o">`</span><span class="p">)</span> <span class="k">USING</span> <span class="n">BTREE</span><span class="p">;</span>
-<span class="linenos" data-linenos="24 "></span>
-<span class="linenos" data-linenos="25 "></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">rating</span><span class="o">`</span>
-<span class="linenos" data-linenos="26 "></span>  <span class="k">MODIFY</span> <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">;</span>
-<span class="linenos" data-linenos="27 "></span>
-<span class="linenos" data-linenos="28 "></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">rating</span><span class="o">`</span>
-<span class="linenos" data-linenos="29 "></span>  <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="o">`</span><span class="n">rating_movie_fk</span><span class="o">`</span> <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">movie_id</span><span class="o">`</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="o">`</span><span class="n">movie</span><span class="o">`</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">),</span>
-<span class="linenos" data-linenos="30 "></span>  <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="o">`</span><span class="n">rating_user_fk</span><span class="o">`</span> <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">user_id</span><span class="o">`</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="o">`</span><span class="k">user</span><span class="o">`</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">);</span>
-<span class="linenos" data-linenos="31 "></span><span class="k">COMMIT</span><span class="p">;</span>
-</code></pre></div>
-<ol>
-<li>Els usuaris podran valorar una pel·lícula amb un número de l'1 al 5, per aquest motiu afegirem en la classe <code>User</code> el mètode <code>rate</code> que rebrà com a paràmetres una pel·lícula i una valoració.</li>
-<li>El mètode <code>rate</code> crearà un nou registre en la taula <code>rating</code> per evitar duplicats i a mès, actualitzarà la valoració de la pel·lícula tenint en compte la valoració de l'usuari.</li>
-<li>Aquestes dos sentències contra la base de dades estaran dintre d'una transacció, ja que s'han d'executar com si foren una.</li>
-</ol>
 </article>
 </div>
 </div>
 </main>
 <footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Anterior: Introducció" class="md-footer__link md-footer__link--prev" href="../0500-intro/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Anterior
+              </span>
+              Introducció
+            </div>
+</div>
+</a>
+<a aria-label="Següent: Activitats" class="md-footer__link md-footer__link--next" href="../0599-tasks/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Següent
+              </span>
+              Activitats
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-footer-copyright">
@@ -1005,5 +1090,5 @@ necessari.</p>
 <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
 <script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
 <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
-<script>mermaid.initialize({});</script></body>
+</body>
 </html>
