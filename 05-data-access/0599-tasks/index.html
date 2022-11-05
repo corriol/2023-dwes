@@ -267,60 +267,9 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          Activitats
-          <span class="md-nav__icon md-icon"></span>
-</label>
 <a class="md-nav__link md-nav__link--active" href="./">
         Activitats
       </a>
-<nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Taula de continguts
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#projecte-moviefx">
-    Projecte MovieFX
-  </a>
-<nav aria-label="Projecte MovieFX" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#crear-la-base-de-dades">
-    Crear la base de dades
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#modificar-la-pagina-principal">
-    Modificar la pàgina principal
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#modificar-la-pagina-de-detall">
-    Modificar la pàgina de detall
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#inserint-noves-pellicules">
-    Inserint noves pel·lícules
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#modificant-i-esborrants-pellicules">
-    Modificant i esborrants pel·lícules
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#creant-transaccions">
-    Creant transaccions
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -335,119 +284,32 @@
 <h1 id="activitats">Activitats</h1>
 <ol start="501">
 <li>
-<p><code>501-querying</code>. activitat per a provar la connexió i consulta a una base de dades.</p>
+<p><code>501-querying.php</code>. Importa mitjançant PHPMyAdmin la base de dades <a href="../assets/movies.sql">movies.sql</a>. Crea la connexió i fes les següents consultes usant consultes preparades amb marcadors coneguts:</p>
+<ol>
+<li>Mostra en un array associatiu (pots usar <code>var_dump</code>) el <em>id</em> i el <em>títol</em> de totes les pel·lícules.</li>
+<li>A partir de l'activitat anterior, modifica la sentència SQL perquè les pel·lícules apareguen ordenades pel <em>títol</em>.</li>
+<li>Mostra en una array associatiu el <em>id</em>, el <em>títol</em> i el <em>nom del gènere</em> de totes les pel·lícules ordenades per la data d'estrena de forma descendent (pista: caldrà fer un <code>JOIN</code>).</li>
+<li>Mostra en un array associatiu les dades de la pel·lícula amb <code>id</code> igual a <code>459489</code>. Cal que uses <code>bindValue</code> per vincular el paràmetre a la consulta preparada.</li>
+<li>Mostra en un array associatiu el <em>id</em> i el <em>títol</em> de les pel·lícules que tinguen en el títol el text <code>Te</code>, han d'eixir-ne 2. Cal vincular els paràmetres mitjançant un paràmetre del mètode <code>execute</code>.</li>
+<li>Mostra en un array associatiu el <em>id</em> i el <em>títol</em> de les pel·lícules que anteriors a 2020.</li>
+<li>Mostra en una taula els generes.</li>
+</ol>
 </li>
 <li>
-<p><code>502-contact-info</code>. Crea una base dades anomenada <code>contact-info</code> on 
-      emmagatzemarem les dades recollides en el formulari de l'activitat 407.</p>
+<p><code>502-manipulating.php</code>. Realitza, sobre la base de dades <code>Movies</code> les següents accions:</p>
+<ol>
+<li>Insereix una nova pel·lícula indicant el nou identificador assignat. Mostra-la en un array associatiu (<code>var_dump</code>).</li>
+<li>Modifica el títol de la pel·lícula que acabes d'inserir afegint-li "(còpia)" al títol actual. Associa els paràmetres en l'<code>execute</code>.</li>
+<li>Insereix un nou gènere i assigna-li'l a la pel·lícula. Usa en aquest cas <code>bindParam</code> per associar els paràmetres.</li>
+<li>Elimina el nou gènere. És possible? Per què?</li>
+<li>Elimina la pel·lícula i, després, el gènere.</li>
+</ol>
 </li>
-</ol>
-<h2 id="projecte-moviefx">Projecte MovieFX</h2>
-<p>L'objectiu és afegir al projecte funcionalitats de base de dades.</p>
-<h3 id="crear-la-base-de-dades">Crear la base de dades</h3>
-<ol>
-<li>Crea la base de dades <code>movieFX</code>.</li>
-<li>Crea la següent taula:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">movie</span><span class="o">`</span> <span class="p">(</span>
-<span class="linenos" data-linenos=" 2 "></span>  <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-<span class="linenos" data-linenos=" 3 "></span>  <span class="o">`</span><span class="n">title</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="k">COLLATE</span> <span class="n">utf8_spanish2_ci</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-<span class="linenos" data-linenos=" 4 "></span>  <span class="o">`</span><span class="n">overview</span><span class="o">`</span> <span class="nb">text</span> <span class="k">COLLATE</span> <span class="n">utf8_spanish2_ci</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-<span class="linenos" data-linenos=" 5 "></span>  <span class="o">`</span><span class="n">release_date</span><span class="o">`</span> <span class="nb">date</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-<span class="linenos" data-linenos=" 6 "></span>  <span class="o">`</span><span class="n">rating</span><span class="o">`</span> <span class="nb">float</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-<span class="linenos" data-linenos=" 7 "></span>  <span class="o">`</span><span class="n">poster</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="k">COLLATE</span> <span class="n">utf8_spanish2_ci</span> <span class="k">DEFAULT</span> <span class="k">NULL</span>
-<span class="linenos" data-linenos=" 8 "></span><span class="p">)</span> <span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span> <span class="k">DEFAULT</span> <span class="n">CHARSET</span><span class="o">=</span><span class="n">utf8</span> <span class="k">COLLATE</span><span class="o">=</span><span class="n">utf8_spanish2_ci</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 9 "></span>
-<span class="linenos" data-linenos="10 "></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">movie</span><span class="o">`</span>
-<span class="linenos" data-linenos="11 "></span>  <span class="k">ADD</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">);</span>
-<span class="linenos" data-linenos="12 "></span>
-<span class="linenos" data-linenos="13 "></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">movie</span><span class="o">`</span>
-<span class="linenos" data-linenos="14 "></span>  <span class="k">MODIFY</span> <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">;</span>
-<span class="linenos" data-linenos="15 "></span><span class="k">COMMIT</span><span class="p">;</span>
-</code></pre></div>
-<ol start="3">
-<li>Crea l'usuari <code>dbuser</code> amb <code>1234</code> de contrasenya.</li>
-<li>Dona-li els privilegis necessaris perquè sols puga fer SELECT, INSERT, DELETE i UPDATE</li>
-</ol>
-<div class="admonition danger">
-<p class="admonition-title">Copiar i pegar</p>
-<p>La temptació de copiar i pegar codi serà gran, però en aquest punt podeu fer-ho sense pietat. Més avant vorem tècniques per a evitar-ho.</p>
-</div>
-<h3 id="modificar-la-pagina-principal">Modificar la pàgina principal</h3>
-<ol>
-<li>Modifica <code>index.php</code> perquè obtinga les pel·lícules de la base de dades (com un <em>array</em> associatiu).</li>
-<li>Caldrà transformar els resultats en un <em>array</em> d'objectes <code>movie</code>.</li>
-</ol>
-<h3 id="modificar-la-pagina-de-detall">Modificar la pàgina de detall</h3>
-<ol>
-<li>Modifica <code>movie.php</code> perquè obtinga la pel·licula seleccionada de la base de dades (com un <em>array</em> associatiu).</li>
-<li>Caldrà transformar els resultats en un <em>array</em> d'objectes <code>movie</code>.</li>
-</ol>
-<h3 id="inserint-noves-pellicules">Inserint noves pel·lícules</h3>
-<ol>
-<li>Crea un formulari en (<code>movies-create.php</code>) per a inserir noves pel·lícules. </li>
-<li>Posa un enllaç al formulari en la pàgina principal.</li>
-<li>La pàgina (<code>movies-create.php</code>) processarà el formulari i després de validar tots
-  els camps els inserirà a la base de dades.</li>
-</ol>
-<p>Cal tenir en compte la separació de la lògica i la presentació.</p>
-<h3 id="modificant-i-esborrants-pellicules">Modificant i esborrants pel·lícules</h3>
-<ol>
-<li>Crea el formulari per a editar pel·lícules (<code>movies-edit.php</code>).</li>
-<li>Crea el formulari per a esborrar pel·lícules (<code>movies-delete.php</code>).</li>
-<li>Afig en cada pel·lícula un enllaç per a esborrar i editar la película.</li>
-</ol>
-<h3 id="creant-transaccions">Creant transaccions</h3>
-<p>Per poder fer aquesta activitat caldrà tenir en la base de dades les taules: <code>user</code> i <code>rating</code>.</p>
-<div class="mermaid">erDiagram
-    user ||--o{ rating : places
-    movie ||--o{ rating : contains
-    rating {
-        int id    
-        int value        
-    }
-    user {
-     int id
-     string username
-     string password     
-    }    
-</div>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">rating</span><span class="o">`</span> <span class="p">(</span>
-<span class="linenos" data-linenos=" 2 "></span>  <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-<span class="linenos" data-linenos=" 3 "></span>  <span class="o">`</span><span class="n">value</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-<span class="linenos" data-linenos=" 4 "></span>  <span class="o">`</span><span class="n">movie_id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-<span class="linenos" data-linenos=" 5 "></span>  <span class="o">`</span><span class="n">user_id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span>
-<span class="linenos" data-linenos=" 6 "></span><span class="p">)</span> <span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span> <span class="k">DEFAULT</span> <span class="n">CHARSET</span><span class="o">=</span><span class="n">utf8</span> <span class="k">COLLATE</span><span class="o">=</span><span class="n">utf8_spanish2_ci</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 7 "></span>
-<span class="linenos" data-linenos=" 8 "></span>
-<span class="linenos" data-linenos=" 9 "></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="o">`</span><span class="k">user</span><span class="o">`</span> <span class="p">(</span>
-<span class="linenos" data-linenos="10 "></span>  <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-<span class="linenos" data-linenos="11 "></span>  <span class="o">`</span><span class="n">username</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="k">COLLATE</span> <span class="n">utf8_spanish2_ci</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-<span class="linenos" data-linenos="12 "></span>  <span class="o">`</span><span class="n">password</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">COLLATE</span> <span class="n">utf8_spanish2_ci</span> <span class="k">NOT</span> <span class="k">NULL</span>
-<span class="linenos" data-linenos="13 "></span><span class="p">)</span> <span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span> <span class="k">DEFAULT</span> <span class="n">CHARSET</span><span class="o">=</span><span class="n">utf8</span> <span class="k">COLLATE</span><span class="o">=</span><span class="n">utf8_spanish2_ci</span><span class="p">;</span>
-<span class="linenos" data-linenos="14 "></span>
-<span class="linenos" data-linenos="15 "></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="o">`</span><span class="k">user</span><span class="o">`</span>
-<span class="linenos" data-linenos="16 "></span>  <span class="k">ADD</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">);</span>
-<span class="linenos" data-linenos="17 "></span>
-<span class="linenos" data-linenos="18 "></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="o">`</span><span class="k">user</span><span class="o">`</span>
-<span class="linenos" data-linenos="19 "></span>  <span class="k">MODIFY</span> <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">;</span>
-<span class="linenos" data-linenos="20 "></span>
-<span class="linenos" data-linenos="21 "></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">rating</span><span class="o">`</span>
-<span class="linenos" data-linenos="22 "></span>  <span class="k">ADD</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">),</span>
-<span class="linenos" data-linenos="23 "></span>  <span class="k">ADD</span> <span class="k">UNIQUE</span> <span class="k">KEY</span> <span class="o">`</span><span class="n">movie_user_idx</span><span class="o">`</span> <span class="p">(</span><span class="o">`</span><span class="n">movie_id</span><span class="o">`</span><span class="p">,</span><span class="o">`</span><span class="n">user_id</span><span class="o">`</span><span class="p">)</span> <span class="k">USING</span> <span class="n">BTREE</span><span class="p">;</span>
-<span class="linenos" data-linenos="24 "></span>
-<span class="linenos" data-linenos="25 "></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">rating</span><span class="o">`</span>
-<span class="linenos" data-linenos="26 "></span>  <span class="k">MODIFY</span> <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">;</span>
-<span class="linenos" data-linenos="27 "></span>
-<span class="linenos" data-linenos="28 "></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">rating</span><span class="o">`</span>
-<span class="linenos" data-linenos="29 "></span>  <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="o">`</span><span class="n">rating_movie_fk</span><span class="o">`</span> <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">movie_id</span><span class="o">`</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="o">`</span><span class="n">movie</span><span class="o">`</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">),</span>
-<span class="linenos" data-linenos="30 "></span>  <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="o">`</span><span class="n">rating_user_fk</span><span class="o">`</span> <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">user_id</span><span class="o">`</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="o">`</span><span class="k">user</span><span class="o">`</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">);</span>
-<span class="linenos" data-linenos="31 "></span><span class="k">COMMIT</span><span class="p">;</span>
-</code></pre></div>
-<ol>
-<li>Els usuaris podran valorar una pel·lícula amb un número de l'1 al 5, per aquest motiu afegirem en la classe <code>User</code> el mètode <code>rate</code> que rebrà com a paràmetres una pel·lícula i una valoració.</li>
-<li>El mètode <code>rate</code> crearà un nou registre en la taula <code>rating</code> per evitar duplicats i a mès, actualitzarà la valoració de la pel·lícula tenint en compte la valoració de l'usuari.</li>
-<li>Aquestes dos sentències contra la base de dades estaran dintre d'una transacció, ja que s'han d'executar com si foren una.</li>
+<li>
+<p><code>503-contact-info</code>. Crea una base dades anomenada <code>contact-info</code> on 
+      emmagatzemarem les dades recollides en el formulari de l'activitat 440. Tin en compte que el gènere, les hores de contacte i les aficions seran taules independents (utilitza les claus dels arrays com a clau primària) que estaran relacionades amb la taula principal.</p>
+<p>Còpia l'activitat 440 i modifica-la perquè les dades s'emmagatzemem en la base de dades.</p>
+</li>
 </ol>
 </article>
 </div>
@@ -491,5 +353,5 @@
 <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
 <script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
 <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
-<script>mermaid.initialize({});</script></body>
+</body>
 </html>
