@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
-<title>Activitats - DWES</title>
+<title>Composer - DWES</title>
 <link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -22,7 +22,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#activitats">
+<a class="md-skip" href="#composer">
           Salta el contingut
         </a>
 </div>
@@ -46,7 +46,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Activitats
+              Composer
             
           </span>
 </div>
@@ -280,145 +280,129 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="activitats">Activitats</h1>
-<h2 id="projecte-moviefx">Projecte MovieFX</h2>
-<h3 id="introduccio">Introducció</h3>
-<ol start="601">
-<li>
-<p>La classe <code>FlashMessage</code>. </p>
-<p>Fins ara, hem gestionat la comunicació entre pàgines mitjançant sessions. 
- La gestió la fèiem escrivint i llegint en les variables de sessió. L'objectiu de la següent classe és proporcionar-nos un mecanisme que ens facilite l'enviament de missatges entre pàgines. Una vegada implementada utilitza-la en la creació de pel·lícules.</p>
-</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1"># src/App/Helpers/FlashMessage.php</span>
-<span class="linenos" data-linenos=" 2 "></span><span class="sd">/**</span>
-<span class="linenos" data-linenos=" 3 "></span><span class="sd"> * Class FlashMessage</span>
-<span class="linenos" data-linenos=" 4 "></span><span class="sd"> * Aquesta classe llig i escriu directament en una variable de sessió </span>
-<span class="linenos" data-linenos=" 5 "></span><span class="sd"> * que serà un array, la clau serà $sessionKey  de forma que evitem </span>
-<span class="linenos" data-linenos=" 6 "></span><span class="sd"> * possible col·lisions.</span>
-<span class="linenos" data-linenos=" 7 "></span><span class="sd">*/</span>
-<span class="linenos" data-linenos=" 8 "></span><span class="k">class</span> <span class="nc">FlashMessage</span>
-<span class="linenos" data-linenos=" 9 "></span><span class="p">{</span>
-<span class="linenos" data-linenos="10 "></span>    <span class="sd">/**</span>
-<span class="linenos" data-linenos="11 "></span><span class="sd">     * string</span>
-<span class="linenos" data-linenos="12 "></span><span class="sd">     */</span>
-<span class="linenos" data-linenos="13 "></span>
-<span class="linenos" data-linenos="14 "></span>    <span class="k">const</span> <span class="no">SESSION_KEY</span> <span class="o">=</span> <span class="s2">"flash-message"</span><span class="p">;</span>
-<span class="linenos" data-linenos="15 "></span>
-<span class="linenos" data-linenos="16 "></span>    <span class="sd">/**</span>
-<span class="linenos" data-linenos="17 "></span><span class="sd">     * obtenim el valor de l'array associat a la clau.</span>
-<span class="linenos" data-linenos="18 "></span><span class="sd">     * després de llegir-lo l'esborrem</span>
-<span class="linenos" data-linenos="19 "></span><span class="sd">     * si no existeix tornem el valor indicat per defecte.</span>
-<span class="linenos" data-linenos="20 "></span><span class="sd">     * @param string $key</span>
-<span class="linenos" data-linenos="21 "></span><span class="sd">     * @param mixed $defaultValue</span>
-<span class="linenos" data-linenos="22 "></span><span class="sd">     * @return mixed|string</span>
-<span class="linenos" data-linenos="23 "></span><span class="sd">     */</span>
-<span class="linenos" data-linenos="24 "></span>    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">get</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$key</span><span class="p">,</span> <span class="nv">$defaultValue</span> <span class="o">=</span> <span class="s1">''</span><span class="p">);</span>
-<span class="linenos" data-linenos="25 "></span>
-<span class="linenos" data-linenos="26 "></span>    <span class="sd">/**</span>
-<span class="linenos" data-linenos="27 "></span><span class="sd">     * @param string $key</span>
-<span class="linenos" data-linenos="28 "></span><span class="sd">     * @param $value</span>
-<span class="linenos" data-linenos="29 "></span><span class="sd">     */</span>
-<span class="linenos" data-linenos="30 "></span>    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">set</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$key</span><span class="p">,</span> <span class="nv">$value</span><span class="p">);</span>
-<span class="linenos" data-linenos="31 "></span>
-<span class="linenos" data-linenos="32 "></span>    <span class="sd">/**</span>
-<span class="linenos" data-linenos="33 "></span><span class="sd">     * @param string $key</span>
-<span class="linenos" data-linenos="34 "></span><span class="sd">     */</span>
-<span class="linenos" data-linenos="35 "></span>    <span class="k">private</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">unset</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$key</span><span class="p">);</span>      
-<span class="linenos" data-linenos="36 "></span><span class="p">}</span>
+<h1 id="composer">Composer</h1>
+<h2 id="introduccio">Introducció</h2>
+<p>Abans de tot cal definir què és un compoment o paquet en PHP. Un component PHP és un conjunt de codi <strong>reutilitzable</strong> que t’ajuda a solucionar un problema específic de la teua aplicació. Aquests components solen estar formats per diverses classes. <strong>Composer</strong> és una eina que permet gestionar components en PHP. </p>
+<p>Composer permet declarar els components dels que depèn el nostre projecte i gestionar-los (instal·lar/actualitzar). A diferència dels gestors de paquets com Apt o Yum, Composer gestiona els paquets per projecte, instal·lant-los en el directori (<code>vendor</code>) del projecte. </p>
+<p>Per defecte, no instal·la res de forma global. Per tant, és un gestor de dependències. Aquesta idea no és nova i Composer s’inspira fortament en npm de node i el bundler de ruby.</p>
+<p>Composer ens soluciona dos problemes:</p>
+<ul>
+<li><strong>Gestionar les dependències amb llibreries de tercers.</strong> Només cal que declarem les dependències i Composer s'encarregarà de descarregar i instal·lar tot el que siga necessari</li>
+<li><strong><em>Autoloading</em> del nostre codi.</strong> Ja no haurem de fer més <code>require</code>, Composer ho farà per nosaltres</li>
+</ul>
+<h2 id="us-basic">Ús bàsic</h2>
+<p>Composer manté la seua configuració en dos fitxers: <code>composer.json</code> i <code>composer.lock</code>.</p>
+<p>Per usar Composer el primer que necessitem és disposar de l’arxiu <code>composer.json</code>. En aquest fitxer existeixen un seguit
+d'estructures d'informació:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="nt">"require"</span><span class="p">:</span> <span class="p">{</span>
+<span class="linenos" data-linenos="3 "></span>        <span class="nt">"monolog/monolog"</span><span class="p">:</span> <span class="s2">"2.0.*"</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="5 "></span><span class="p">}</span>
 </code></pre></div>
-<ol start="602">
-<li>Tenint en compte tot el procés de gestió de pujada de fixers, les restriccions que es poden aplicar, i les dades que ens interessen una vegada el procés s'ha efectuat exitosament, crea una classe que encapsule totes les funcionalitats requerides.</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>
+<p><code>require</code> indica els paquets que requerix la aplicació i els mapeja (en l’exemple, <code>monolog/monolog</code>) a la versió requerida (en aquest cas: <code>2.0.*</code>).</p>
+<p>Si necessitàrem usar en un projecte el component <code>monolog</code> executariem en la carpeta del projecte:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require monolog/monolog
 </code></pre></div>
-<ol start="603">
-<li>
-<p>Implementa el patró <code>Registry</code> en una classe amb el mateix nom i afegeix una instancia de PDO associada a la clau "PDO". L'objecte PDO l'hauràs de crear i inserir-lo en el <code>Registre</code> en un nou fitxer anomenat <code>bootstrap.php</code>.</p>
-<p>Aquest fitxer serà requerit en totes els fitxers que tinguen accés a la base de dades.</p>
-</li>
-<li>
-<p>En un fitxer de configuració (JSON, YAML, INI o XML, segons t'haja assignat el professor) emmagatzema el DSN (<em>Data Source Name</em>) d'accés a la base de dades. Després, crea una classe <code>Config</code> que llija el fitxer i extraga el DSN. Utilitza <code>Config</code> en <code>bootstrap.php</code> en lloc d'usar un literal en instanciar la classe PDO.</p>
-<p>Afig també al fitxer de configuració la ruta relativa on es guarden les fotos pujades.</p>
-</li>
-<li>
-<p>Implementa els mètodes <code>Movie::toArray()</code>, <code>Movie::fromArray(Movie $obj)</code> i la classe <code>MovieMapper</code> tenint en compte la següent signatura:</p>
-</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">class</span> <span class="nc">MovieMapper</span>
-<span class="linenos" data-linenos=" 2 "></span><span class="p">{</span>
-<span class="linenos" data-linenos=" 3 "></span>    <span class="k">private</span> <span class="nv">$pdo</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 4 "></span>
-<span class="linenos" data-linenos=" 5 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">()</span>
-<span class="linenos" data-linenos=" 6 "></span>    <span class="p">{</span>
-<span class="linenos" data-linenos=" 7 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">pdo</span> <span class="o">=</span> <span class="nx">Registry</span><span class="o">::</span><span class="na">getPDO</span><span class="p">();</span>
-<span class="linenos" data-linenos=" 8 "></span>    <span class="p">}</span>
-<span class="linenos" data-linenos=" 9 "></span>
-<span class="linenos" data-linenos="10 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">find</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$id</span><span class="p">)</span><span class="o">:</span> <span class="o">?</span><span class="nx">Movie</span>
-<span class="linenos" data-linenos="11 "></span>    <span class="p">{</span>
-<span class="linenos" data-linenos="12 "></span>    <span class="p">}</span>
-<span class="linenos" data-linenos="13 "></span>
-<span class="linenos" data-linenos="14 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">findAll</span><span class="p">()</span><span class="o">:</span> <span class="k">array</span> <span class="p">{</span>
-<span class="linenos" data-linenos="15 "></span>    <span class="p">}</span>
-<span class="linenos" data-linenos="16 "></span>
-<span class="linenos" data-linenos="17 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">insert</span><span class="p">(</span><span class="nx">Movie</span> <span class="nv">$obj</span><span class="p">)</span>
-<span class="linenos" data-linenos="18 "></span>    <span class="p">{</span>
-<span class="linenos" data-linenos="19 "></span>    <span class="p">}</span>
-<span class="linenos" data-linenos="20 "></span>
-<span class="linenos" data-linenos="21 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">update</span><span class="p">(</span><span class="nx">Movie</span> <span class="nv">$object</span><span class="p">)</span>
-<span class="linenos" data-linenos="22 "></span>    <span class="p">{</span>
-<span class="linenos" data-linenos="23 "></span>    <span class="p">}</span>
-<span class="linenos" data-linenos="24 "></span><span class="p">}</span>
+<p>Com hauràs observat el nom del paquet està format per dues parts:</p>
+<ul>
+<li>La primera indica qui és el seu "vendor" o creador.</li>
+<li>La segona indica el nom del projecte.</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require vendor/package
 </code></pre></div>
-<ol>
-<li>Implementa el repositori de pel·licules tenint en compte la següent signatura:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">declare</span><span class="p">(</span><span class="nx">strict_types</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
-<span class="linenos" data-linenos=" 2 "></span>
-<span class="linenos" data-linenos=" 3 "></span><span class="k">class</span> <span class="nc">MovieRepository</span>
-<span class="linenos" data-linenos=" 4 "></span><span class="p">{</span>
-<span class="linenos" data-linenos=" 5 "></span>    <span class="k">public</span> <span class="nx">MovieMapper</span> <span class="nv">$mapper</span><span class="p">;</span>
-<span class="linenos" data-linenos=" 6 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">()</span>
-<span class="linenos" data-linenos=" 7 "></span>    <span class="p">{</span>
-<span class="linenos" data-linenos=" 8 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">mapper</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MovieMapper</span><span class="p">();</span>
-<span class="linenos" data-linenos=" 9 "></span>    <span class="p">}</span>
-<span class="linenos" data-linenos="10 "></span>
-<span class="linenos" data-linenos="11 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">save</span><span class="p">(</span><span class="nx">Movie</span> <span class="nv">$movie</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos="12 "></span>
-<span class="linenos" data-linenos="13 "></span>    <span class="p">}</span>
-<span class="linenos" data-linenos="14 "></span>
-<span class="linenos" data-linenos="15 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">find</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$id</span><span class="p">)</span><span class="o">:?</span><span class="nx">Movie</span> <span class="p">{</span>
-<span class="linenos" data-linenos="16 "></span>    <span class="p">}</span>
-<span class="linenos" data-linenos="17 "></span>
-<span class="linenos" data-linenos="18 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">findAll</span><span class="p">()</span><span class="o">:</span><span class="k">array</span> <span class="p">{</span>        
-<span class="linenos" data-linenos="19 "></span>    <span class="p">}</span>
-<span class="linenos" data-linenos="20 "></span>
-<span class="linenos" data-linenos="21 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">delete</span><span class="p">(</span><span class="nx">Movie</span> <span class="nv">$movie</span><span class="p">)</span> <span class="p">{</span>
-<span class="linenos" data-linenos="22 "></span>
-<span class="linenos" data-linenos="23 "></span>    <span class="p">}</span>
-<span class="linenos" data-linenos="24 "></span><span class="p">}</span>
+Sovint les dues parts són idèntiques.</p>
+<p>El fitxer <code>composer.lock</code> guarda la versió exacta que s'ha instal·lat de cada paquet. El projecte es fixa a unes determinades versions. Tant el <code>composer.lock</code> com el <code>composer.json</code> han d'estar al repositori.</p>
+<h3 id="limitar-la-versio-dels-paquets">Limitar la versió dels paquets</h3>
+<p>En alguns casos és necessari limitar les versions dels paquetes per mantindre compatibilitat. Hi ha diverses formes d'expressar dites limitacions:</p>
+<ul>
+<li>Restricció de la versió exacta<ul>
+<li>Exemple: 1.0.2  #MAJOR.MINOR.PATCH.</li>
+</ul>
+</li>
+<li>Rang de versions<ul>
+<li>Exemples:</li>
+<li><code>&gt;=1.0</code></li>
+<li><code>&gt;=1.0 &lt;2.0</code></li>
+<li><code>&gt;=1.0 &lt;1.1</code> || <code>&gt;=1.2</code></li>
+</ul>
+</li>
+<li>Rang de versions comodins (.*)<ul>
+<li>Es pot especificar una patró en un  * comodí. <code>1.0.*</code> és l'equivalent de <code>&gt;=1.0 &lt;1.1</code>.</li>
+<li>Exemple: <code>1.0.*</code></li>
+</ul>
+</li>
+<li>Rang amb tilde  (~)<ul>
+<li>L'operador <code>~</code>  s'explica millor en un exemple: 
+    <code>~1.2</code> és equivalent a <code>&gt;=1.2 &lt;2.0.0</code>, mentre que <code>~1.2.3</code> és equivalent a <code>&gt;=1.2.3 &lt;1.3.0</code>. </li>
+<li>Exemple: <code>~1.2</code></li>
+</ul>
+</li>
+<li>Rang de versió amb cimcurflex (<code>^</code>)<ul>
+<li>Per exemple <code>^1.2.3</code> és equivalent a <code>&gt;=1.2.3 &lt;2.0.0</code> ja que ninguna de les <em>releases</em> fins a la <code>2.0</code> deuria trencar compatibilitat en versions anteriors. </li>
+<li>Exemple: <code>^1.2.3</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="versionat-semantic-semver">Versionat semàntic (semver)</h2>
+<p>Els números de versió i la forma en que canvien informen sobre el que va ser modificat d'una versió a una altra.</p>
+<p>Veure l'especificació en el següent document:
+<a href="http://semver.org/lang/es/">http://semver.org/lang/es/</a></p>
+<h2 id="installant-dependencies">Instal·lant dependències</h2>
+<p>L’ordre <code>install</code> comprova primer si existeix el fitxer <code>composer.lock</code>, i si existeix, descàrrega exactament les versions que s'indiquen en aquest l'arxiu <code>composer.lock</code>.</p>
+<p>Si treballem en equip, tot l'equip tindrà les mateixes versions.</p>
+<p>Executem la següent ordre:</p>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer install
 </code></pre></div>
-<h3 id="composer">Composer</h3>
-<ol>
-<li>
-<p>En la següent activitat treballarem en Composer:</p>
-<ol>
-<li>Instal·la <code>composer</code> de forma global. </li>
-<li>Instal·la <code>monolog</code>.</li>
-<li>Configura <code>bootstrap.php</code> perquè use l’autoloader de <code>Composer</code>.</li>
-<li>Configura <code>composer.json</code> perquè carregue les nostres classes.</li>
-<li>Configura <code>monolog</code> en <code>index.php</code> de forma que registre la activitat en <code>directori del projecte/app.log</code> i en Firefox amb l'extensió FirePHP.</li>
-</ol>
-</li>
-<li>
-<p><code>webmozart/assert</code> és un paquet que conté una llibreria de funcions de validació (assercions/afirmacions).</p>
-<ol>
-<li>Instal·la el paquet.</li>
-<li>Configura'l si cal.</li>
-<li>Usa els seus mètodes per a validar els formularis.</li>
-</ol>
-</li>
-</ol>
+Es generarà el directori <code>vendor/</code> amb les llibreries de les quals depèn el projecte.</p>
+<div class="admonition warning">
+<p class="admonition-title">directori <code>vendor</code></p>
+<p>Hem d'afegir el directori <code>vendor/</code> a l'arxiu <code>.gitignore</code>, perquè crea gran quantitat de fitxers que després s'han de descarregar amb <code>composer install</code>.</p>
+</div>
+<p>L’ordre també crea un fitxer <code>composer.lock</code></p>
+<h2 id="actualitzar-versions">Actualitzar versions</h2>
+<p>Si tenim l'arxiu <code>composer.lock</code> sempre s'instal·laran les mateixes versions dels paquets.</p>
+<p>Per actualitzar a noves versions, fem servir l’ordre <code>composer update</code>. Aquesta ordre fa que Composer busque les versions més recents de les llibreries sempre que segueixin complint les restriccions de les versions indicades a l'arxiu <code>composer.json</code>. També actualitza l'arxiu <code>composer.lock</code>.</p>
+<p>Si només volem instal·lar o actualitzar una dependència, podem indicar el seu nom després de l’ordre:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer update monolog/monolog
+</code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">No actualitzar en producció</p>
+<p>Quan desplegues una aplicació basada en Composer a producció, usa sempre <code>composer install</code>. No haurieu d'usar mai <code>composer update</code> ja que podria ser que s'actualitzara algun paquet a una versió no provada. </p>
+</div>
+<h2 id="afegint-dependencies">Afegint dependències</h2>
+<p>L’ordre que afegeix noves dependències en el arxiu <code>composer.json</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require
+</code></pre></div>
+<p>Ens preguntarà quines llibreries volem afegir.</p>
+<p>Després d'afegir aquestes noves dependències, s’instal·len o actualitzen les dependències que siguen necessàries.
+Podem passar les noves dependències com argument de l'ordre.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require monolog/monolog:
+</code></pre></div>
+<h2 id="packagist">Packagist</h2>
+<p>Packagist és el repositori central de paquets que pot gestionar Composer.</p>
+<p>Lloc Web: http://packagist.org</p>
+<h2 id="carrega-automatica-de-classes">Carrega automàtica de classes</h2>
+<p>Normalment les llibreries proporcionen informació sobre la càrrega automàtica de les seves classes. Composer genera un arxiu <code>vendor/autoload.php</code>.</p>
+<p>Incloent aquest fitxer en el projecte, podem utilitzar qualsevol classe instal·lada a través de Composer sense haver de incloure-la  explícitament:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">require</span> <span class="s1">'vendor/autoload.php'</span><span class="p">;</span>
+</code></pre></div>
+<p>En el nostre cas, afegirem el <code>require</code> anterior en el fitxer <code>bootsrap.php</code>.</p>
+<div class="admonition important">
+<p class="admonition-title"><code>vendor/autoload.php</code></p>
+<p><code>autoload.php</code> és el punt d'entrada de l'aplicació a totes les funcionalitats que ens oferix <strong>Composer</strong>.</p>
+</div>
+<h3 id="classes-personalitzades">Classes personalitzades</h3>
+<p>Podem emprar l’<em>autoloader</em> de Composer per a carregar les nostres classes. Si el nostre <em>namespace</em> és <code>App</code> i els arxius estan en <code>src</code> afegirem:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>    <span class="nt">"autoload"</span><span class="p">:</span> <span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span>        <span class="nt">"psr-4"</span><span class="p">:</span> <span class="p">{</span> <span class="nt">"App\\"</span><span class="p">:</span> <span class="s2">"src/"</span> <span class="p">}</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="p">}</span>
+</code></pre></div>
+<p>Després executarem <code>composer dump-autoload</code> perquè és regenere <code>vendor/autoload.php</code>.</p>
+<div class="admonition important">
+<p class="admonition-title">PSR-4</p>
+<p>PSR-4 (<em>PHP Standard Recommendation</em>) és una de les recomanacions del PHP-FIG per a implementar el sistema de càrrega automàtica de classes. PHP-FIG (<em>Framework Interoperability Group</em>). La idea del grup és que els representants del projecte parlen sobre els punts en comú entre els seus projectes i troben maneres de treballar junts.</p>
+</div>
 </article>
 </div>
 </div>

@@ -267,9 +267,26 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Activitats
+          <span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
         Activitats
       </a>
+<nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#projecte-de-twitter">
+    Projecte de Twitter
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -307,8 +324,45 @@
 </li>
 <li>
 <p><code>503-contact-info</code>. Crea una base dades anomenada <code>contact-info</code> on 
-      emmagatzemarem les dades recollides en el formulari de l'activitat 440. Tin en compte que el gènere, les hores de contacte i les aficions seran taules independents (utilitza les claus dels arrays com a clau primària) que estaran relacionades amb la taula principal.</p>
+      emmagatzemarem les dades recollides en el formulari de l'activitat 440. Tingues en compte que el gènere, les hores de contacte i les aficions seran taules independents (utilitza les claus dels arrays com a clau primària) que estaran relacionades amb la taula principal.</p>
 <p>Còpia l'activitat 440 i modifica-la perquè les dades s'emmagatzemem en la base de dades.</p>
+</li>
+</ol>
+<h2 id="projecte-de-twitter">Projecte de Twitter</h2>
+<p>Implementa la següent base de dades <code>truiter</code>:</p>
+<div class="mermaid">
+    erDiagram 
+        User ||--o{ Tweet : publishes
+        User {
+            int id
+            varchar[50] name
+            varchar[15] username
+            varchar[255] password
+            datetime created_at
+            boolean verified
+        }
+        Tweet ||--o{ Media : contains
+        Tweet {
+            int id
+            varchar[280] text
+            datetime created_at
+            int like_count            
+        }
+        Media {
+            int id
+            varchar[255] alt_text
+            int height
+            int width
+            varchar[255] url
+        }
+
+</div>
+<ol start="504">
+<li>Adapta el projecte Truiter perquè extraga la informació de la base de dades:<ol>
+<li><code>index.php</code> mostrarà tots els tuits per ordenats per data de forma descendent.</li>
+<li><code>login.php</code> comprovarà les credencials dels usuaris en la base de dades. </li>
+<li><code>tweet-new.php</code> permetrà als usuaris autenticats crear un nou tuit.</li>
+</ol>
 </li>
 </ol>
 </article>
@@ -353,5 +407,5 @@
 <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "translations": {"clipboard.copy": "C\u00f2pia al porta-retalls", "clipboard.copied": "Copiat al porta-retalls", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Cerca", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
 <script src="../../assets/javascripts/bundle.756773cc.min.js"></script>
 <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
-</body>
+<script>mermaid.initialize({});</script></body>
 </html>
