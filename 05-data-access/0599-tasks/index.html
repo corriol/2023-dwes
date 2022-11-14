@@ -358,10 +358,22 @@
 
 </div>
 <ol start="504">
-<li>Adapta el projecte Truiter perquè extraga la informació de la base de dades:<ol>
+<li>
+<p>Adapta el projecte Truiter perquè extraga la informació de la base de dades:</p>
+<ol>
 <li><code>index.php</code> mostrarà tots els tuits per ordenats per data de forma descendent.</li>
 <li><code>login.php</code> comprovarà les credencials dels usuaris en la base de dades. </li>
 <li><code>tweet-new.php</code> permetrà als usuaris autenticats crear un nou tuit.</li>
+</ol>
+</li>
+<li>
+<p>Afig el projecte una pàgina de registre (<code>register.php</code> i <code>register-process.php</code>) que sol·licite 
+     a l'usuari les dades requerides per registrar-se tenint en compte el següent:</p>
+<ol>
+<li>La data de creació serà per defecte el moment actual.</li>
+<li>Per defecte el compte no serà verificat.</li>
+<li>El nom d'usuari haurà de ser únic.</li>
+<li>La contrasenya haurà de sol·licitar-se dues vegades, per comprovar que l'usuari les ha escrit bé, i s'haurà d'emmagatzemar després d'aplicar-li una funció resum (<em>hash</em>). Veure l'apartat <a href="../../04-web-programming/04-04-best-practices/#no-coneixer-les-contrasenyes">No conèixer les contrasenyes</a> de la unitat 4.</li>
 </ol>
 </li>
 </ol>

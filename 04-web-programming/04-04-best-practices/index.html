@@ -461,7 +461,7 @@ en producció.</p>
 <p>A PHP 5.5 s'ha introduït <code>password_hash()</code>. En aquest moment està utilitzant BCrypt, l'algorisme més fort actualment suportat per PHP. Tot i això, s'actualitzarà en el futur per donar suport a més algoritmes. La biblioteca de <code>password_compat</code> es va crear per proporcionar una compatibilitat de PHP&gt; = 5.3.7.</p>
 <p>A continuació hem aplicat <em>hashing</em> a una cadena i, a continuació, apliquem el <em>hashing</em> contra una nova cadena. Com que les dues cadenes d'origen són diferents ("contrasenya-secreta" i "contrasenya-errònia"), aquesta sessió fallarà.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$passwordHash</span> <span class="o">=</span> <span class="nb">password_hash</span><span class="p">(</span><span class="s2">"contrasenya-secreta"</span><span class="p">,</span> <span class="nx">PASSWORD_DEFAULT</span><span class="p">);</span>
-<span class="linenos" data-linenos="2 "></span><span class="k">if</span> <span class="p">(</span><span class="nb">password_verify</span><span class="p">(</span><span class="s2">"contrenya-errònia"</span><span class="p">,</span> <span class="nv">$passwordHash</span><span class="p">))</span> <span class="p">{</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">if</span> <span class="p">(</span><span class="nb">password_verify</span><span class="p">(</span><span class="s2">"contrasenya-errònia"</span><span class="p">,</span> <span class="nv">$passwordHash</span><span class="p">))</span> <span class="p">{</span>
 <span class="linenos" data-linenos="3 "></span>    <span class="c1">// Contrasenya correcta</span>
 <span class="linenos" data-linenos="4 "></span><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
 <span class="linenos" data-linenos="5 "></span>    <span class="c1">// Contrasenya incorrecta</span>
@@ -470,7 +470,7 @@ en producció.</p>
 <p><code>password_hash()</code> s'ocupa de la salificació de contrasenyes. La <em>sal</em> s'emmagatzema, juntament amb l'algorisme i el "cost", com a part del hash. <code>password_verify()</code> extreu això per determinar com comprovar la contrasenya, de manera que no necessiteu un camp de base de dades independent per emmagatzemar les vostres sals.</p>
 <div class="admonition info">
 <p class="admonition-title">PASSWORD_DEFAULT</p>
-<p><strong>PASSWORD_DEFAULT</strong>. Actualment utilitza l’algoritme bcrypt (predeterminat a partir de PHP 5.5.0). Observeu que aquesta constant està pensada per a adaptar-se sempre que hi haja un algoritme nou i més fort a PHP. Per aquesta raó, la longitud del resultat d’utilitzar aquest identificador pot canviar amb el temps. Per tant, es recomana emmagatzemar el resultat en una columna d’una base de dades de més de 60 caracters (255 caracters seria una bona elecció).</p>
+<p>Actualment utilitza l’algoritme <em>bcrypt</em> (predeterminat a partir de PHP 5.5.0). Observeu que aquesta constant està pensada per a adaptar-se sempre que hi haja un algoritme nou i més fort a PHP. Per aquesta raó, la longitud del resultat d’utilitzar aquest identificador pot canviar amb el temps. Per tant, es recomana emmagatzemar el resultat en una columna d’una base de dades de més de 60 caracters (255 caracters seria una bona elecció).</p>
 </div>
 <h3 id="recursos">Recursos</h3>
 <ul>
