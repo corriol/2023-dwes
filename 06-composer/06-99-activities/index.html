@@ -404,7 +404,10 @@
 <p>En cas d'error caldrà llançar una excepció <code>InvalidArgumentException</code>. </p>
 <ol start="604">
 <li>
-<p>Implementa el patró <code>Registry</code> en una classe amb el mateix nom i afegeix una instancia de PDO associada a la clau "PDO". L'objecte PDO l'hauràs de crear i inserir-lo en el <code>Registre</code> en un nou fitxer anomenat <code>bootstrap.php</code>.</p>
+<p>Implementa la classe <code>App\Services\DB</code> publicada en <a href="https://phpdelusions.net/pdo/pdo_wrapper#class">A simple PDO class</a>. Utilitza-la allà on calga operar en la base de dades.</p>
+</li>
+<li>
+<p>Implementa el patró <code>Registry</code> en una classe amb el mateix nom i afegeix una instancia de <code>DB</code> associada a la clau "DB". L'objecte <code>DB</code> l'hauràs de crear i inserir-lo en el <code>Registry</code> en un nou fitxer anomenat <code>bootstrap.php</code>.</p>
 <p>Aquest fitxer serà requerit en totes els fitxers que tinguen accés a la base de dades.</p>
 </li>
 <li>
@@ -440,7 +443,7 @@
 <span class="linenos" data-linenos="23 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos="24 "></span><span class="p">}</span>
 </code></pre></div>
-<ol>
+<ol start="608">
 <li>Implementa el repositori de pel·licules tenint en compte la següent signatura:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">declare</span><span class="p">(</span><span class="nx">strict_types</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
@@ -477,7 +480,7 @@
 <li>Instal·la <code>monolog</code>.</li>
 <li>Configura <code>bootstrap.php</code> perquè use l’autoloader de <code>Composer</code>.</li>
 <li>Configura <code>composer.json</code> perquè carregue les nostres classes.</li>
-<li>Configura <code>monolog</code> en <code>index.php</code> de forma que registre la activitat en <code>directori del projecte/app.log</code> i en Firefox amb l'extensió FirePHP.</li>
+<li>Configura <code>monolog</code> en <code>index.php</code> de forma que registre la activitat en <code>directori del projecte/var/logs/app.log</code> i en Firefox amb l'extensió FirePHP.</li>
 </ol>
 </li>
 <li>
