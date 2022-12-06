@@ -569,6 +569,14 @@ la funcionalitat també incorpora l'opció d'usar plantilles:</p>
 <span class="linenos" data-linenos="21 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos="22 "></span><span class="p">}</span>
 </code></pre></div>
+<div class="admonition important">
+<p class="admonition-title">La constant màgica <code>__DIR__</code></p>
+<p>En PHP, generalment es considera una bona pràctica utilitzar la constant màgica <code>__DIR__</code>
+en lloc d'una ruta relativa quan s'inclouen o requereixen fitxers. Això es deu 
+al fet que <code>__DIR__</code> sempre retorna la ruta absoluta al directori on es troba el 
+fitxer on s'utilitza, mentre que un camí relatiu es pot veure afectat per la 
+ubicació de l'<em>script</em> que l'està executant. </p>
+</div>
 <p>Es pot observar l'ús de dues inclusions, la primera obté la informació de la 
 vista que és passada a la plantilla mitjançant la variable <code>$content</code>.</p>
 <p>La vista representa la part de la pàgina que canvia en cada pàgina, mentre
