@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
-<title>Cap a un _framework_ MVC - DWES</title>
+<title>Introducció - DWES</title>
 <link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -46,7 +46,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Cap a un _framework_ MVC
+              Introducció
             
           </span>
 </div>
@@ -296,8 +296,66 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../06-composer/06-05-tdd-intro/">
+        Introducció al testing
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../06-composer/06-99-activities/">
         Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8">
+        7.- Miniframework MVC
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="7.- Miniframework MVC" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+          7.- Miniframework MVC
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Introducció
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Introducció
+      </a>
+<nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#model-vista-controlador">
+    Model Vista Controlador
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../07-01-classe-request-response/">
+        Sol·licitud i resposta
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../07-02-controlador-frontal/">
+        Controlador frontal
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../07-03-classe-router/">
+        Rutes i controladors
       </a>
 </li>
 </ul>
@@ -315,12 +373,12 @@
 implementar-lo de forma bàsica.</p>
 <p>També es veuran alguns conceptes molt utilitzats en els <em>frameworks</em> professionals.</p>
 <h2 id="model-vista-controlador">Model Vista Controlador</h2>
-<p><em>Model–view–controller</em> (MVC) és un patró de disseny de programari que s'utilitza habitualment per desenvolupar interfícies d'usuari que divideixen la lògica del programa relacionada en tres elements interconnectats. Això es fa per separar les representacions internes de la informació de la forma en que es presenta i accepta la informació a l'usuari.</p>
+<p><em>Model–view–controller</em> (MVC) és un <strong>patró de disseny de programari</strong> que s'utilitza habitualment per desenvolupar interfícies d'usuari que divideixen la lògica del programa relacionada en tres elements interconnectats. Això es fa per separar les representacions internes de la informació de la forma en què es presenta i accepta la informació a l'usuari.</p>
 <p>Aquest patró es va fer popular per desenvolupar aplicacions web. Els llenguatges de programació populars tenen frameworks MVC que faciliten el desenvolupament. Per exemple:</p>
 <ul>
 <li>En Python, Django.</li>
 <li>En Ruby, Ruby on Rails.</li>
-<li>En Javascript, Angular.</li>
+<li>En Javascript, Angular i React.js.</li>
 <li>En PHP, Symfony i Laravel.</li>
 </ul>
 <figure>
@@ -334,7 +392,7 @@ implementar-lo de forma bàsica.</p>
 <figcaption>Esquema MVC ampliat</figcaption>
 </figure>
 <ul>
-<li><strong>Model</strong>: El component central del patró. És l'estructura de dades dinàmiques de l'aplicació, independent de la interfície d'usuari. Gestiona directament les dades, la lògica i les regles de l'aplicació.</li>
+<li><strong>Model</strong>: El component central del patró. És l'estructura de dades dinàmiques de l'aplicació, independent de la interfície d'usuari. <strong>Gestiona directament les dades, la lògica i les regles de l'aplicació</strong>.</li>
 <li><strong>Vista</strong>: Qualsevol representació d'informació com un gràfic, un diagrama o una taula. Són possibles diverses visualitzacions de la mateixa informació, com ara un gràfic de barres per a la gestió i una vista tabular per als comptables.</li>
 <li><strong>Controlador</strong>: Accepta l'entrada i la converteix en ordres per al model o la vista per a finalment tornar la resposta al client.</li>
 </ul>
@@ -348,6 +406,34 @@ implementar-lo de forma bàsica.</p>
 </div>
 </main>
 <footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Anterior: Activitats" class="md-footer__link md-footer__link--prev" href="../../06-composer/06-99-activities/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Anterior
+              </span>
+              Activitats
+            </div>
+</div>
+</a>
+<a aria-label="Següent: Sol·licitud i resposta" class="md-footer__link md-footer__link--next" href="../07-01-classe-request-response/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Següent
+              </span>
+              Sol·licitud i resposta
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-footer-copyright">
