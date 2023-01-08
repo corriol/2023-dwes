@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
-<title>Gestió de plantilles amb Twig - DWES</title>
+<title>El motor de plantilles Twig - DWES</title>
 <link href="../../assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -46,7 +46,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Gestió de plantilles amb Twig
+              El motor de plantilles Twig
             
           </span>
 </div>
@@ -348,6 +348,156 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../07-mvc/07-99-activitats/">
         Activitats
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9">
+        8.- Symfony
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="8.- Symfony" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          8.- Symfony
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../01-introducci%C3%B3-va/">
+        Introducció a Symfony
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../02-mvc/">
+        El patró MVC en Symfony
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          El motor de plantilles Twig
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        El motor de plantilles Twig
+      </a>
+<nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#definint-plantilles-de-vistes-amb-twig">
+    Definint plantilles de vistes amb Twig
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#la-nostra-primera-plantilla">
+    La nostra primera plantilla
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#plantilles-amb-parts-variables">
+    Plantilles amb parts variables
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#estructures-de-control-en-plantilles">
+    Estructures de control en plantilles
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#herencia-de-plantilles">
+    Herència de plantilles
+  </a>
+<nav aria-label="Herència de plantilles" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#incloure-plantilles-dins-daltres">
+    Incloure plantilles dins d'altres
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#enllacos-a-rutes-i-a-elements-estatics">
+    Enllaços a rutes i a elements estàtics
+  </a>
+<nav aria-label="Enllaços a rutes i a elements estàtics" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#afegir-contingut-estatic-en-plantilles">
+    Afegir contingut estàtic en plantilles
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#enllacar-a-altres-rutes-de-laplicacio">
+    Enllaçar a altres rutes de l'aplicació
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#altres-caracteristiques-interessants-de-twig">
+    Altres característiques interessants de Twig
+  </a>
+<nav aria-label="Altres característiques interessants de Twig" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#us-de-filtres">
+    Ús de filtres
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comentaris">
+    Comentaris
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#reutilitzar-contingut-de-plantilles-pare">
+    Reutilitzar contingut de plantilles pare
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cicles">
+    Cicles
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../04-injeccio-dependencies/">
+        Injecció de dependències
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../05-doctrine/">
+        Doctrine
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../11-relacions-molts-a-molts/">
+        Doctrine. Relacions molts a molts
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../06-formularis-i-validaci%C3%B3/">
+        Formularis i validació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../07-seguretat-control-acces/">
+        Seguretat i control d'acciés
       </a>
 </li>
 </ul>
@@ -819,6 +969,34 @@ en la <a href="[https://twig.symfony.com/">web oficial de Twig</a>.</p>
 </div>
 </main>
 <footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Anterior: El patró MVC en Symfony" class="md-footer__link md-footer__link--prev" href="../02-mvc/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Anterior
+              </span>
+              El patró MVC en Symfony
+            </div>
+</div>
+</a>
+<a aria-label="Següent: Injecció de dependències" class="md-footer__link md-footer__link--next" href="../04-injeccio-dependencies/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Següent
+              </span>
+              Injecció de dependències
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-footer-copyright">

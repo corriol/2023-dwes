@@ -353,6 +353,117 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9">
+        8.- Symfony
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="8.- Symfony" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          8.- Symfony
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../01-introducci%C3%B3-va/">
+        Introducció a Symfony
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          El patró MVC en Symfony
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        El patró MVC en Symfony
+      </a>
+<nav aria-label="Taula de continguts" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#el-patro-mvc">
+    El patró MVC
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#controladors-i-rutes-en-symfony">
+    Controladors i rutes en Symfony
+  </a>
+<nav aria-label="Controladors i rutes en Symfony" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#el-concepte-de-ruta-en-symfony">
+    El concepte de ruta en Symfony
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#el-nostre-primer-controlador">
+    El nostre primer controlador
+  </a>
+<nav aria-label="El nostre primer controlador" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#definir-els-espais-de-noms-namespaces">
+    Definir els espais de noms (namespaces)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#definint-rutes">
+    Definint rutes
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comprovar-les-rutes-de-la-nostra-aplicacio">
+    Comprovar les rutes de la nostra aplicació
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../03-twig/">
+        El motor de plantilles Twig
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../04-injeccio-dependencies/">
+        Injecció de dependències
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../05-doctrine/">
+        Doctrine
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../11-relacions-molts-a-molts/">
+        Doctrine. Relacions molts a molts
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../06-formularis-i-validaci%C3%B3/">
+        Formularis i validació
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../07-seguretat-control-acces/">
+        Seguretat i control d'acciés
+      </a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </div>
@@ -411,14 +522,14 @@ i associar-los a rutes, de manera que mostren algun contingut o vista
 com a resposta.</p>
 <h2 id="controladors-i-rutes-en-symfony">Controladors i rutes en Symfony</h2>
 <p>Per a crear pàgines en una aplicació Symfony es necessiten dos elements:
-una ruta (és a dir, una URI que indique a quin contingut accedir de la
+una ruta (és a dir, un URI que indique a quin contingut accedir de la
 web) i un controlador associat a ella, que serà l'encarregat de mostrar
 el resultat (la pàgina) per a aqueixa petició de ruta.</p>
 <h3 id="el-concepte-de-ruta-en-symfony">El concepte de ruta en Symfony</h3>
 <p>Les rutes en Symfony poden ser tradicionals o amigables. Una ruta
 tradicional és aquella la part dinàmica de la qual s'especifica en la
-query string. Per exemple, si volem saber la fitxa d'una pel·lícula a
-través del seu codi, tindríem una URL com aquesta:</p>
+<em>query string</em>. Per exemple, si volem saber la fitxa d'una pel·lícula a
+través del seu codi, tindríem un URL com aquest:</p>
 <p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>http://movies-symfony/movie.php?id=34
 </code></pre></div>
 Les rutes amigables són aquelles que separen els seus elements únicament
@@ -464,7 +575,7 @@ amb la línia:</p>
 El que estem fent és situar la classe (<code>HomeController</code>, en aquest cas)
 dins d'un espai de noms. Cada subcarpeta que hi ha dins de la carpeta
 <code>src</code> constitueix un espai de noms, de manera que quan situem un arxiu
-font dins d'una d'aqueixos subdirectoris, hem d'indicar que pertany a
+font dins d'un d'aqueixos subdirectoris, hem d'indicar que pertany a
 aquest espai de noms. Tots aquests espais de noms pengen d'una arrel
 <code>App</code>, per la qual cosa l'espai de noms per al nostre controlador és
 <code>App</code> (els subespais se separen amb barres invertides).</p>
@@ -489,8 +600,8 @@ classe que utilitzarem:</p>
 </code></pre></div>
 Després d'açò, ja podrem referenciar a la classe <code>Response</code> directament
 pel seu nom en qualsevol lloc d'aquest fitxer font. De la mateixa
-manera, podem afegir totes les línies use que considerem, per a fer 
-referència a tots els elements externs que anem a necessitar.</p>
+manera, podem afegir totes les sentències <code>use</code> que considerem, per a fer 
+referència a tots els elements externs que necessitarem.</p>
 <p>També podem definir un àlies per a nomenar a la classe incorporada dins
 del nostre arxiu font. Si, en lloc d'utilitzar <code>Response</code>, volem
 referenciar a aquest tipus amb una forma més abreujada (Res,
@@ -537,7 +648,7 @@ aquestes línies al fitxer:</p>
 <span class="linenos" data-linenos="2 "></span>    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/</span>
 <span class="linenos" data-linenos="3 "></span>    <span class="nt">controller</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">App\Controller\HomeController::home</span>
 </code></pre></div>
-No obstant açò, si atenem a la documentació oficial de Symfony, <strong>es
+No obstant això, si atenem a la documentació oficial de Symfony, <strong>es
 recomana definir les rutes mitjançant anotacions</strong>, per la qual cosa
 d'ara endavant utilitzarem aquest mecanisme en les anotacions.</p>
 <h3 id="comprovar-les-rutes-de-la-nostra-aplicacio">Comprovar les rutes de la nostra aplicació</h3>
@@ -548,7 +659,7 @@ aplicació, mitjançant aquest comando:</p>
 </code></pre></div>
 <p>Mostrarà el llistat de rutes, indicant el seu nom, i la ruta associada.
 A més de la nostra ruta arrel, apareixeran altres rutes creades per
-defecte per a opcions de depuració i testeo, com per exemple les rutes
+defecte per a opcions de depuració i proves, com per exemple les rutes
 profiler per a rastrejar i obtenir detalls de les peticions realitzades.
 No entrarem en aqueixos detalls en aquest curs.</p>
 <h4 id="configurar-la-reescriptura-de-rutes">Configurar la reescriptura de rutes</h4>
@@ -591,8 +702,8 @@ en el nostre projecte. <strong>Recorda repetir aquests comandos en tots els
 projectes Symfony que utilitzen rutes amigables</strong>.</p>
 <h4 id="rutes-amb-parametres">Rutes amb paràmetres</h4>
 <p>Existeixen algunes rutes que tenen parts variables. Per exemple, si
-volguérem mostrar la fitxa d'una pel·lícula (el seu títol, el poster 
-i la seua sinopsi), a partir del seu codi, podríem plantejar una ruta com a
+volguérem mostrar la fitxa d'una pel·lícula (el seu títol, el pòster 
+i la sinopsi), a partir del seu codi, podríem plantejar una ruta com a
 http://movies-symfony/movies/54, i que el controlador ens mostrara
 la informació de la pel·lícula número 54. Però, si cridem a aqueixa ruta amb
 un altre codi, haurà de mostrar la informació de la pel·lícula amb l'altre codi.</p>
@@ -610,13 +721,13 @@ en la ruta:</p>
 <span class="linenos" data-linenos=" 6 "></span>    <span class="sd">/**</span>
 <span class="linenos" data-linenos=" 7 "></span><span class="sd">     * @Route("/movies/{id}", name="movies_show")</span>
 <span class="linenos" data-linenos=" 8 "></span><span class="sd">     */</span>
-<span class="linenos" data-linenos=" 9 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">(</span><span class="nv">$id</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$id</span><span class="p">)</span>
 <span class="linenos" data-linenos="10 "></span>    <span class="p">{</span>
 <span class="linenos" data-linenos="11 "></span>        <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="s2">"Movie data with id: </span><span class="si">$id</span><span class="s2">"</span><span class="p">);</span>
 <span class="linenos" data-linenos="12 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos="13 "></span><span class="p">}</span>
 </code></pre></div>
-Observa com en la anotació afegim el <code>id</code> de la pel·lícula com un element
+Observa com en l'anotació afegim el <code>id</code> de la pel·lícula com un element
 variable, gràcies a les claus (a aquesta notació se li crida <em>wildcard</em>).
 El mètode associat a la ruta ha de tenir un paràmetre amb aqueixa
 mateixa dada (l'identificador), de manera que puguem utilitzar-lo dins del
@@ -687,7 +798,7 @@ Quedaria així:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>    <span class="sd">/**</span>
 <span class="linenos" data-linenos=" 2 "></span><span class="sd">     * @Route("/movies/{text}", name="movies_filter")</span>
 <span class="linenos" data-linenos=" 3 "></span><span class="sd">     */</span>
-<span class="linenos" data-linenos=" 4 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">filter</span><span class="p">(</span><span class="nv">$text</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">filter</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$text</span><span class="p">)</span>
 <span class="linenos" data-linenos=" 5 "></span>    <span class="p">{</span>
 <span class="linenos" data-linenos=" 6 "></span>        <span class="nv">$result</span> <span class="o">=</span> <span class="nb">array_filter</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">movies</span><span class="p">,</span>
 <span class="linenos" data-linenos=" 7 "></span>            <span class="k">function</span><span class="p">(</span><span class="nv">$movie</span><span class="p">)</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$text</span><span class="p">)</span>
@@ -709,7 +820,7 @@ Quedaria així:</p>
 <span class="linenos" data-linenos="23 "></span>    <span class="p">}</span>
 <span class="linenos" data-linenos="24 "></span><span class="p">}</span>
 </code></pre></div>
-<p>Si intentem llançar la URL anterior
+<p>Si intentem llançar el URL anterior
 (http://movies-symfony/movies/The), obtindrem com a resultat
 "Movie not found", que és el missatge corresponent al controlador
 anterior (la fitxa de pel·lícula) quan no es trobava la pel·lícula amb el
@@ -743,7 +854,7 @@ id), es mostrara per defecte la pel·lícula amb codi 2, faríem açò:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="sd">/**</span>
 <span class="linenos" data-linenos="2 "></span><span class="sd"> * @Route("/movies/{id}", name="movies_show", requirements={"id"="\d+"})</span>
 <span class="linenos" data-linenos="3 "></span><span class="sd"> */</span>
-<span class="linenos" data-linenos="4 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">(</span><span class="nv">$id</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+<span class="linenos" data-linenos="4 "></span><span class="k">public</span> <span class="k">function</span> <span class="nf">show</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$id</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
 </code></pre></div>
 <p>encara que des de Symfony 4.1 també es pot especificar en la pròpia
 anotació, d'aquesta altra forma:</p>
@@ -756,6 +867,34 @@ anotació, d'aquesta altra forma:</p>
 </div>
 </main>
 <footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Anterior: Introducció a Symfony" class="md-footer__link md-footer__link--prev" href="../01-introducci%C3%B3-va/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Anterior
+              </span>
+              Introducció a Symfony
+            </div>
+</div>
+</a>
+<a aria-label="Següent: El motor de plantilles Twig" class="md-footer__link md-footer__link--next" href="../03-twig/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Següent
+              </span>
+              El motor de plantilles Twig
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-footer-copyright">
