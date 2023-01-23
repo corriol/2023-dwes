@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
-<title>6. La classe Request. Filtratge - DWES</title>
+<title>Espais de noms (_namespaces_) - DWES</title>
 <link href="../../assets/stylesheets/main.472b142f.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.08040f6c.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -22,7 +22,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#la-classe-request-filtratge">
+<a class="md-skip" href="#espais-de-noms-namespaces">
           Salta el contingut
         </a>
 </div>
@@ -46,7 +46,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              6. La classe Request. Filtratge
+              Espais de noms (_namespaces_)
             
           </span>
 </div>
@@ -286,22 +286,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../06-composer/06-01-intro/">
+<a class="md-nav__link" href="../06-01-intro/">
         Introducció
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../06-composer/06-02-composer/">
+<a class="md-nav__link" href="../06-02-composer/">
         Composer
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../06-composer/06-05-tdd-intro/">
+<a class="md-nav__link" href="../06-05-tdd-intro/">
         Introducció al testing
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../06-composer/06-99-activities/">
+<a class="md-nav__link" href="../06-99-activities/">
         Activitats
       </a>
 </li>
@@ -435,98 +435,23 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="la-classe-request-filtratge">La classe Request. Filtratge</h1>
-<p>{: .no_toc }</p>
-<h2 id="taula-de-continguts">Taula de continguts</h2>
-<p>{: .no_toc .text-delta  .nocount }</p>
-<ol>
-<li toc="toc">TOC</li>
-</ol>
-<p>La majoria de <em>frameworks</em> MVC disposen d'una classe Request per a gestionar les dades de les sol·licituds HTTP. Symfony no és l'excepció i inclou tot un seguit de classes per a gestionar-les.</p>
-<p>Les trobarem en el component <a href="The HttpFoundation Component">HttpFoundation</a>.</p>
-<p>L'object <code>Request</code> manté la informació de la sol·licitud del client. Aquest informació és accessible mitjançant diverses propietats públiques:</p>
+<h1 id="espais-de-noms-namespaces">Espais de noms (<em>namespaces</em>)</h1>
+<p>En el món de PHP, els espais de noms estan dissenyats per a solucionar dos problemes amb què es troben els autors de biblioteques i d'aplicacions en crear elements de codi reusable, com ara classes o funcions:</p>
 <ul>
-<li><code>request</code>: equivalent of $_POST;</li>
-<li><code>query</code>: equivalent of $_GET ($request-&gt;query-&gt;get('name'));</li>
-<li><code>cookies</code>: equivalent of $_COOKIE;</li>
-<li><code>attributes</code>: no equivalent - used by your app to store other data (see below);</li>
-<li><code>files</code>: equivalent of $_FILES;</li>
-<li><code>server</code>: equivalent of $_SERVER;</li>
-<li><code>headers</code>: mostly equivalent to a subset of $_SERVER ($request-&gt;headers-&gt;get('User-Agent')).</li>
+<li>El conflicte de noms entre el codi que es crea i les classes/funcions/constants internes de PHP o les classes/funcions/constants de tercers.</li>
+<li>La capacitat de sobrenomenar (o abreujar) <code>Noms_Extra_Llargs</code> dissenyada per alleugerir el primer problema, millorant la llegibilitat del codi font.</li>
 </ul>
-<p>Cada propietat és una instància de ParameterBag (o una subclasse), el que és una classe mantenidora de dades:</p>
-<ul>
-<li><code>request</code>: ParameterBag;</li>
-<li><code>query</code>: ParameterBag;</li>
-<li><code>cookies</code>: ParameterBag;</li>
-<li><code>attributes</code>: ParameterBag;</li>
-<li><code>files</code>: FileBag;</li>
-<li><code>server</code>: ServerBag;</li>
-<li><code>headers</code>: HeaderBag.</li>
-</ul>
-<p>Totes les instàncies de ParameterBag tenen mètodes per a recuperar i actualitzar les seues dades:</p>
-<ul>
-<li><code>all()</code>
-   Returns the parameters.</li>
-<li><code>keys()</code>
-   Returns the parameter keys.</li>
-<li><code>replace()</code>
-   Replaces the current parameters by a new set.</li>
-<li><code>add()</code>
-   Adds parameters.</li>
-<li><code>get()</code>
-   Returns a parameter by name.</li>
-<li><code>set()</code>
-   Sets a parameter by name.</li>
-<li><code>has()</code>
-   Returns true if the parameter is defined.</li>
-<li><code>remove()</code>
-   Removes a parameter.</li>
-</ul>
-<p>La instància de <code>ParameterBag</code> també conté alguns mètodes per a filtrar els valors d'entrada:</p>
-<ul>
-<li><code>getAlpha()</code>
-    Returns the alphabetic characters of the parameter value;</li>
-<li><code>getAlnum()</code>
-    Returns the alphabetic characters and digits of the parameter value;</li>
-<li><code>getBoolean()</code>
-    Returns the parameter value converted to boolean;</li>
-<li><code>getDigits()</code>
-    Returns the digits of the parameter value;</li>
-<li><code>getInt()</code>
-    Returns the parameter value converted to integer;</li>
-<li><code>filter()</code>
-    Filters the parameter by using the PHP filter_var function.</li>
-</ul>
-<p>{:.alert .alert-activity}</p>
-<div>
-<h3 id="1-preparant-el-filtre">1. Preparant el filtre</h3>
-<p>La aplicació diposarà d'un filtre que permetrà el filtrage dels enllaços per un text de búsqueda (<code>text</code>), que s'hagen actualitzat entre dues dates (<code>start-date</code> i <code>end-date</code>) i per una de les etiquetes existents (<code>tag</code>).</p>
-<p>Emprant la classe <code>Request</code> implementa en la ruta <code>homepage</code> el codi necessari per a comprovar si s'han enviat les dades del formulari de filtratge mitjançant el querystring. Si no s'han enviat, estan buits o tenen un valor incorrecte la variable prendrà el valor <code>null</code>.</p>
-<p>Les variables seran <code>$text</code>, <code>$startDate</code>, <code>$endDate</code> i <code>$tag</code>.</p>
-</div>
-<p>El seguent pas serà implementar el fitre en la funció <code>findLatest</code> al repositori.</p>
-<p>{:.alert .alert-activity}</p>
-<div>
-<h3 id="2-implementant-el-filtre">2. Implementant el filtre</h3>
-<p>Per poder extraure les dades filtrades de la base de de dades implementarem el mètode <code>filter</code> en el repositori. Tindrà la seguent declaració:
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>   <span class="k">public</span> <span class="k">function</span> <span class="nf">findLatest</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$page</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">string</span> <span class="nv">$text</span> <span class="o">=</span> <span class="k">null</span><span class="p">,</span> <span class="nx">DateTime</span> <span class="nv">$startDate</span> <span class="o">=</span> <span class="k">null</span><span class="p">,</span> 
-<span class="linenos" data-linenos="2 "></span>                        <span class="nx">DateTime</span> <span class="nv">$endDate</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span><span class="o">:</span> <span class="nx">Paginator</span>
-</code></pre></div>
-Hauràs d'implementar el codi necessari perquè segons els paràmetres de filtrat es genere una consulta SQL o un altra.</p>
-</div>
-<p>Ara provarem la nova funcionalitat.</p>
-<p>{:.alert .alert-activity}</p>
-<div>
-<h3 id="3-provant-el-filtre">3. Provant el filtre</h3>
-<p>Encara no tenim el formulari de filtratge però podem provar el funcionament assignant valors vàlids directament a les variables o generar solicituds mitjançant el <em>querystring</em>.</p>
-</div>
-<p>I per a acabar implementarem el formulari.</p>
-<p>{:.alert .alert-activity}</p>
-<div>
-<h3 id="4-implementant-el-formulari">4. Implementant el formulari</h3>
-<p>Tenim dues formes d'implementar-lo. La primera és crear el formulari amb html. La segona, i mes interessant, usant el <a href="https://symfony.com/doc/current/form/without_class.html">FormBuilder de Symfony</a>. Tu tries.</p>
-</div>
+<p>Els espais de noms de PHP proporcionen una manera per agrupar classes, interfícies, funcions i constants relacionades. </p>
+<p>En la seva definició més acceptada, els espais de noms són una manera d'encapsular elements.
+Exemple: directoris en els sistemes de fitxers.</p>
+<p>El fitxer <code>foo.txt</code> pot existir en els directoris <code>/home/Greg</code> i <code>/home/altre</code>, però no poden coexistir dues còpies de <code>foo.txt</code> en el mateix directori.</p>
+<p>A més, per accedir al fitxer <code>foo.txt</code> fora de directori <code>/home/Greg</code>, s'ha d'avantposar el nom de directori al nom del fitxer, emprant el separador de directoris per així obtenir <code>/home/greg/foo.txt</code>. </p>
+<p>Aquest mateix principi s'estén als espais de noms en el món de la programació.</p>
+<h3 id="definir-namespaces">Definir <em>namespaces</em></h3>
+<h3 id="usar-namespaces">Usar <em>namespaces</em></h3>
+<h3 id="namespaces-alias">Namespaces alias</h3>
+<h3 id="namespaces-i-autoloading"><em>Namespaces</em> i <em>autoloading</em></h3>
+<p>Per a entendre la relació entre els espais de noms i la càrrega automàtica de classes res millor que anar a la font original: <a href="https://www.php-fig.org/psr/psr-4/">PSR-4 Autoloader</a></p>
 </article>
 </div>
 </div>
