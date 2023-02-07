@@ -481,13 +481,13 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#pas-1-arrencada-del-projecte">
-    Pas 1: Arrencada del projecte
+<a class="md-nav__link" href="#pas-1-arrencar-del-projecte">
+    Pas 1: Arrencar del projecte
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#pas-2-model-de-dades">
-    Pas 2: Model de dades
+<a class="md-nav__link" href="#pas-2-crear-el-model-de-dades">
+    Pas 2: Crear el model de dades
   </a>
 </li>
 <li class="md-nav__item">
@@ -496,8 +496,8 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#pas-4-filtrar-propietats">
-    Pas 4: Filtrar propietats
+<a class="md-nav__link" href="#pas-4-filtrar-per-propietats">
+    Pas 4: Filtrar per propietats
   </a>
 </li>
 <li class="md-nav__item">
@@ -506,8 +506,13 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#pas-6-provant-la-api">
-    Pas 6: Provant la API
+<a class="md-nav__link" href="#pas-6-triar-les-propietats-a-exposar-serialitzacio">
+    Pas 6: Triar les propietats a exposar. Serialització
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pas-7-provant-la-api">
+    Pas 7: Provant la API
   </a>
 </li>
 <li class="md-nav__item">
@@ -546,7 +551,7 @@ consultes (GET), insercions (POST), modificacions (PUT) i esborrats
 <li>Fer ús d'<a href="https://api-platform.com">API platform</a>, una ferramenta molt completa basada en PHP per a crear API Rest.</li>
 </ol>
 <p>L'elecció d'una solució o altra dependrà de cada projecte. En aquest curs emprarem API platform.</p>
-<h2 id="pas-1-arrencada-del-projecte">Pas 1: Arrencada del projecte</h2>
+<h2 id="pas-1-arrencar-del-projecte">Pas 1: Arrencar del projecte</h2>
 <p>El projecte d'exemple serà un projecte independent basat en Truiter. Així podrem aprofitar el model de dades.</p>
 <p>Primerament crearem el projecte de Symfony:</p>
 <p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="go">composer create-project symfony/skeleton api-truiter-symfony ^5.4</span>
@@ -565,7 +570,7 @@ inclou entre altres components Doctrine:</p>
 </figcaption>
 </figure>
 <p>Actualment no tenim res.</p>
-<h2 id="pas-2-model-de-dades">Pas 2: Model de dades</h2>
+<h2 id="pas-2-crear-el-model-de-dades">Pas 2: Crear el model de dades</h2>
 <p>Les entitats i els repositoris els copiarem del projecte Truiter o podrem
 crear-lo de nou fent ús del <em>Maker Bundle</em>.</p>
 <p>En eixa cas caldrà instal·lar-lo. Aprofitarem per instal·lar altres components que 
@@ -636,11 +641,22 @@ Llevarem les referències a VichUploader, ja que usarem els formularis d'una alt
 </figure>
 <h2 id="pas-3-restringir-operacions">Pas 3: Restringir operacions</h2>
 <p><a href="https://api-platform.com/docs/core/operations/#enabling-and-disabling-operations">Enabling or disabling operations</a></p>
-<h2 id="pas-4-filtrar-propietats">Pas 4: Filtrar propietats</h2>
+<h2 id="pas-4-filtrar-per-propietats">Pas 4: Filtrar per propietats</h2>
 <p><a href="https://api-platform.com/docs/core/filters/">Filters</a></p>
 <h2 id="pas-5-validar-les-dades">Pas 5: Validar les dades</h2>
 <p><a href="https://api-platform.com/docs/distribution/#validating-data">Validating data</a></p>
-<h2 id="pas-6-provant-la-api">Pas 6: Provant la API</h2>
+<h2 id="pas-6-triar-les-propietats-a-exposar-serialitzacio">Pas 6: Triar les propietats a exposar. Serialització</h2>
+<p>Abans de continuar, és interessant tindre clars alguns conceptes:</p>
+<ul>
+<li><strong>Serialitzar</strong>. La serialització és el procés de convertir un objecte en una altre format per a emmagatzemar-lo o transmetre'l i posteriorment ser decodificat.</li>
+<li><strong>Normalitzar.</strong> Ajuden en el procés de serialització, convertint els objectes en un element intermig, com pot ser una array.</li>
+</ul>
+<figure>
+<p><img alt="Component serialitzador" src="../assets/serializer-component.png"/></p>
+</figure>
+<p>El <code>serializer</code> de Symfony ens permetrà definir quines propietats exposem depenent del context.</p>
+<p><a href="https://api-platform.com/docs/core/serialization/">The Serialization Process</a></p>
+<h2 id="pas-7-provant-la-api">Pas 7: Provant la API</h2>
 <p><a href="https://api-platform.com/docs/distribution/testing/#writing-functional-tests">Functional tests</a></p>
 <h2 id="recursos">Recursos</h2>
 <ul>
