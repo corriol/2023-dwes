@@ -526,6 +526,11 @@
     Provant l'autorització
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#activar-lautoritzacio-des-de-la-documentacio">
+    Activar l'autorització des de la documentació
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -666,16 +671,17 @@ contenir aquests atributs per a l'autenticació per <em>token</em>:</p>
 <span class="linenos" data-linenos="26 "></span>        <span class="nt">main</span><span class="p">:</span>
 <span class="linenos" data-linenos="27 "></span>            <span class="nt">json_login</span><span class="p">:</span>
 <span class="linenos" data-linenos="28 "></span>                <span class="nt">check_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">login</span> <span class="c1"># The name in routes.yaml is enough for mapping</span>
-<span class="linenos" data-linenos="29 "></span>                <span class="nt">username_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">email</span>
+<span class="linenos" data-linenos="29 "></span>                <span class="nt">username_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">username</span>
 <span class="linenos" data-linenos="30 "></span>                <span class="nt">password_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">password</span>
 <span class="linenos" data-linenos="31 "></span>                <span class="nt">success_handler</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">lexik_jwt_authentication.handler.authentication_success</span>
 <span class="linenos" data-linenos="32 "></span>                <span class="nt">failure_handler</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">lexik_jwt_authentication.handler.authentication_failure</span>
 <span class="linenos" data-linenos="33 "></span>
-<span class="linenos" data-linenos="34 "></span>    <span class="nt">access_control</span><span class="p">:</span>
-<span class="linenos" data-linenos="35 "></span>        <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt"> path</span><span class="p">:</span> <span class="nv">^/$</span><span class="p p-Indicator">,</span><span class="nt"> roles</span><span class="p">:</span> <span class="nv">PUBLIC_ACCESS</span> <span class="p p-Indicator">}</span> <span class="c1"># Allows accessing the Swagger UI</span>
-<span class="linenos" data-linenos="36 "></span>        <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt"> path</span><span class="p">:</span> <span class="nv">^/docs</span><span class="p p-Indicator">,</span><span class="nt"> roles</span><span class="p">:</span> <span class="nv">PUBLIC_ACCESS</span> <span class="p p-Indicator">}</span> <span class="c1"># Allows accessing API documentations and Swagger UI docs</span>
-<span class="linenos" data-linenos="37 "></span>        <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt"> path</span><span class="p">:</span> <span class="nv">^/login</span><span class="p p-Indicator">,</span><span class="nt"> roles</span><span class="p">:</span> <span class="nv">PUBLIC_ACCESS</span> <span class="p p-Indicator">}</span>
-<span class="linenos" data-linenos="38 "></span>        <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt"> path</span><span class="p">:</span> <span class="nv">^/</span><span class="p p-Indicator">,</span><span class="nt"> roles</span><span class="p">:</span> <span class="nv">IS_AUTHENTICATED_FULLY</span> <span class="p p-Indicator">}</span>
+<span class="linenos" data-linenos="34 "></span>
+<span class="linenos" data-linenos="35 "></span>    <span class="nt">access_control</span><span class="p">:</span>
+<span class="linenos" data-linenos="36 "></span>        <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt"> path</span><span class="p">:</span> <span class="nv">^/$</span><span class="p p-Indicator">,</span><span class="nt"> roles</span><span class="p">:</span> <span class="nv">PUBLIC_ACCESS</span> <span class="p p-Indicator">}</span> <span class="c1"># Allows accessing the Swagger UI        </span>
+<span class="linenos" data-linenos="37 "></span>        <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt"> path</span><span class="p">:</span> <span class="nv">^/login</span><span class="p p-Indicator">,</span><span class="nt"> roles</span><span class="p">:</span> <span class="nv">PUBLIC_ACCESS</span> <span class="p p-Indicator">}</span> <span class="c1"># Allows accessing login controller</span>
+<span class="linenos" data-linenos="38 "></span>        <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt"> path</span><span class="p">:</span> <span class="nv">^/api$</span><span class="p p-Indicator">,</span><span class="nt"> roles</span><span class="p">:</span> <span class="nv">PUBLIC_ACCESS</span> <span class="p p-Indicator">}</span> <span class="c1"># Allows accessing the doc</span>
+<span class="linenos" data-linenos="39 "></span>        <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt"> path</span><span class="p">:</span> <span class="nv">^/</span><span class="p p-Indicator">,</span><span class="nt"> roles</span><span class="p">:</span> <span class="nv">IS_AUTHENTICATED_FULLY</span> <span class="p p-Indicator">}</span> <span class="c1"># Forces authentication in all the requests</span>
 </code></pre></div>
 <p>Caldrà afegir també la següent ruta en <code>config/routes.yaml</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nt">login</span><span class="p">:</span>
@@ -690,7 +696,7 @@ contenir aquests atributs per a l'autenticació per <em>token</em>:</p>
 </ul>
 <h3 id="provant-lautenticacio">Provant l'autenticació</h3>
 <p>Per a provar que l'autenticació funciona, crearem una nova petició
-POST en Postman a la URI <code>/api/login_check</code>, i li passem en el cos de
+POST en Postman a la URI <code>/login</code>, i li passem en el cos de
 la petició l'usuari (<em>username</em>) i la contrasenya (<em>password</em>). En aquest
 exemple, suposem que l'usuari és <code>user</code> i la contrasenya (sense
 encriptar) és <code>user</code>. Haurem d'afegir també una capçalera (Header) amb
@@ -730,8 +736,28 @@ enviat el servidor en autenticar-nos:</p>
 <p>D'aquesta forma sí que obtindrem el llistat de tweets. Haurem de procedir 
 de la mateixa forma (enviant el <em>token</em> en la capçalera <code>Authorization</code>) per a
 poder emprar la resta de sol·licituds.</p>
+<h3 id="activar-lautoritzacio-des-de-la-documentacio">Activar l'autorització des de la documentació</h3>
+<p>Primerament vincularem el sistema d'autenticació afegint:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1"># config/packages/api_platform.yaml</span>
+<span class="linenos" data-linenos="2 "></span><span class="nt">api_platform</span><span class="p">:</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nt">swagger</span><span class="p">:</span>
+<span class="linenos" data-linenos="4 "></span>         <span class="nt">api_keys</span><span class="p">:</span>
+<span class="linenos" data-linenos="5 "></span>             <span class="nt">JWT</span><span class="p">:</span>
+<span class="linenos" data-linenos="6 "></span>                <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Authorization</span>
+<span class="linenos" data-linenos="7 "></span>                <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">header</span>
+</code></pre></div>
+<p>Després, per poder provar l'autenticació, afegirem en <code>lexik_jwt_authentication.yaml</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>    <span class="nt">api_platform</span><span class="p">:</span>
+<span class="linenos" data-linenos="2 "></span>        <span class="nt">check_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/login</span>
+<span class="linenos" data-linenos="3 "></span>        <span class="nt">username_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">username</span>
+<span class="linenos" data-linenos="4 "></span>        <span class="nt">password_path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">password</span>
+</code></pre></div>
+<p>Una vegada obtingut el <em>token</em> caldrà afegir-lo a la capçalera des del botó <code>[Authorize]</code>,
+introduint el text: <code>Bearer NEW_TOKEN</code>. Canviant <code>NEW_TOKEN</code> pel <em>token</em> obtingut.</p>
 <h2 id="recursos">Recursos</h2>
 <ul>
+<li><a href="https://api-platform.com/docs/core/jwt/">JWT Authentication</a> en API Platform</li>
+<li><a href="https://api-platform.com/docs/core/security/">Security</a> en API Platform</li>
 <li><a href="https://jwt.io/">https://jwt.io/</a></li>
 <li><a href="https://github.com/lexik/LexikJWTAuthenticationBundle">LexikJWTAuthenticationBundle</a></li>
 <li><a href="https://enmilocalfunciona.io/construyendo-una-web-api-rest-segura-con-json-web-token-en-net-parte-i/">https://enmilocalfunciona.io/construyendo-una-web-api-rest-segura-con-json-web-token-en-net-parte-i/</a></li>
