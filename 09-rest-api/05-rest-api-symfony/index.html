@@ -506,15 +506,10 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#pas-6-triar-les-propietats-a-exposar-serialitzacio">
-    Pas 6: Triar les propietats a exposar. Serialització
+<a class="md-nav__link" href="#pas-6-provar-la-api">
+    Pas 6: Provar la API
   </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#pas-7-provar-la-api">
-    Pas 7: Provar la API
-  </a>
-<nav aria-label="Pas 7: Provar la API" class="md-nav">
+<nav aria-label="Pas 6: Provar la API" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#installar-el-paquet-de-testing">
@@ -534,6 +529,25 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#exemple">
     Exemple
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pas-7-triar-les-propietats-a-exposar-serialitzacio">
+    Pas 7: Triar les propietats a exposar. Serialització
+  </a>
+<nav aria-label="Pas 7: Triar les propietats a exposar. Serialització" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#activar-les-anotacions">
+    Activar les anotacions
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#aplicar-les-als-recursos">
+    Aplicar-les als recursos
   </a>
 </li>
 </ul>
@@ -669,18 +683,7 @@ Llevarem les referències a VichUploader, ja que usarem els formularis d'una alt
 <p><a href="https://api-platform.com/docs/core/filters/">Filters</a></p>
 <h2 id="pas-5-validar-les-dades">Pas 5: Validar les dades</h2>
 <p><a href="https://api-platform.com/docs/distribution/#validating-data">Validating data</a></p>
-<h2 id="pas-6-triar-les-propietats-a-exposar-serialitzacio">Pas 6: Triar les propietats a exposar. Serialització</h2>
-<p>Abans de continuar, és interessant tindre clars alguns conceptes:</p>
-<ul>
-<li><strong>Serialitzar</strong>. La serialització és el procés de convertir un objecte en una altre format per a emmagatzemar-lo o transmetre'l i posteriorment ser decodificat.</li>
-<li><strong>Normalitzar.</strong> Ajuden en el procés de serialització, convertint els objectes en un element intermig, com pot ser una array.</li>
-</ul>
-<figure>
-<p><img alt="Component serialitzador" src="../assets/serializer-component.png"/></p>
-</figure>
-<p>El <code>serializer</code> de Symfony ens permetrà definir quines propietats exposem depenent del context.</p>
-<p><a href="https://api-platform.com/docs/core/serialization/">The Serialization Process</a></p>
-<h2 id="pas-7-provar-la-api">Pas 7: Provar la API</h2>
+<h2 id="pas-6-provar-la-api">Pas 6: Provar la API</h2>
 <h3 id="installar-el-paquet-de-testing">Instal·lar el paquet de <em>testing</em></h3>
 <p>Primerament caldrà instal·lar els paquets:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require --dev symfony/test-pack
@@ -754,6 +757,49 @@ perquè treballen en l'entorn de _testing`.</p>
 en format JSON bàsic. </p>
 <p>Respecte a la data, el que fem es passar-la en format <strong>ISO 8601</strong>.</p>
 <p><a href="https://api-platform.com/docs/distribution/testing/#writing-functional-tests">Functional tests</a></p>
+<h2 id="pas-7-triar-les-propietats-a-exposar-serialitzacio">Pas 7: Triar les propietats a exposar. Serialització</h2>
+<p>Abans d'entrar en màteria, és interessant tindre clars alguns conceptes:</p>
+<ul>
+<li><strong>Serialitzar</strong>. La serialització és el procés de convertir un objecte en una altre format per a emmagatzemar-lo o transmetre'l i posteriorment ser decodificat.</li>
+<li><strong>Normalitzar.</strong> Ajuden en el procés de serialització, convertint els objectes en un element intermig, com pot ser una array.</li>
+</ul>
+<figure>
+<p><img alt="Component serialitzador" src="../assets/serializer-component.png"/></p>
+</figure>
+<p>El <code>serializer</code> de Symfony ens permetrà definir quines propietats exposem depenent del context.</p>
+<p><a href="https://api-platform.com/docs/core/serialization/">The Serialization Process</a></p>
+<p>En el cas que ens ocupa, a l'hora de crear un nou <code>Tweet</code>, que un usuari puga enviar la data de creació
+o el número de <em>likes</em> no és desitjable. En canvi, en el cas de recuperar els tweets sí que té sentit.</p>
+<p>Gràcies a Symfony Serializer podrem configurar este escenari.</p>
+<p>API Platform permet definir el contex fent ús dels grups i així controlar que es mostra en llegir (normalització) i 
+en escriure (denormalització).</p>
+<h3 id="activar-les-anotacions">Activar les anotacions</h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1"># config/packages/framework.yaml</span>
+<span class="linenos" data-linenos="2 "></span><span class="nt">framework</span><span class="p">:</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="nt">serializer</span><span class="p">:</span> <span class="p p-Indicator">{</span><span class="nt"> enable_annotations</span><span class="p">:</span> <span class="nv">true</span> <span class="p p-Indicator">}</span>
+</code></pre></div>
+<h3 id="aplicar-les-als-recursos">Aplicar-les als recursos</h3>
+<p><div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="o">...</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="c1">#[ApiResource(</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="nx">normalizationContext</span><span class="o">:</span> <span class="p">[</span><span class="s1">'groups'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'read'</span><span class="p">]],</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="nx">denormalizationContext</span><span class="o">:</span> <span class="p">[</span><span class="s1">'groups'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'write'</span><span class="p">]],</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="p">)]</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="k">class</span> <span class="nc">Tweet</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="c1">#[ORM\Column(length: 280)]</span>
+<span class="hll"><span class="linenos" data-linenos=" 8 "></span>    <span class="c1">#[Groups(['read', 'write'])]</span>
+</span><span class="linenos" data-linenos=" 9 "></span>    <span class="k">private</span> <span class="o">?</span><span class="nx">string</span> <span class="nv">$text</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span>    <span class="c1">#[ORM\Column(type: Types::DATETIME_MUTABLE)]</span>
+<span class="hll"><span class="linenos" data-linenos="12 "></span>    <span class="c1">#[Groups(['read'])]</span>
+</span><span class="linenos" data-linenos="13 "></span>    <span class="k">private</span> <span class="o">?</span><span class="nx">\DateTimeInterface</span> <span class="nv">$createdAt</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span>    <span class="c1">#[ORM\Column]</span>
+<span class="hll"><span class="linenos" data-linenos="16 "></span>    <span class="c1">#[Groups(['read'])]</span>
+</span><span class="linenos" data-linenos="17 "></span>    <span class="k">private</span> <span class="o">?</span><span class="nx">int</span> <span class="nv">$likeCount</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="linenos" data-linenos="18 "></span><span class="p">}</span>
+</code></pre></div>
+D'esta forma aconseguiríem que en fer GET es mostraren els tres camps però 
+en fer POST sols <code>text</code>.</p>
 <h2 id="recursos">Recursos</h2>
 <ul>
 <li><a href="https://github.com/corriol/2023-truiter-api">Repositori de Github de Truiter API</a></li>
