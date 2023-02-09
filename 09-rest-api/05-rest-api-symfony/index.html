@@ -511,9 +511,33 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#pas-7-provant-la-api">
-    Pas 7: Provant la API
+<a class="md-nav__link" href="#pas-7-provar-la-api">
+    Pas 7: Provar la API
   </a>
+<nav aria-label="Pas 7: Provar la API" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#installar-el-paquet-de-testing">
+    Instal·lar el paquet de testing
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#preparar-la-base-de-dades-de-prova">
+    Preparar la base de dades de prova
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#installar-paquets-addicionals">
+    Instal·lar paquets addicionals
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#exemple">
+    Exemple
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#recursos">
@@ -656,10 +680,83 @@ Llevarem les referències a VichUploader, ja que usarem els formularis d'una alt
 </figure>
 <p>El <code>serializer</code> de Symfony ens permetrà definir quines propietats exposem depenent del context.</p>
 <p><a href="https://api-platform.com/docs/core/serialization/">The Serialization Process</a></p>
-<h2 id="pas-7-provant-la-api">Pas 7: Provant la API</h2>
+<h2 id="pas-7-provar-la-api">Pas 7: Provar la API</h2>
+<h3 id="installar-el-paquet-de-testing">Instal·lar el paquet de <em>testing</em></h3>
+<p>Primerament caldrà instal·lar els paquets:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer require --dev symfony/test-pack
+<span class="linenos" data-linenos="2 "></span>composer symfony/http-client
+</code></pre></div>
+<p>Aquest paquet instal·larà els paquets bàsics necessaris per començar.</p>
+<h3 id="preparar-la-base-de-dades-de-prova">Preparar la base de dades de prova</h3>
+<p>Com que es tracta de proves funcionals que modificaran la base de dades és molt important 
+tindre preparats unes dades de prova consistents amb <code>DoctrineFixturesBundles</code>.</p>
+<div class="admonition info">
+<p class="admonition-title">Entorn de proves</p>
+<p>Recorda que has de configurar la base de dades en el fitxer <code>.env.test</code> i d'executar les ordres amb l'opció <code>--env=test</code> 
+perquè treballen en l'entorn de _testing`.</p>
+</div>
+<p>A més, és interessant <a href="https://symfony.com/doc/current/testing.html#resetting-the-database-automatically-before-each-test">instal·lar i configurar</a> el paquet <code>dama/doctrine-test-bundle</code> que deixa la base de dades al seu estat inicial després de cada prova.</p>
+<h3 id="installar-paquets-addicionals">Instal·lar paquets addicionals</h3>
+<p>Si volem fer proves amb <code>JSON Schema</code> per comprovar que les dades rebudes compleixen amb el seu esquema.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>composer req --dev justinrainbow/json-schema
+</code></pre></div>
+<h3 id="exemple">Exemple</h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">namespace</span> <span class="nx">App\Tests\Service</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">use</span> <span class="nx">ApiPlatform\Symfony\Bundle\Test\ApiTestCase</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">use</span> <span class="nx">App\Entity\Tweet</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">use</span> <span class="nx">DateTime</span><span class="p">;</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="k">class</span> <span class="nc">TweetsTest</span> <span class="k">extends</span> <span class="nx">ApiTestCase</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">testGetCollectionReturnsValidData</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="nv">$response</span> <span class="o">=</span> <span class="k">static</span><span class="o">::</span><span class="na">createClient</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="s1">'/api/tweets'</span><span class="p">,</span>
+<span class="linenos" data-linenos="12 "></span>            <span class="p">[</span> <span class="s2">"headers"</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s2">"Accept: application/json"</span><span class="p">]]</span>
+<span class="linenos" data-linenos="13 "></span>        <span class="p">);</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertResponseIsSuccessful</span><span class="p">();</span>
+<span class="linenos" data-linenos="16 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertMatchesResourceCollectionJsonSchema</span><span class="p">(</span><span class="nx">Tweet</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertCount</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">toArray</span><span class="p">());</span>
+<span class="linenos" data-linenos="19 "></span>
+<span class="linenos" data-linenos="20 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="21 "></span>
+<span class="linenos" data-linenos="22 "></span>    <span class="k">public</span> <span class="k">function</span> <span class="nf">testPostValidData</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span>
+<span class="linenos" data-linenos="23 "></span>    <span class="p">{</span>
+<span class="linenos" data-linenos="24 "></span>        <span class="nv">$response</span> <span class="o">=</span> <span class="k">static</span><span class="o">::</span><span class="na">createClient</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">'POST'</span><span class="p">,</span> <span class="s1">'/api/tweets'</span><span class="p">,</span>
+<span class="linenos" data-linenos="25 "></span>            <span class="p">[</span>
+<span class="linenos" data-linenos="26 "></span>                <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s2">"Accept: application/json"</span><span class="p">],</span>
+<span class="linenos" data-linenos="27 "></span>                <span class="s1">'json'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+<span class="linenos" data-linenos="28 "></span>                    <span class="s1">'text'</span> <span class="o">=&gt;</span> <span class="s1">'Proves'</span><span class="p">,</span>
+<span class="linenos" data-linenos="29 "></span>                    <span class="s1">'author'</span> <span class="o">=&gt;</span> <span class="s1">'/api/users/1'</span>
+<span class="linenos" data-linenos="30 "></span>                <span class="p">]</span>
+<span class="linenos" data-linenos="31 "></span>            <span class="p">]</span>
+<span class="linenos" data-linenos="32 "></span>        <span class="p">);</span>
+<span class="linenos" data-linenos="33 "></span>
+<span class="linenos" data-linenos="34 "></span>        <span class="nv">$date</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DateTime</span><span class="p">();</span>
+<span class="linenos" data-linenos="35 "></span>        <span class="nv">$dateStr</span> <span class="o">=</span> <span class="nv">$date</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="s1">'c'</span><span class="p">);</span>
+<span class="linenos" data-linenos="36 "></span>
+<span class="linenos" data-linenos="37 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertResponseStatusCodeSame</span><span class="p">(</span><span class="mi">201</span><span class="p">);</span>
+<span class="linenos" data-linenos="38 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertMatchesResourceItemJsonSchema</span><span class="p">(</span><span class="nx">Tweet</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+<span class="linenos" data-linenos="39 "></span>
+<span class="linenos" data-linenos="40 "></span>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertJsonContains</span><span class="p">([</span>
+<span class="linenos" data-linenos="41 "></span>                <span class="s1">'text'</span> <span class="o">=&gt;</span> <span class="s1">'Proves'</span><span class="p">,</span>
+<span class="linenos" data-linenos="42 "></span>                <span class="s1">'createdAt'</span> <span class="o">=&gt;</span> <span class="nv">$dateStr</span><span class="p">,</span>
+<span class="linenos" data-linenos="43 "></span>                <span class="s1">'author'</span> <span class="o">=&gt;</span> <span class="s1">'/api/users/1'</span><span class="p">,</span>
+<span class="linenos" data-linenos="44 "></span>                <span class="s1">'likeCount'</span> <span class="o">=&gt;</span> <span class="mi">0</span>
+<span class="linenos" data-linenos="45 "></span>        <span class="p">]);</span>
+<span class="linenos" data-linenos="46 "></span>
+<span class="linenos" data-linenos="47 "></span>    <span class="p">}</span>
+<span class="linenos" data-linenos="48 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Cal destacar que afegim <code>'headers' =&gt; ["Accept: application/json"]</code> per demanar la resposta
+en format JSON bàsic. </p>
+<p>Respecte a la data, el que fem es passar-la en format <strong>ISO 8601</strong>.</p>
 <p><a href="https://api-platform.com/docs/distribution/testing/#writing-functional-tests">Functional tests</a></p>
 <h2 id="recursos">Recursos</h2>
 <ul>
+<li><a href="https://github.com/corriol/2023-truiter-api">Repositori de Github de Truiter API</a></li>
 <li><a href="https://www.youtube.com/watch?v=ZRBRtA_2NAo">API Platform Crash Course</a></li>
 <li><a href="https://symfonycasts.com/screencast/api-platform">API Platform 3: Mythically Good RESTful APIs</a></li>
 <li>En <a href="https://itdo-solutions.medium.com/primeros-pasos-con-symfony-5-como-api-rest-f0fa8c4d5962">Primeros pasos con Symfony 5 como API REST</a> 
